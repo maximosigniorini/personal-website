@@ -19,10 +19,10 @@ const page = () => {
               creative in constant search for learning all aspects of sound.</p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Link href="/portfolio">
+              <Link href="/portfolio" className="group">
                 <Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
                   <span>Portfolio</span>
-                  <BsArrowRight className="text-xl hover:-rotate-45" />
+                  <BsArrowRight className="text-xl group-hover:-rotate-45" />
                 </Button>
               </Link>
               <div className="mb-8 xl:mb-0">
