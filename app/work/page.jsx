@@ -8,19 +8,19 @@ const services = [
     num: '01',
     title: 'Sound Design',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    href: ""
+    href: "/work/sound-design"
   },
   {
     num: '02',
     title: 'Music Composition',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    href: ""
+    href: "/work/music"
   },
   {
     num: '03',
     title: 'Mix',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    href: ""
+    href: "/work/mix"
   },
 ]
 
