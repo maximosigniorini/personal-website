@@ -21,7 +21,7 @@ const info = [
   },
   {
     icon: <FaMapMarkerAlt />,
-    title: 'Address',
+    title: 'Based in',
     description: 'Bournemouth, United Kingdom'
   }
 ]
