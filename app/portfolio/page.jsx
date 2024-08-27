@@ -53,7 +53,7 @@ export default function Portfolio() {
   return (
     <section>
       <div className="relative w-[90%] max-w-6xl mx-auto my-0 my-8 rounded-xl overflow-hidden">
-        <video className='w-full' ref={videoRef} loop>
+        <video className={`w-full ${!hasPlayed ? 'opacity-0' : 'opacity-100'}`} ref={videoRef} style={{ backgroundColor: 'black' }} loop>
           <source src='/assets/reel.mp4' />
         </video>
 
