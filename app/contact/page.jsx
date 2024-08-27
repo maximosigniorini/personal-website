@@ -48,20 +48,6 @@ const Contact = () => {
                 <Input type="email" placeholder="Email address"/>
                 <Input type="phone" placeholder="Phone number"/>
               </div>
-              {/* select */}
-              <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a service"/>
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Sound Design</SelectItem>
-                    <SelectItem value="cst">Music</SelectItem>
-                    <SelectItem value="mst">Mix</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
               {/* text form */}
               <Textarea className="h-[200px]" placeholder="Type your message here." />
               {/* button */}
