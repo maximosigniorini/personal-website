@@ -35,8 +35,8 @@ const Work = () => {
           animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.4, ease: 'easeIn' } }} 
           className='grid grid-cols-1 md:grid-cols-2 gap-[60px]'
         >
-          {/* Sound Design spans both columns but is left-aligned */}
-          <div className='col-span-1 md:col-span-2 flex-1 flex flex-col justify-center gap-6 group'>
+          {/* Sound Design */}
+          <div className='flex-1 flex flex-col justify-center gap-6 group'>
             <div className='w-full flex justify-between items-center'>
               <div className='text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500'>
                 {services[0].num}
