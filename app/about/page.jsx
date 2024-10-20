@@ -84,22 +84,22 @@ const About = () => {
                 About Me
               </h2>
               <p className="text-white/70 leading-relaxed">
-                I'm a passionate sound designer, music composer, and audio mixer with years of experience
-                working in the studio and on film sets. My work ranges from crafting immersive soundscapes
-                for advertisements and motion graphics, to producing original music compositions for films and artists.
-                I strive to create sonic experiences that tell stories and evoke emotion. When I'm not in the studio,
-                you'll find me working on set recording live production sound for various projects.
+                Sound designer, music producer and technology enthusiast
+                with more than 4 years of experience. Passionate and
+                creative in constant search for learning all aspects of sound.
+                As a composer and sound designer my goal is to create innovative and engaging audio ex periences that enhance the viewers experience and the storytelling.
               </p>
               <p className="text-white/70 leading-relaxed">
-                Whether it's fine-tuning the mix on a track, designing sound for film, or composing a new piece of music,
-                I'm always looking for new creative challenges and opportunities to collaborate with others in the industry.
+                Seeking employment in the Post-Production area with an
+                emphasis on sound design for commercials & film. Currently based
+                in Bournemouth but willing to relocate.
               </p>
             </div>
           </div>
 
           {/* Right Side - Swiper Slider */}
           <div className="w-full xl:w-[50%] h-full">
-            <Swiper spaceBetween={30} slidesPreview={1} className="xl-h-[520px] h-full mb-12" autoplay={{ delay: 2500, disableOnInteraction: false}} pagination={{ clickable: true}} speed={1000} modules={[Autoplay, Pagination, Navigation]}>
+            <Swiper spaceBetween={30} slidesPreview={1} className="xl-h-[520px] h-full mb-12" autoplay={{ delay: 2500, disableOnInteraction: false }} pagination={{ clickable: true }} speed={1000} modules={[Autoplay, Pagination, Navigation]}>
               {photos.map((photo, index) => {
                 return (
                   <SwiperSlide key={index} className="w-full">
