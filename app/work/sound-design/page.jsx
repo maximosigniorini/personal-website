@@ -18,15 +18,14 @@ const SoundDesign = () => {
       <div className="flex items-center mb-8">
         {/* Back Button */}
         <button
-          onClick={router.back} // You can directly call the function
-          className="flex items-center text-white hover:text-gray-300 transition-colors duration-200 mr-4 hover:text-accent-hover" 
+          onClick={router.back} 
+          className="flex items-center text-white transition-colors duration-200 mr-4 hover:text-accent-hover" 
         >
           <FaArrowLeft className="text-2xl" />
         </button>
 
         <h1 className="text-4xl font-bold text-center relative flex-grow">
           Sound Design Projects
-          {/* <span className="block h-0.5 bg-white/60 mx-auto w-[380px] mt-2"></span> */}
         </h1>
       </div>
 

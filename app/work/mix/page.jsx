@@ -19,7 +19,7 @@ const Mix = () => {
         {/* Back Button */}
         <button
           onClick={router.back}
-          className="flex items-center text-white hover:text-gray-300 transition-colors duration-200 mr-4 hover:text-accent-hover" 
+          className="flex items-center text-white transition-colors duration-200 mr-4 hover:text-accent-hover" 
         >
           <FaArrowLeft className="text-2xl" />
         </button>
