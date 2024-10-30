@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button"
 import { BsArrowRight } from 'react-icons/bs'
 import Link from "next/link"
 
+export const runtime = "edge";
+
 //components
 import Social from "@/components/Social"
 import Photo from "@/components/Photo"

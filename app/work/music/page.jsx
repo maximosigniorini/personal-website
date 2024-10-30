@@ -1,5 +1,7 @@
 "use client";
 
+export const runtime = "edge";
+
 import VideoGrid from "@/components/VideoGrid";
 import { useRouter } from 'next/navigation';
 import { FaArrowLeft } from 'react-icons/fa';

@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { useState } from 'react';
 import emailjs from 'emailjs-com'; 
 
+export const runtime = "edge";
+
 const info = [
   {
     icon: <FaPhoneAlt />,

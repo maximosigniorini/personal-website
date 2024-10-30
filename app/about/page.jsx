@@ -13,6 +13,8 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 import Image from 'next/image';
 
+export const runtime = "edge";
+
 const photos = [
   {
     num: "01",

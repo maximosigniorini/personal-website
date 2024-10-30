@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import VideoPlayerControls from '@/components/VideoPlayerControls';
 import { motion } from 'framer-motion';
 
+export const runtime = "edge";
+
 export default function Portfolio() {
   const [isPaused, setIsPaused] = useState(true);
   const [hasPlayed, setHasPlayed] = useState(false);

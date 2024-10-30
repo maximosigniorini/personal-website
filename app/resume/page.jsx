@@ -1,5 +1,7 @@
 "use client";
 
+export const runtime = "edge";
+
 const details = {
   title: 'Details',
   info: [
