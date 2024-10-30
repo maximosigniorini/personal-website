@@ -80,7 +80,8 @@ export default function Portfolio() {
           style={{ backgroundColor: 'black' }}
           loop
         >
-          <source src='/assets/reel.mp4' />
+          <source src='https://website-media.02c645e1e73eb531b6f0d140db79fc54.r2.cloudflarestorage.com/reel.mp4
+' />
         </video>
 
         {/* Initial Play Button Overlay */}
