@@ -7,9 +7,54 @@ import { useRouter } from 'next/navigation';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const soundDesignVideos = [
-  { id: 1, url: 'https://youtu.be/_SmUsqJcNgo?si=xKTibN7LjuXHtpu-' },
-  { id: 2, url: 'https://youtu.be/_SmUsqJcNgo?si=xKTibN7LjuXHtpu-' },
-  { id: 3, url: 'https://youtu.be/_SmUsqJcNgo?si=xKTibN7LjuXHtpu-' },
+  { id: 1, 
+    title: 'London Move', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/London%20Move.mp4' 
+  },
+  { id: 2, 
+    title: 'HPE Playful inventiveness', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/HPE%20Playful%20inventiveness.mp4' 
+  },
+  { id: 3, 
+    title: 'HPE In Data we Trust', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/HPE%20In%20Data%20We%20Trust.mp4' 
+  },
+  { id: 4, 
+    title: 'Byclo', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/Byclo.mp4' 
+  },
+  { id: 5, 
+    title: 'DL Motion', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/DL%20Motion.mp4' 
+  },
+  { id: 6, 
+    title: 'Momby', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/Momby.mp4' 
+  },
+  { id: 7, 
+    title: 'Zapatillas', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/Zapatillas.mp4' 
+  },
+  { id: 8, 
+    title: 'HPE Lightness of Touch', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/HPE%20Lightness%20Of%20Touch%20intro.mp4' 
+  },
+  { id: 9, 
+    title: 'Natural', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/Natural%20Master.mp4' 
+  },
+  { id: 10, 
+    title: 'Football', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/Portfolio%20Football.mp4' 
+  },
+  { id: 11, 
+    title: 'Bamboo Traveller', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/Bamboo%20Traveller%20Master.mp4' 
+  },
+  { id: 12, 
+    title: 'Sweet Cocoon', 
+    url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/Sweet%20Cocoon.mp4' 
+  },
 ];
 
 const SoundDesign = () => {
