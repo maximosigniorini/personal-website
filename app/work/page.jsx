@@ -18,13 +18,7 @@ const services = [
     title: 'Music Composition',
     description: 'Works for advertisements, motion graphics, film and solo projects.',
     href: "/work/music"
-  },
-  {
-    num: '03',
-    title: 'Mix',
-    description: 'Works for music projects and artists.',
-    href: "/work/mix"
-  },
+  }
 ];
 
 const Work = () => {
