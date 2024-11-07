@@ -9,6 +9,7 @@ const VideoGrid = ({ videos }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [loading, setLoading] = useState(Array(videos.length).fill(true)); // Track loading for each video
 
   const playerRef = useRef(null);
 
@@ -37,7 +38,6 @@ const VideoGrid = ({ videos }) => {
     setProgress(progress.played * 100);
   };
 
-  // Add Escape key listener for exiting fullscreen
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape" && isFullScreen) {
@@ -45,10 +45,39 @@ const VideoGrid = ({ videos }) => {
       }
     };
     window.addEventListener("keydown", handleKeyDown);
-
-    // Clean up the event listener on component unmount
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isFullScreen]);
+
+  // Lazy load videos with Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute("data-index"));
+            observer.unobserve(entry.target);
+
+            // Temporarily keep the video in loading state until onReady fires
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const videoElements = document.querySelectorAll(".lazy-load-video");
+    videoElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleVideoReady = (index) => {
+    // Update loading state to indicate that this video has loaded
+    setLoading((prevLoading) => {
+      const newLoading = [...prevLoading];
+      newLoading[index] = false;
+      return newLoading;
+    });
+  };
 
   return (
     <>
@@ -56,9 +85,18 @@ const VideoGrid = ({ videos }) => {
         {videos.map((video, index) => (
           <div
             key={index}
-            className="relative w-full h-64 overflow-hidden group cursor-pointer group"
+            className="relative w-full h-64 overflow-hidden group cursor-pointer"
             onClick={() => handlePlay(index)}
+            data-index={index}
           >
+            {/* Loading symbol in front of video */}
+            {loading[index] && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-800 z-10">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-white"></div>
+              </div>
+            )}
+
+            {/* Video or thumbnail display */}
             <ReactPlayer
               url={video.url}
               width="100%"
@@ -67,6 +105,8 @@ const VideoGrid = ({ videos }) => {
               controls={false}
               loop
               muted
+              //light={!loading[index]} // Enables thumbnail display only if the video is loaded
+              onReady={() => handleVideoReady(index)} // Calls handleVideoReady when video is fully loaded
               className="transition-all duration-300 brightness-50 group-hover:brightness-75"
             />
 
@@ -74,7 +114,7 @@ const VideoGrid = ({ videos }) => {
               <p className="text-white/80 text-lg font-semibold">{video.title}</p>
             </div>
 
-            {playingIndex !== index && (
+            {playingIndex !== index && !loading[index] && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="bg-gray-300 bg-opacity-50 rounded-full p-4 group-hover:bg-opacity-80">
                   <PlayButton />
@@ -82,7 +122,6 @@ const VideoGrid = ({ videos }) => {
               </div>
             )}
           </div>
-
         ))}
       </div>
 
