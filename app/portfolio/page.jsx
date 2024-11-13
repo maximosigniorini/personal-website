@@ -80,7 +80,7 @@ export default function Portfolio() {
           style={{ backgroundColor: 'black' }}
           loop
         >
-          <source src='https://www.maximosigniorini.com/reel.mp4' />
+          <source src='https://www.cdn.maximosigniorini.com/reel.mp4' />
         </video>
 
         {/* Initial Play Button Overlay */}
