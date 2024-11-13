@@ -89,10 +89,10 @@ const About = () => {
                 Sound designer, music producer and technology enthusiast
                 with more than 4 years of experience. Passionate and
                 creative in constant search for learning all aspects of sound.
-                As a composer and sound designer my goal is to create innovative and engaging audio ex periences that enhance the viewers experience and the storytelling.
+                As a composer and sound designer my goal is to create innovative and engaging audio pieces that enhance the viewers experience and the storytelling.
               </p>
               <p className="text-white/70 leading-relaxed">
-                Seeking employment in the Post-Production area with an
+                Currently seeking employment in the Post-Production area with an
                 emphasis on sound design for commercials & film. Currently based
                 in Bournemouth but willing to relocate.
               </p>
