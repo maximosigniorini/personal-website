@@ -58,7 +58,6 @@ const VideoGrid = ({ videos }) => {
             data-index={index}
           >
             {/* Custom Thumbnail */}
-            {console.log(video.thumbnail)}
             <img
               src={`${video.thumbnail}`}
               alt={video.title}
