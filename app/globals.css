@@ -26,4 +26,8 @@
     }
 }
 
+body .grecaptcha-badge {
+    visibility: hidden !important;
+  }
+
   
