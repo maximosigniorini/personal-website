@@ -13,7 +13,6 @@ export async function POST(request) {
   const formData = `secret=${secretKey}&response=${gRecaptchaToken}`;
 
   try {
-    // Make a POST request to verify the reCAPTCHA token
     const res = await axios.post(
       "https://www.google.com/recaptcha/api/siteverify",
       formData,
