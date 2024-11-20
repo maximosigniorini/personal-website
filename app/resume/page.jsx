@@ -191,7 +191,7 @@ const Resume = () => {
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
                             <TooltipTrigger className='w-full h-[100px] bg-[#232329] rounded-xl flex justify-center items-center group'>
-                              <Image src={skill.icon} width={60} height={60} />
+                              <Image src={skill.icon} width={60} height={60} alt='Skills'/>
                             </TooltipTrigger>
                             <TooltipContent>
                               <p className='capitalize'>{skill.name}</p>
