@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 import PlayButton from './ui/PlayButton';
+import Image from 'next/image';
 
 const VideoGrid = ({ videos }) => {
   const [playingIndex, setPlayingIndex] = useState(null);
@@ -9,6 +10,7 @@ const VideoGrid = ({ videos }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const playerRef = useRef(null);
   const containerRef = useRef(null);
@@ -17,6 +19,7 @@ const VideoGrid = ({ videos }) => {
     setPlayingIndex(index);
     setIsFullScreen(true);
     setIsPlaying(true);
+    setIsLoading(true);
   };
 
   const handleClose = () => {
@@ -24,6 +27,7 @@ const VideoGrid = ({ videos }) => {
     setIsFullScreen(false);
     setIsPlaying(false);
     setProgress(0);
+    setIsLoading(true);
   };
 
   const handlePlayPause = () => {
@@ -36,6 +40,10 @@ const VideoGrid = ({ videos }) => {
 
   const handleProgress = (progress) => {
     setProgress(progress.played * 100);
+  };
+
+  const handleReady = () => {
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -75,9 +83,11 @@ const VideoGrid = ({ videos }) => {
             data-index={index}
           >
             {/* Custom Thumbnail */}
-            <img
+            <Image
               src={`${video.thumbnail}`}
               alt={video.title}
+              width={800}
+              height={600}
               className="w-full h-full object-cover transition-all duration-300 brightness-50 group-hover:brightness-75"
             />
 
@@ -100,6 +110,7 @@ const VideoGrid = ({ videos }) => {
       {isFullScreen && (
         <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
           <div ref={containerRef} className="relative w-full max-w-3xl">
+            {/* Video Player */}
             <ReactPlayer
               ref={playerRef}
               url={videos[playingIndex]?.url}
@@ -108,7 +119,15 @@ const VideoGrid = ({ videos }) => {
               playing={isPlaying}
               muted={isMuted}
               onProgress={handleProgress}
+              onReady={handleReady} // When video is ready, hide the loading spinner
             />
+
+            {/* Loading Spinner (Minimal Style) */}
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-12 h-12 border-4 border-t-4 border-white border-solid rounded-full animate-spin"></div>
+              </div>
+            )}
 
             {/* Custom Controls */}
             <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
