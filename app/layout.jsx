@@ -1,4 +1,4 @@
-import { JetBrains_Mono, Lato } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import GoogleCaptchaWrapper from "./GoogleCaptchaWrapper";
 
