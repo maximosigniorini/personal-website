@@ -11,6 +11,7 @@ const VideoGrid = ({ videos }) => {
   const [progress, setProgress] = useState(0);
 
   const playerRef = useRef(null);
+  const containerRef = useRef(null);
 
   const handlePlay = (index) => {
     setPlayingIndex(index);
@@ -43,8 +44,24 @@ const VideoGrid = ({ videos }) => {
         handleClose();
       }
     };
+
+    const handleClickOutside = (event) => {
+      if (
+        isFullScreen &&
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        handleClose();
+      }
+    };
+
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [isFullScreen]);
 
   return (
@@ -82,7 +99,7 @@ const VideoGrid = ({ videos }) => {
       {/* Fullscreen Video Player */}
       {isFullScreen && (
         <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-          <div className="relative w-full max-w-3xl">
+          <div ref={containerRef} className="relative w-full max-w-3xl">
             <ReactPlayer
               ref={playerRef}
               url={videos[playingIndex]?.url}
