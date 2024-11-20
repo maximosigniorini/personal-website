@@ -94,14 +94,14 @@ const About = () => {
               <p className="text-white/70 leading-relaxed">
                 Currently seeking employment in the Post-Production area with an
                 emphasis on sound design for commercials & film. Currently based
-                in Bournemouth but willing to relocate.
+                in London but willing to relocate.
               </p>
             </div>
           </div>
 
           {/* Right Side - Swiper Slider */}
           <div className="w-full xl:w-[50%] h-full">
-            <Swiper spaceBetween={30} slidesPreview={1} className="xl-h-[520px] h-full mb-12" autoplay={{ delay: 2500, disableOnInteraction: false }} pagination={{ clickable: true }} speed={1000} modules={[Autoplay, Pagination, Navigation]}>
+            <Swiper spaceBetween={30} slidespreview={1} className="xl-h-[520px] h-full mb-12" autoplay={{ delay: 2500, disableOnInteraction: false }} pagination={{ clickable: true }} speed={1000} modules={[Autoplay, Pagination, Navigation]}>
               {photos.map((photo, index) => {
                 return (
                   <SwiperSlide key={index} className="w-full">
@@ -110,7 +110,7 @@ const About = () => {
                       <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                       {/* image */}
                       <div className="relative w-full h-full">
-                        <Image src={photo.image} fill className="object-cover" alt={photo.title} />
+                        <Image src={photo.image} fill className="object-cover" alt={photo.title} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
                       </div>
                     </div>
                   </SwiperSlide>
