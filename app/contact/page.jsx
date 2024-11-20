@@ -27,7 +27,7 @@ const info = [
   {
     icon: <FaMapMarkerAlt />,
     title: 'Based in',
-    description: 'Bournemouth, United Kingdom'
+    description: 'London, United Kingdom'
   }
 ]
 
@@ -46,7 +46,6 @@ const Contact = () => {
   const [isCaptchaReady, setIsCaptchaReady] = useState(false);
 
   useEffect(() => {
-    // Verify that the recaptcha function is available
     if (executeRecaptcha) {
       setIsCaptchaReady(true);
     }
@@ -68,23 +67,19 @@ const Contact = () => {
       return;
     }
 
-    // Ensure Recaptcha is ready
     if (!isCaptchaReady) {
       console.log("Recaptcha is not ready.");
       return;
     }
 
     try {
-      // Execute Recaptcha and get token
       const gRecaptchaToken = await executeRecaptcha('inquirySubmit');
 
-      // Verify recaptcha with backend
       const response = await axios.post('/api/recaptchaSubmit', { gRecaptchaToken });
 
       if (response?.data?.success) {
         setSuccessMessage('ReCaptcha Verified and Form Submitted!');
 
-        // Send the email using EmailJS
         await emailjs.send(
           'service_mf3xwwr',
           'template_kmszpdi',
@@ -108,7 +103,6 @@ const Contact = () => {
       setSuccessMessage("Failed to send your message. Please try again.");
     }
 
-    // Reset form
     setFormData({
       firstname: '',
       lastname: '',
@@ -125,11 +119,11 @@ const Contact = () => {
       animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.4, ease: "easeIn" } }}
       className="py-6"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-              <h3 className="text-4xl text-accent ">Let's work together</h3>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-8 bg-[#27272c] rounded-xl max-w-full">
+              <h3 className="text-4xl text-accent">Let's work together</h3>
               <input
                 type="text"
                 name="honeypot"
@@ -176,14 +170,17 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
               />
-              <p className="text-white/60 text-xs mb-10">This site is protected by reCAPTCHA and the Google
+              {/* Adjusted spacing between CAPTCHA text and button */}
+              <p className="text-white/60 text-xs mb-4">This site is protected by reCAPTCHA and the Google
                 <Link href="https://policies.google.com/privacy" target="_blank" className="text-accent"> Privacy Policy</Link> and
                 <Link href="https://policies.google.com/terms" target="_blank" className="text-accent"> Terms of Service</Link> apply.</p>
 
-              <Button size="md" className="max-w-40">Send message</Button>
+              {/* Reduced margin-bottom for the button */}
+              <Button size="md" className="max-w-40 mb-4">Send message</Button>
               {successMessage && <p className="mt-4 text-green-500">{successMessage}</p>}
             </form>
           </div>
+
           {/* Contact Info */}
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
@@ -204,6 +201,6 @@ const Contact = () => {
       </div>
     </motion.section>
   );
-}
+};
 
 export default Contact;
