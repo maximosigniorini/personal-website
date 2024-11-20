@@ -49,6 +49,7 @@ const MobileNav = () => {
             >
                 <CiMenuFries className="text-[32px] text-accent" />
             </SheetTrigger>
+
             <SheetContent className="flex flex-col">
                 {/* Dialog Header for Accessibility */}
                 <SheetHeader>

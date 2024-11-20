@@ -13,7 +13,7 @@ const Photo = () => {
           initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 1.4, duration: 0.4, ease: 'easeInOut' } }}
 
           className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighte absolute">
-          <Image src="/assets/profile.png" priority quality={100} fill alt="profile" className="object-conatin" />
+          <Image src="/assets/profile.png" priority quality={100} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="profile" className="object-conatin" />
         </motion.div>
 
         {/* circle */}
