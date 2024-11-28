@@ -108,7 +108,7 @@ const VideoGrid = ({ videos }) => {
 
       {/* Fullscreen Video Player */}
       {isFullScreen && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50" onContextMenu={(e) => e.preventDefault()}>
           <div ref={containerRef} className="relative w-full max-w-3xl">
             {/* Video Player */}
             <ReactPlayer
@@ -119,7 +119,8 @@ const VideoGrid = ({ videos }) => {
               playing={isPlaying}
               muted={isMuted}
               onProgress={handleProgress}
-              onReady={handleReady} // When video is ready, hide the loading spinner
+              onReady={handleReady}
+              onContextMenu={(e) => e.preventDefault()} // Disable right-click on video
             />
 
             {/* Loading Spinner (Minimal Style) */}
