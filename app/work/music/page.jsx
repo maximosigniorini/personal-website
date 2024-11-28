@@ -52,6 +52,52 @@ const musicVideos = [
     url: 'https://www.cdn.maximosigniorini.com/Music/mus_phases.mp4',
     thumbnail: '/assets/video-thumbnails/phases.jpg' 
   },
+  { id: 10, 
+    title: 'Bang Olufsen', 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_bang-olufsen.mp4',
+    thumbnail: '/assets/video-thumbnails/bang-olufsen.jpg' 
+  },
+  { id: 11, 
+    title: 'Mutek', 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_mutek.mp4',
+    thumbnail: '/assets/video-thumbnails/mutek.jpg' 
+  },
+  { id: 12, 
+    title: 'Reveland', 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_reveland.mp4',
+    thumbnail: '/assets/video-thumbnails/reveland.jpg' 
+  },
+  { id: 13, 
+    title: 'Splice', 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_splice.mp4',
+    thumbnail: '/assets/video-thumbnails/splice.jpg' 
+  },
+  { id: 14, 
+    title: 'Tempo Core Rooms', 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_tempo-core-rooms.mp4',
+    thumbnail: '/assets/video-thumbnails/tempo-core-rooms.jpg' 
+  },
+  { id: 15, 
+    title: 'Sam Loop', 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_sam-loop.mp4',
+    thumbnail: '/assets/video-thumbnails/sam-loop.jpg' 
+  },
+  { id: 16, 
+    title: 'Little Wavey', 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_little-wavey.mp4',
+    thumbnail: '/assets/video-thumbnails/little-wavey.jpg' 
+  },
+  { id: 17, 
+    title: 'Save As', 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_save-as.mp4',
+    thumbnail: '/assets/video-thumbnails/save-as.jpg' 
+  },
+  { id: 18, 
+    title: "Flexin' those keyframes", 
+    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_flexin-those-keyframes.mp4',
+    thumbnail: '/assets/video-thumbnails/flexin-those-keyframes.jpg' 
+  },
+
 ];
 
 const Music = () => {

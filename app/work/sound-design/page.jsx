@@ -97,11 +97,96 @@ const soundDesignVideos = [
     url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/Buck.mp4',
     thumbnail: '/assets/video-thumbnails/buck.jpg' 
   },
-  // { id: 19, 
-  //   title: 'Fundbox', 
-  //   url: 'https://pub-3b208947b00644e0b2561af8dd4d5bfc.r2.dev/Fundbox.mp4',
-  //   thumbnail: '/assets/video-thumbnails/Fundbox.jpg'
-  // },
+  { id: 19, 
+    title: 'Fakery', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_Fakery.mp4',
+    thumbnail: '/assets/video-thumbnails/fakery.jpg'
+  },
+  { id: 20, 
+    title: 'Formento Autumn', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_formento-autumn.mp4',
+    thumbnail: '/assets/video-thumbnails/formento-autumn.jpg'
+  },
+  { id: 21, 
+    title: 'Equiline Xanto', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_equiline-xanto.mp4',
+    thumbnail: '/assets/video-thumbnails/equiline-xanto.jpg'
+  },
+  { id: 22, 
+    title: 'Kristoffer Moth', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_kristoffer-moth.mp4',
+    thumbnail: '/assets/video-thumbnails/kristoffer-moth.jpg'
+  },
+  { id: 23, 
+    title: 'Mamba Dragon', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_mamba-dragon.mp4',
+    thumbnail: '/assets/video-thumbnails/mamba-dragon.jpg'
+  },
+  { id: 24, 
+    title: 'Dragon', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_dragon.mp4',
+    thumbnail: '/assets/video-thumbnails/dragon.jpg'
+  },
+  { id: 25, 
+    title: 'Onesal', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_onesal.mp4',
+    thumbnail: '/assets/video-thumbnails/onesal.jpg'
+  },
+  { id: 26, 
+    title: 'Resight', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_resight.mp4',
+    thumbnail: '/assets/video-thumbnails/resight.jpg'
+  },
+  { id: 27, 
+    title: 'The Berry', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_the-berry.mp4',
+    thumbnail: '/assets/video-thumbnails/the-berry.jpg'
+  },
+  { id: 28, 
+    title: 'TC 1890', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_tc-1890.mp4',
+    thumbnail: '/assets/video-thumbnails/tc-1890.jpg'
+  },
+  { id: 29, 
+    title: 'Shapemove', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_shapemove.mp4',
+    thumbnail: '/assets/video-thumbnails/shapemove.jpg'
+  },
+  { id: 30, 
+    title: 'Pick your weapon', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_pick-your-weapon.mp4',
+    thumbnail: '/assets/video-thumbnails/pick-your-weapon.jpg'
+  },
+  { id: 31, 
+    title: 'Post Office', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_post-office.mp4',
+    thumbnail: '/assets/video-thumbnails/post-office.jpg'
+  },
+  { id: 32, 
+    title: 'Restless Mind', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_restless-mind.mp4',
+    thumbnail: '/assets/video-thumbnails/restless-mind.jpg'
+  },
+  { id: 33, 
+    title: 'Diesel Daddies', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_diesel-daddies.mp4',
+    thumbnail: '/assets/video-thumbnails/diesel-daddies.jpg'
+  },
+  { id: 34, 
+    title: 'Barkandbite', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_barkandbite.mp4',
+    thumbnail: '/assets/video-thumbnails/barkandbite.jpg'
+  },
+  { id: 35, 
+    title: 'Blublu', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_blublu.mp4',
+    thumbnail: '/assets/video-thumbnails/blublu.jpg'
+  },
+  { id: 36, 
+    title: 'Reclamation', 
+    url: 'https://www.cdn.maximosigniorini.com/Sound%20Design/241126/2_reclamation.mp4',
+    thumbnail: '/assets/video-thumbnails/reclamation.jpg'
+  },
 ];
 
 const SoundDesign = () => {
