@@ -23,6 +23,12 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta property="og:url" content="https://maximosigniorini.com"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="Maximo Signiorini"/>
+        <meta property="og:title" content="Maximo Signiorini"/>
+        <meta property="og:description" content="Maximo Signiorini - Sound Designer & Music Producer"/>
+        <meta property="og:image" content="/assets/web-thumbnail.png"/>
       </head>
       <body className={lato.variable}>
         <GoogleCaptchaWrapper>
