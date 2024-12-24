@@ -15,11 +15,21 @@ const VideoGrid = ({ videos }) => {
   const playerRef = useRef(null);
   const containerRef = useRef(null);
 
-  const handlePlay = (index) => {
-    setPlayingIndex(index);
-    setIsFullScreen(true);
-    setIsPlaying(true);
-    setIsLoading(true);
+  const isYouTubeLink = (url) => {
+    return url.includes("youtube.com") || url.includes("youtu.be");
+  };
+
+  const handleThumbnailClick = (video, index) => {
+    if (isYouTubeLink(video.url)) {
+      // Open YouTube video in a new tab
+      window.open(video.url, '_blank', 'noopener,noreferrer');
+    } else {
+      // Play internal video
+      setPlayingIndex(index);
+      setIsFullScreen(true);
+      setIsPlaying(true);
+      setIsLoading(true);
+    }
   };
 
   const handleClose = () => {
@@ -79,7 +89,7 @@ const VideoGrid = ({ videos }) => {
           <div
             key={index}
             className="relative w-full h-64 overflow-hidden group cursor-pointer"
-            onClick={() => handlePlay(index)}
+            onClick={() => handleThumbnailClick(video, index)}
             data-index={index}
           >
             {/* Custom Thumbnail */}
