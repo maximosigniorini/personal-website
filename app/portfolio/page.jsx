@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
-import VideoPlayerControls from '@/components/VideoPlayerControls';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from "react";
+import VideoPlayerControls from "@/components/VideoPlayerControls";
+import { motion } from "framer-motion";
 
 export const runtime = "edge";
 
 export default function Portfolio() {
   const [isPaused, setIsPaused] = useState(true);
   const [hasPlayed, setHasPlayed] = useState(false);
+  const [videoEnded, setVideoEnded] = useState(false); // Track if video has ended
   const videoRef = useRef(null);
   const [videoDuration, setVideoDuration] = useState();
   const [videoProgress, setVideoProgress] = useState(0);
@@ -25,12 +26,19 @@ export default function Portfolio() {
         setVideoProgress(video.currentTime / video.duration);
       };
 
-      video.addEventListener('loadedmetadata', handleLoadedMetadata);
-      video.addEventListener('timeupdate', handleTimeUpdate);
+      const handleEnded = () => {
+        setIsPaused(true);
+        setVideoEnded(true); // Mark video as ended
+      };
+
+      video.addEventListener("loadedmetadata", handleLoadedMetadata);
+      video.addEventListener("timeupdate", handleTimeUpdate);
+      video.addEventListener("ended", handleEnded);
 
       return () => {
-        video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-        video.removeEventListener('timeupdate', handleTimeUpdate);
+        video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+        video.removeEventListener("timeupdate", handleTimeUpdate);
+        video.removeEventListener("ended", handleEnded);
       };
     }
   }, []);
@@ -42,6 +50,7 @@ export default function Portfolio() {
         video.play();
         video.muted = false;
         setHasPlayed(true);
+        setVideoEnded(false); // Reset end state
       } else {
         video.pause();
       }
@@ -72,13 +81,12 @@ export default function Portfolio() {
         onContextMenu={(e) => e.preventDefault()}
       >
         <video
-          className={`w-full ${!hasPlayed ? 'opacity-0' : 'opacity-100'}`}
+          className={`w-full ${!hasPlayed ? "opacity-0" : "opacity-100"}`}
           ref={videoRef}
-          style={{ backgroundColor: 'black' }}
-          loop
+          style={{ backgroundColor: "black" }}
           onContextMenu={(e) => e.preventDefault()}
         >
-          <source src='https://www.cdn.maximosigniorini.com/reel.mp4' />
+          <source src="https://www.cdn.maximosigniorini.com/reel.mp4" />
         </video>
 
         {/* Initial Play Button Overlay */}
@@ -91,7 +99,7 @@ export default function Portfolio() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center justify-center w-20 h-20 bg-white bg-opacity-60 rounded-full"
-              style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)' }}
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.6)" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,13 +114,29 @@ export default function Portfolio() {
         )}
 
         {/* Video Progress Controls */}
-        {hasPlayed && (
+        {hasPlayed && !videoEnded && (
           <div className="absolute top-4 right-4">
             <VideoPlayerControls
               progress={videoProgress}
               isPaused={isPaused}
               onPlayPause={togglePlayPause}
             />
+          </div>
+        )}
+
+        {/* Button Overlay for YouTube Link */}
+        {videoEnded && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70"
+          onClick={(e) => e.stopPropagation()}>
+            <p className="text-white text-lg mb-4">Watch the full video on YouTube!</p>
+            <a
+              href="https://www.youtube.com/watch?v=HpG_KAuj2AY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-yellow-500 text-black font-semibold py-2 px-4 rounded hover:bg-yellow-600 transition-all"
+            >
+              Go to YouTube
+            </a>
           </div>
         )}
       </div>
