@@ -130,7 +130,7 @@ const VideoGrid = ({ videos }) => {
               muted={isMuted}
               onProgress={handleProgress}
               onReady={handleReady}
-              onContextMenu={(e) => e.preventDefault()} // Disable right-click on video
+              onContextMenu={(e) => e.preventDefault()}
             />
 
             {/* Loading Spinner (Minimal Style) */}

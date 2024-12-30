@@ -28,7 +28,6 @@ export default function Portfolio() {
       video.addEventListener('loadedmetadata', handleLoadedMetadata);
       video.addEventListener('timeupdate', handleTimeUpdate);
 
-      // Cleanup event listeners on component unmount
       return () => {
         video.removeEventListener('loadedmetadata', handleLoadedMetadata);
         video.removeEventListener('timeupdate', handleTimeUpdate);
@@ -42,7 +41,7 @@ export default function Portfolio() {
       if (video.paused) {
         video.play();
         video.muted = false;
-        setHasPlayed(true); // Mark video as played
+        setHasPlayed(true);
       } else {
         video.pause();
       }
@@ -52,33 +51,32 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      // Check if the space bar is pressed (keyCode 32 or event.code === "Space")
       if (event.code === "Space") {
-        event.preventDefault(); // Prevent default space bar scrolling behavior
+        event.preventDefault();
         togglePlayPause();
       }
     };
 
-    // Add event listener for keydown
     window.addEventListener("keydown", handleKeyDown);
 
-    // Cleanup listener on unmount
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [hasPlayed, isPaused]); // Include dependencies so togglePlayPause works correctly
+  }, [hasPlayed, isPaused]);
 
   return (
     <section>
       <div
         className="relative w-[90%] max-w-6xl mx-auto my-0 my-8 rounded-xl overflow-hidden cursor-pointer"
-        onClick={hasPlayed ? togglePlayPause : null} // Apply click only if the video has played at least once
+        onClick={hasPlayed ? togglePlayPause : null}
+        onContextMenu={(e) => e.preventDefault()}
       >
         <video
           className={`w-full ${!hasPlayed ? 'opacity-0' : 'opacity-100'}`}
           ref={videoRef}
           style={{ backgroundColor: 'black' }}
           loop
+          onContextMenu={(e) => e.preventDefault()}
         >
           <source src='https://www.cdn.maximosigniorini.com/reel.mp4' />
         </video>
@@ -87,7 +85,7 @@ export default function Portfolio() {
         {!hasPlayed && (
           <div
             className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 cursor-pointer"
-            onClick={togglePlayPause} // First click goes here
+            onClick={togglePlayPause}
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
