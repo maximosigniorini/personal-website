@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const Photo = () => {
+
+  const [isHovered, setIsHovered] = useState(false);  
+
   return (
     <div className="w-full h-full relative">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 1, duration: 0.4, ease: 'easeIn' } }}>
@@ -12,8 +16,19 @@ const Photo = () => {
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 1.4, duration: 0.4, ease: 'easeInOut' } }}
 
-          className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighte absolute">
-          <Image src="/assets/profile.png" priority quality={100} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="profile" className="object-conatin" />
+          className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}>
+            
+          <Image
+            src={isHovered ? "/assets/hover.png" : "/assets/profile.png"}
+            priority
+            quality={100}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            alt="profile"
+            className="object-contain"
+          />
         </motion.div>
 
         {/* circle */}
