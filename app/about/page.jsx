@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css"
@@ -64,9 +65,7 @@ const About = () => {
   const [photo, setPhoto] = useState(photos[0]);
 
   const handleSlideChange = (swiper) => {
-    // get current slide index
     const currentIndex = swiper.activeIndex
-    // update photo
     setPhoto(photos[currentIndex]);
   }
 
@@ -86,14 +85,15 @@ const About = () => {
               </h2>
               <p className="text-white/70 leading-relaxed">
                 Sound designer, music producer and technology enthusiast
-                with more than 4 years of experience. Passionate and
+                with more than 5 years of experience. Passionate and
                 creative in constant search for learning all aspects of sound.
-                As a composer and sound designer my goal is to create innovative and engaging audio pieces that enhance the viewers experience and the storytelling.
+                As a sound artist my goal is to create innovative and engaging audio pieces that enhance the viewers experience and the storytelling.
               </p>
               <p className="text-white/70 leading-relaxed">
-                Currently seeking employment in the Post-Production area with an
-                emphasis on sound design for commercials & film. Currently based
-                in London but willing to relocate.
+                In 2024 I completed my Master degree in Sound Design for Screen at Bournemouth University. Since 2021 I've been working in <Link href="https://ronrocoaudio.com/" target='_blank' className='font-bold text-accent'>Ronroco Audio</Link>, a Buenos Aires based Sound Design and music studio that has worked for brands such as Toyota, Splice, Adidas and many more.
+              </p>
+              <p className="text-white/70 leading-relaxed">
+                Since 2017 I have been developing my solo music project under the moniker <Link href="/collatio" target='_blank' className='font-bold text-accent'>Collatio</Link>.
               </p>
             </div>
           </div>
@@ -109,7 +109,7 @@ const About = () => {
                       <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                       {/* image */}
                       <div className="relative w-full h-full">
-                        <Image src={photo.image} fill className="object-cover" alt={photo.title} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
+                        <Image src={photo.image} fill className="object-cover" alt={photo.title} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                       </div>
                     </div>
                   </SwiperSlide>
