@@ -15,7 +15,7 @@ const details = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "6 years"
+      fieldValue: "5+ years"
     },
     {
       fieldName: "Email",
@@ -27,7 +27,7 @@ const details = {
     },
     {
       fieldName: "Languages",
-      fieldValue: "Spanish, English"
+      fieldValue: "Spanish, English (C2)"
     },
   ]
 }
