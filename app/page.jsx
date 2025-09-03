@@ -15,7 +15,7 @@ const page = () => {
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           {/* text */}
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Sound Designer & Music Producer</span>
+            <span className="text-xl">Sound Designer & Music Composer</span>
             <h1 className="h1 mb-6">Hello I'm <br /> <span className="text-accent">Maximo Signiorini</span></h1>
             <p className="max-w-[600px] mb-9 text-white/80">Passionate and
               creative in constant search for learning all aspects of sound.</p>

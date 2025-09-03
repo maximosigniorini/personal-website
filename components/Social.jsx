@@ -1,14 +1,14 @@
 import Link from "next/link"
 
-import {FaLinkedinIn, FaInstagram, FaYoutube, FaEnvelope} from 'react-icons/fa' 
+import {FaLinkedinIn, FaInstagram, FaYoutube, FaEnvelope, FaBehance} from 'react-icons/fa' 
 import { FaBluesky } from "react-icons/fa6";
 
 const socials = [
   
   {icon: <FaLinkedinIn />, path: 'https://www.linkedin.com/in/maximo-signiorini/'},
+  {icon: <FaInstagram />, path: 'https://www.instagram.com/maxsig.lab/'},
   {icon: <FaYoutube />, path: 'https://www.youtube.com/@maximosigniorini'},
-  {icon: <FaBluesky />, path: 'https://bsky.app/profile/maximosigniorini.com'}, 
-  {icon: <FaEnvelope />, path: 'mailto:maximosigniorini97@gmail.com'},
+  {icon: <FaBehance />, path: 'https://www.behance.net/maximosigniorini'}, 
 ]
 
 const Social = ({containerStyles, iconStyles}) => {

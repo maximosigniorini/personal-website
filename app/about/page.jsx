@@ -84,17 +84,17 @@ const About = () => {
                 About Me
               </h2>
               <p className="text-white/70 leading-relaxed">
-                Sound designer, music producer and technology enthusiast
+                Sound designer, music composer
                 with more than 5 years of experience. Passionate and
                 creative in constant search for learning all aspects of sound.
                 As a sound artist my goal is to create innovative and engaging audio pieces that enhance the viewers experience and the storytelling.
               </p>
               <p className="text-white/70 leading-relaxed">
-                In 2024 I completed my Master degree in Sound Design for Screen at Bournemouth University. Since 2021 I've been working in <Link href="https://ronrocoaudio.com/" target='_blank' className='font-bold text-accent'>Ronroco Audio</Link>, a Buenos Aires based Sound Design and music studio that has worked for brands such as Toyota, Splice, Adidas and many more.
+                In 2024 I completed my Masters degree in Sound Design for Screen at Bournemouth University. Worked for <Link href="https://ronrocoaudio.com/" target='_blank' className='font-bold text-accent'>Ronroco Audio</Link>, a Buenos Aires based Sound Design and music studio that has worked for brands such as Toyota, Splice, Adidas and many more. Collaborated alongside Tom Joyce from <Link href="https://soundcanvas.co/" target='_blank' className='font-bold text-accent'>Sound Canvas</Link>.
               </p>
-              <p className="text-white/70 leading-relaxed">
+              {/* <p className="text-white/70 leading-relaxed">
                 Since 2017 I have been developing my solo music project under the moniker Collatio.
-              </p>
+              </p> */}
             </div>
           </div>
 
