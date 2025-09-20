@@ -3,7 +3,8 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { AudioPlayer } from "@/components/audio-player"
-import { Play, ExternalLink, Mail, Linkedin, Instagram, Youtube } from "lucide-react"
+import { Play, ExternalLink, Mail } from "lucide-react"
+import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
 
 export default function HomePage() {
   return (
@@ -25,7 +26,7 @@ export default function HomePage() {
                   Experiences
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed max-w-lg text-pretty">
-                  Passionate creator specializing in immersive audio design for film, games, and digital media.
+                  Passionate sound artist specializing in immersive audio design for film, advertisements, and digital media.
                   Transforming stories through sound.
                 </p>
               </div>
@@ -33,23 +34,23 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="text-lg px-8">
                   <Play className="w-5 h-5 mr-2" />
-                  Listen to Work
+                  Portfolio
                 </Button>
                 <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
                   <ExternalLink className="w-5 h-5 mr-2" />
-                  View Portfolio
+                  View Work
                 </Button>
               </div>
 
               <div className="flex items-center space-x-6 pt-4">
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Linkedin className="w-6 h-6" />
+                  <SiLinkedin className="w-6 h-6" />
                 </a>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Instagram className="w-6 h-6" />
+                  <SiInstagram className="w-6 h-6" />
                 </a>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Youtube className="w-6 h-6" />
+                  <SiYoutube className="w-6 h-6" />
                 </a>
               </div>
             </div>
@@ -539,7 +540,7 @@ export default function HomePage() {
             <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
               <div className="space-y-4">
                 <div className="w-12 h-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Linkedin className="w-6 h-6 text-primary" />
+                  <SiLinkedin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">LinkedIn</h3>
@@ -551,7 +552,7 @@ export default function HomePage() {
             <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
               <div className="space-y-4">
                 <div className="w-12 h-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Youtube className="w-6 h-6 text-primary" />
+                  <SiYoutube className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">YouTube</h3>
@@ -581,13 +582,13 @@ export default function HomePage() {
 
             <div className="flex items-center space-x-6">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="w-5 h-5" />
+                <SiLinkedin className="w-5 h-5" />
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="w-5 h-5" />
+                <SiInstagram className="w-5 h-5" />
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Youtube className="w-5 h-5" />
+                <SiYoutube className="w-5 h-5" />
               </a>
             </div>
           </div>
