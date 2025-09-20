@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
@@ -26,10 +26,17 @@ export function AudioPlayer({
   const [currentTime, setCurrentTime] = useState(0)
   const [volume, setVolume] = useState(75)
   const [isMuted, setIsMuted] = useState(false)
+  const [barHeights, setBarHeights] = useState<number[]>([]);
   const audioRef = useRef<HTMLAudioElement>(null)
 
   // Convert duration string to seconds for demo purposes
   const totalDuration = duration.split(":").reduce((acc, time) => 60 * acc + +time, 0)
+
+  useEffect(() => {
+    // Generate random heights only on the client
+    const heights = Array.from({ length: 40 }, () => Math.random() * 60 + 20);
+    setBarHeights(heights);
+  }, []);
 
   useEffect(() => {
     let interval: NodeJS.Timeout
@@ -128,7 +135,7 @@ export function AudioPlayer({
                 isPlaying && i < (currentTime / totalDuration) * 40 ? "bg-primary" : "bg-primary/20",
               )}
               style={{
-                height: `${Math.random() * 60 + 20}%`,
+                height: `${barHeights[i] || 20}%`,
                 animationDelay: `${i * 50}ms`,
               }}
             />
