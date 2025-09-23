@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { AudioPlayer } from "@/components/audio-player"
+import { VideoPlayer } from "@/components/video-player"
 import { Play, ExternalLink, Mail } from "lucide-react"
 import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
 
@@ -56,10 +57,10 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
-              {/* Replaced static featured track card with interactive audio player */}
-              <AudioPlayer
-                title="Cinematic Soundscape"
-                duration="4:32"
+              {/* Replaced static featured track card with interactive video player */}
+              <VideoPlayer
+                title="Showreel 2025"
+                duration="3:45"
                 className="backdrop-blur-sm border border-border bg-gradient-to-br from-primary/5 to-accent/5"
               />
 
