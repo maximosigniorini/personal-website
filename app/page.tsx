@@ -61,6 +61,7 @@ export default function HomePage() {
               <VideoPlayer
                 title="Showreel 2025"
                 duration="3:45"
+                posterUrl="/assets/video-thumbnails/portfolio.jpg"
                 className="backdrop-blur-sm border border-border bg-gradient-to-br from-primary/5 to-accent/5"
               />
 
