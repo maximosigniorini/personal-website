@@ -73,134 +73,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Work Preview */}
-      <section className="py-24 px-6 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-6 mb-20">
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-balance">Recent Work</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
-              A selection of my latest projects spanning film scoring, game audio, and commercial sound design.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Ethereal Landscapes", category: "Film Score", duration: "3:42" },
-              { title: "Urban Pulse", category: "Game Audio", duration: "2:18" },
-              { title: "Ambient Textures", category: "Sound Design", duration: "4:15" },
-            ].map((track, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 group cursor-pointer">
-                <div className="aspect-video rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 mb-4 flex items-center justify-center group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-300">
-                  <Play className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold text-lg">{track.title}</h3>
-                    <span className="text-sm text-muted-foreground font-mono">{track.duration}</span>
-                  </div>
-                  <p className="text-muted-foreground">{track.category}</p>
-                </div>
-                {/* Added compact audio player to each track card */}
-                <div className="mt-4">
-                  <AudioPlayer
-                    title={track.title}
-                    duration={track.duration}
-                    variant="compact"
-                    className="bg-transparent border-0 p-0"
-                  />
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Portfolio Gallery */}
       <section id="work" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-8 mb-24">
             <Badge variant="secondary" className="w-fit mx-auto">
-              Portfolio
+              Work
             </Badge>
             <h2 className="text-5xl lg:text-6xl font-serif font-bold text-balance leading-tight">
               Selected
               <span className="text-primary block">Projects</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-pretty">
-              Explore my diverse range of audio work, from cinematic scores to interactive game soundscapes. Each
+              Explore my diverse range of audio work, from sound design to music composing. Each
               project represents a unique sonic journey crafted with precision and creativity.
             </p>
           </div>
 
           {/* Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {["All", "Film Score", "Game Audio", "Sound Design", "Commercial"].map((filter) => (
+            {["All", "Film", "Advertisements", "Motion Graphics", "Logos", "Explainers"].map((filter) => (
               <Button key={filter} variant={filter === "All" ? "default" : "outline"} className="px-6 py-2">
                 {filter}
               </Button>
             ))}
-          </div>
-
-          {/* Featured Project */}
-          <div className="mb-20">
-            <Card className="overflow-hidden bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
-              <div className="grid lg:grid-cols-2 gap-0">
-                <div className="aspect-video lg:aspect-auto bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('/cinematic-audio-waveform-visualization.jpg')] bg-cover bg-center opacity-20"></div>
-                  <div className="relative z-10 text-center space-y-4">
-                    <div className="w-20 h-20 mx-auto rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center">
-                      <Play className="w-10 h-10 text-primary" />
-                    </div>
-                    <div className="space-y-2">
-                      <Badge variant="secondary">Featured</Badge>
-                      <h3 className="text-2xl font-bold">Neon Dreams</h3>
-                      <p className="text-muted-foreground">Cyberpunk Film Score</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-3xl font-bold mb-4">Neon Dreams</h3>
-                      <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                        A futuristic orchestral score blending electronic elements with traditional instruments. Created
-                        for an independent cyberpunk thriller, this composition explores themes of technology and
-                        humanity through immersive soundscapes.
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-muted-foreground">Duration:</span>
-                        <span className="ml-2 font-mono">8:24</span>
-                      </div>
-                      <div>
-                        <span className="text-muted-foreground">Year:</span>
-                        <span className="ml-2">2024</span>
-                      </div>
-                      <div>
-                        <span className="text-muted-foreground">Genre:</span>
-                        <span className="ml-2">Film Score</span>
-                      </div>
-                      <div>
-                        <span className="text-muted-foreground">Client:</span>
-                        <span className="ml-2">Indie Films Co.</span>
-                      </div>
-                    </div>
-
-                    {/* Added full audio player for featured project */}
-                    <AudioPlayer title="Neon Dreams" duration="8:24" className="bg-background/50 backdrop-blur-sm" />
-
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Button variant="outline" size="lg">
-                        <ExternalLink className="w-5 h-5 mr-2" />
-                        View Details
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
           </div>
 
           {/* Project Grid */}
@@ -330,33 +226,14 @@ export default function HomePage() {
                 </h2>
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p className="text-pretty">
-                    With over 8 years of experience in audio production, I specialize in creating immersive soundscapes
-                    that elevate storytelling across multiple mediums. My work spans from intimate indie films to
-                    large-scale commercial projects.
+                    With over 6 years of experience in audio production, I specialize in creating immersive soundscapes
+                    that elevate storytelling across multiple mediums. My work spans from advertisements to
+                    film and other visual media.
                   </p>
                   <p className="text-pretty">
                     I believe that sound is the invisible thread that connects audiences to emotions, memories, and
                     experiences. Every project is an opportunity to craft something unique and meaningful.
                   </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-primary">150+</div>
-                  <div className="text-muted-foreground">Projects Completed</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-primary">8+</div>
-                  <div className="text-muted-foreground">Years Experience</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-primary">25+</div>
-                  <div className="text-muted-foreground">Happy Clients</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-bold text-primary">5</div>
-                  <div className="text-muted-foreground">Awards Won</div>
                 </div>
               </div>
 
@@ -369,7 +246,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 p-8 border border-border overflow-hidden">
                 <div className="w-full h-full rounded-xl bg-card border border-border relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('/professional-sound-engineer-in-modern-studio.jpg')] bg-cover bg-center"></div>
+                  <div className="absolute inset-0 bg-[url('/assets/profile-2.png')] bg-cover bg-center"></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="space-y-2">
@@ -377,20 +254,6 @@ export default function HomePage() {
                       <p className="text-white/80">Sound Designer & Composer</p>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Floating credential badges */}
-              <div className="absolute -top-4 -right-4 bg-card border border-border rounded-xl p-4 shadow-lg">
-                <div className="text-center space-y-1">
-                  <div className="text-sm font-semibold">Pro Tools</div>
-                  <div className="text-xs text-muted-foreground">Certified</div>
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl p-4 shadow-lg">
-                <div className="text-center space-y-1">
-                  <div className="text-sm font-semibold">Logic Pro</div>
-                  <div className="text-xs text-muted-foreground">Expert</div>
                 </div>
               </div>
             </div>
@@ -416,25 +279,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Film Scoring",
-                description:
-                  "Orchestral and electronic compositions for narrative films, documentaries, and short films.",
-                skills: ["Orchestration", "Thematic Development", "Sync to Picture", "Mixing"],
-              },
-              {
-                title: "Game Audio",
-                description: "Interactive soundscapes, adaptive music systems, and immersive audio experiences.",
-                skills: ["Wwise", "FMOD", "Interactive Music", "3D Audio"],
-              },
-              {
                 title: "Sound Design",
                 description: "Creating custom sound effects, foley, and atmospheric audio for various media projects.",
                 skills: ["Field Recording", "Synthesis", "Audio Processing", "Foley Art"],
-              },
-              {
-                title: "Music Production",
-                description: "Full-service music production from composition to final master for artists and brands.",
-                skills: ["Arrangement", "Recording", "Mixing", "Mastering"],
               },
               {
                 title: "Audio Post-Production",
@@ -442,8 +289,24 @@ export default function HomePage() {
                 skills: ["Dialogue Editing", "ADR", "Sound Mixing", "Delivery"],
               },
               {
+                title: "Film Scoring",
+                description:
+                  "Orchestral and electronic compositions for narrative films, documentaries, and short films.",
+                skills: ["Orchestration", "Thematic Development", "Sync to Picture", "Mixing"],
+              },
+              {
+                title: "Audio Branding",
+                description: "Sonic identity for brands, logo sound design.",
+                skills: ["Brand Identity", "Synthesis", "Mixing", "Mastering"],
+              },
+              {
+                title: "Music Production",
+                description: "Full-service music production from composition to final master for artists and brands.",
+                skills: ["Arrangement", "Recording", "Mixing", "Mastering"],
+              },
+              {
                 title: "Commercial Audio",
-                description: "Brand-focused audio content including jingles, podcasts, and advertising soundtracks.",
+                description: "Brand-focused audio content including explainers, podcasts, and advertising soundtracks.",
                 skills: ["Brand Identity", "Voice Over", "Podcast Production", "Advertising"],
               },
             ].map((skill, index) => (
@@ -484,14 +347,7 @@ export default function HomePage() {
               "Logic Pro X",
               "Ableton Live",
               "Reaper",
-              "Wwise",
-              "FMOD",
-              "Native Instruments",
-              "FabFilter",
-              "Waves",
-              "iZotope",
-              "Kontakt",
-              "Omnisphere",
+              "VST",
             ].map((tool, index) => (
               <Card
                 key={index}
@@ -521,7 +377,7 @@ export default function HomePage() {
               <span className="text-primary block">Something Amazing?</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
-              Whether you're working on a film, game, commercial project, or need custom audio solutions, I'd love to
+              Whether you're working on a film, commercial project, game, or need custom audio solutions, I'd love to
               hear about your vision and discuss how we can bring it to life through sound.
             </p>
           </div>
@@ -534,7 +390,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">Email</h3>
-                  <p className="text-muted-foreground">hello@maximosigniorini.com</p>
+                  <p className="text-muted-foreground">maximosigniorini97@gmail.com</p>
                 </div>
               </div>
             </Card>
@@ -596,7 +452,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
-            <p>&copy; 2024 Maximo Signiorini. All rights reserved.</p>
+            <p>&copy; 2025 Maximo Signiorini. All rights reserved.</p>
           </div>
         </div>
       </footer>
