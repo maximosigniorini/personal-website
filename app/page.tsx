@@ -1,29 +1,29 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { AudioPlayer } from "@/components/audio-player"
 import { VideoPlayer } from "@/components/video-player"
-import { Play, ExternalLink, Mail } from "lucide-react"
+import { Play, ExternalLink, Mail, X, ChevronLeft, ChevronRight } from "lucide-react"
 import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
 import videos from "@/data/videos"
 
 export default function HomePage() {
   const [selectedFilter, setSelectedFilter] = useState("All")
-  const [visibleVideos, setVisibleVideos] = useState(9) // Start with 9 videos
+  const [visibleVideos, setVisibleVideos] = useState(9)
+  const [selectedVideo, setSelectedVideo] = useState<typeof videos[0] | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   // Filter videos based on selected category
   const filteredVideos = selectedFilter === "All"
-    ? videos // If "All" is selected, show all videos
-    : videos.filter(video => video.category === selectedFilter); // Otherwise, filter by the selected category
+    ? videos
+    : videos.filter(video => video.category === selectedFilter)
 
-  // Get videos to display based on visible count 
-  const displayedVideos = filteredVideos.slice(0, visibleVideos);
-
-  const categories = ["All", ...new Set(videos.map(video => video.category))];
+  const displayedVideos = filteredVideos.slice(0, visibleVideos)
+  const categories = ["All", ...new Set(videos.map(video => video.category))]
 
   const loadMoreVideos = () => {
     setVisibleVideos(prev => Math.min(prev + 9, filteredVideos.length))
@@ -31,12 +31,11 @@ export default function HomePage() {
 
   const handleFilterChange = (filter: string) => {
     setSelectedFilter(filter)
-    setVisibleVideos(9) // Reset to 9 when changing filters
+    setVisibleVideos(9)
   }
 
-  // Get video duration from URL or use placeholder
   const getVideoDuration = (url: string) => {
-    return "2:30" // Default duration
+    return "2:30"
   }
 
   const categoryDisplayNames: Record<string, string> = {
@@ -45,7 +44,49 @@ export default function HomePage() {
     advertisement: "Advertisement",
     animation: "Animation",
     logo: "Logo",
-  };
+  }
+
+  // Open modal with selected video
+  const openVideoModal = (video: typeof videos[0]) => {
+    setSelectedVideo(video)
+    setIsModalOpen(true)
+    document.body.style.overflow = 'hidden' // Prevent background scrolling
+  }
+
+  // Close modal
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedVideo(null)
+    document.body.style.overflow = 'unset'
+  }
+
+  // Navigate to next/previous video
+  const navigateVideo = (direction: 'next' | 'prev') => {
+    if (!selectedVideo) return
+    
+    const currentIndex = filteredVideos.findIndex(v => v.id === selectedVideo.id)
+    let newIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1
+    
+    // Loop around if at the end/start
+    if (newIndex >= filteredVideos.length) newIndex = 0
+    if (newIndex < 0) newIndex = filteredVideos.length - 1
+    
+    setSelectedVideo(filteredVideos[newIndex])
+  }
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isModalOpen) return
+      
+      if (e.key === 'Escape') closeModal()
+      if (e.key === 'ArrowRight') navigateVideo('next')
+      if (e.key === 'ArrowLeft') navigateVideo('prev')
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isModalOpen, selectedVideo])
 
   return (
     <div className="min-h-screen bg-background">
@@ -103,7 +144,6 @@ export default function HomePage() {
                 className="backdrop-blur-sm border border-border bg-gradient-to-br from-primary/5 to-accent/5"
               />
 
-              {/* Floating elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-primary/20 backdrop-blur-sm border border-border animate-pulse"></div>
               <div className="absolute -bottom-6 -left-6 w-16 h-16 rounded-full bg-accent/20 backdrop-blur-sm border border-border animate-pulse delay-1000"></div>
             </div>
@@ -149,12 +189,13 @@ export default function HomePage() {
               <Card
                 key={video.id}
                 className="group overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer"
+                onClick={() => openVideoModal(video)}
               >
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
                   <img
                     src={video.thumbnail}
                     alt={video.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105 blur-[1px] group-hover:blur-none"
                     onError={(e) => {
                       // Fallback if thumbnail doesn't load
                       const target = e.target as HTMLImageElement;
@@ -163,14 +204,9 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 left-4">
-                    <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm capitalize">
+                    <Badge variant="secondary" className="bg-background/50 backdrop-blur-sm capitalize">
                       {categoryDisplayNames[video.category] || video.category}
                     </Badge>
-                  </div>
-                  <div className="absolute bottom-4 right-4">
-                    <span className="text-white font-mono text-sm bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
-                      {getVideoDuration(video.url)}
-                    </span>
                   </div>
                 </div>
                 <div className="p-6 space-y-4">
@@ -179,11 +215,11 @@ export default function HomePage() {
                       <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                         {video.title}
                       </h3>
-                      <span className="text-sm text-muted-foreground">2024</span>
+                      <span className="text-sm text-muted-foreground">{video.year}</span>
                     </div>
                     <div className="flex flex-wrap gap-x-3 gap-y-2">
                       {video.tags.map((tag) => (
-                        <span className="text-muted-foreground text-sm" key={tag}>
+                        <span className="text-sm text-white/30 group-hover:text-white/80" key={tag}>
                           #{tag}
                         </span>
                       ))}
@@ -226,6 +262,123 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Video Modal */}
+      {isModalOpen && selectedVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            onClick={closeModal}
+          ></div>
+          
+          {/* Modal Content */}
+          <div className="relative z-10 w-full max-w-7xl mx-4 max-h-[90vh] overflow-y-auto">
+            <Card className="overflow-hidden">
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white flex items-center justify-center transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="grid lg:grid-cols-3 gap-0">
+                {/* Video Player Section */}
+                <div className="lg:col-span-2">
+                  <VideoPlayer
+                    title={selectedVideo.title}
+                    duration={getVideoDuration(selectedVideo.url)}
+                    videoUrl={selectedVideo.url}
+                    posterUrl={selectedVideo.thumbnail}
+                    variant="full"
+                    autoplay={true}
+                  />
+                </div>
+
+                {/* Info Section */}
+                <div className="p-8 space-y-6 bg-muted/30">
+                  <div className="space-y-4">
+                    <Badge variant="secondary" className="capitalize">
+                      {categoryDisplayNames[selectedVideo.category] || selectedVideo.category}
+                    </Badge>
+                    <h2 className="text-3xl font-bold">{selectedVideo.title}</h2>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedVideo.tags.map((tag) => (
+                        <Badge key={tag} variant="outline" className="text-xs">
+                          #{tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                      Description
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {selectedVideo.description || "Custom sound design and audio production for this project. Crafted to enhance the visual narrative and create an immersive audio experience."}
+                    </p>
+                  </div>
+
+                  {/* Credits */}
+                  {selectedVideo.credits && (
+                    <div className="space-y-2">
+                      <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                        Credits
+                      </h3>
+                      <div className="space-y-1 text-sm">
+                        {/* {selectedVideo.credits.director && (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Director:</span>
+                            <span className="font-medium">{selectedVideo.credits.director}</span>
+                          </div>
+                        )} */}
+                        {selectedVideo.credits.client && (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Client:</span>
+                            <span className="font-medium">{selectedVideo.credits.client}</span>
+                          </div>
+                        )}
+                        {/* {selectedVideo.credits.agency && (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Agency:</span>
+                            <span className="font-medium">{selectedVideo.credits.agency}</span>
+                          </div>
+                        )} */}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Year & Duration */}
+                  <div className="space-y-1 text-sm pt-4 border-t border-border">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Year:</span>
+                      <span className="font-medium">{selectedVideo.year || "2024"}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Duration:</span>
+                      <span className="font-medium font-mono">{getVideoDuration(selectedVideo.url)}</span>
+                    </div>
+                  </div>
+
+                  {/* External Link */}
+                  {selectedVideo.url.includes('youtube') && (
+                    <Button variant="outline" className="w-full" asChild>
+                      <a href={selectedVideo.url} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Watch on YouTube
+                      </a>
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      )}
+
+      {/* Rest of sections remain the same... */}
       {/* About Section */}
       <section id="about" className="py-32 px-6 bg-muted/30">
         <div className="max-w-7xl mx-auto">
@@ -276,110 +429,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Skills & Expertise */}
-      <section className="py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-8 mb-24">
-            <Badge variant="secondary" className="w-fit mx-auto">
-              Expertise
-            </Badge>
-            <h2 className="text-5xl lg:text-6xl font-serif font-bold text-balance leading-tight">
-              Skills &<span className="text-primary block">Specializations</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-pretty">
-              A comprehensive toolkit built through years of experience across diverse audio production environments.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Sound Design",
-                description: "Creating custom sound effects, foley, and atmospheric audio for various media projects.",
-                skills: ["Field Recording", "Synthesis", "Audio Processing", "Foley Art"],
-              },
-              {
-                title: "Audio Post-Production",
-                description: "Complete audio post services including dialogue editing, ADR, and final mix.",
-                skills: ["Dialogue Editing", "ADR", "Sound Mixing", "Delivery"],
-              },
-              {
-                title: "Film Scoring",
-                description:
-                  "Orchestral and electronic compositions for narrative films, documentaries, and short films.",
-                skills: ["Orchestration", "Thematic Development", "Sync to Picture", "Mixing"],
-              },
-              {
-                title: "Audio Branding",
-                description: "Sonic identity for brands, logo sound design.",
-                skills: ["Brand Identity", "Synthesis", "Mixing", "Mastering"],
-              },
-              {
-                title: "Music Production",
-                description: "Full-service music production from composition to final master for artists and brands.",
-                skills: ["Arrangement", "Recording", "Mixing", "Mastering"],
-              },
-              {
-                title: "Commercial Audio",
-                description: "Brand-focused audio content including explainers, podcasts, and advertising soundtracks.",
-                skills: ["Brand Identity", "Voice Over", "Podcast Production", "Advertising"],
-              },
-            ].map((skill, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 group">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <div className="w-6 h-6 bg-primary rounded-sm"></div>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">{skill.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{skill.description}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {skill.skills.map((item, skillIndex) => (
-                      <Badge key={skillIndex} variant="outline" className="text-xs">
-                        {item}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tools & Software */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <h3 className="text-3xl font-bold">Professional Tools</h3>
-            <p className="text-lg text-muted-foreground">Industry-standard software and hardware I work with daily</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {[
-              "Pro Tools",
-              "Logic Pro X",
-              "Ableton Live",
-              "Reaper",
-              "VST",
-            ].map((tool, index) => (
-              <Card
-                key={index}
-                className="p-4 text-center hover:shadow-md transition-all duration-300 group cursor-pointer"
-              >
-                <div className="space-y-2">
-                  <div className="w-12 h-12 mx-auto rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center group-hover:from-primary/20 group-hover:to-accent/20 transition-all">
-                    <div className="w-6 h-6 bg-primary/60 rounded"></div>
-                  </div>
-                  <div className="text-sm font-medium">{tool}</div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -395,44 +444,6 @@ export default function HomePage() {
               Whether you're working on a film, commercial project, game, or need custom audio solutions, I'd love to
               hear about your vision and discuss how we can bring it to life through sound.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="space-y-4">
-                <div className="w-12 h-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Email</h3>
-                  <p className="text-muted-foreground">maximosigniorini97@gmail.com</p>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="space-y-4">
-                <div className="w-12 h-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
-                  <SiLinkedin className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">LinkedIn</h3>
-                  <p className="text-muted-foreground">@maximosigniorini</p>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-              <div className="space-y-4">
-                <div className="w-12 h-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
-                  <SiYoutube className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">YouTube</h3>
-                  <p className="text-muted-foreground">Maximo Signiorini</p>
-                </div>
-              </div>
-            </Card>
           </div>
 
           <div className="mt-12">
