@@ -15,6 +15,7 @@ interface VideoPlayerProps {
   posterUrl?: string
   className?: string
   variant?: "compact" | "full" | "minimal"
+  autoplay?: boolean // Add autoplay prop
 }
 
 export function VideoPlayer({
@@ -25,6 +26,7 @@ export function VideoPlayer({
   posterUrl,
   className,
   variant = "full",
+  autoplay = false, // Default to false
 }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
@@ -60,6 +62,16 @@ export function VideoPlayer({
         video.volume = volume
         video.muted = isMuted
         console.log('Video duration loaded:', video.duration)
+        
+        // Autoplay if prop is true
+        if (autoplay) {
+          video.play().then(() => {
+            setIsPlaying(true)
+            console.log('Autoplay started')
+          }).catch(err => {
+            console.log('Autoplay failed:', err)
+          })
+        }
       }
 
       const handleTimeUpdate = () => {
