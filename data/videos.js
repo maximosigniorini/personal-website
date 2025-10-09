@@ -10,7 +10,7 @@ const videos = [
       client: 'Bournemouth University'
     },
     year: 2024,
-    tags: ["sound design", "film", "music editing", "foley", "mixing", "ADR"]
+    tags: ["sound-design", "music-editing", "foley", "mixing"]
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const videos = [
       client: 'Bournemouth University'
     },
     year: 2024,
-    tags: ["sound design", "film", "music editing", "foley", "mixing", "music composition"]
+    tags: ["sound-design", "music", "foley", "mixing"]
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const videos = [
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ const videos = [
       client: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ const videos = [
       client: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["music editing", "sound design"]
+    tags: ["music-editing", "sound-design"]
   },
   {
     id: 6,
@@ -75,7 +75,7 @@ const videos = [
       client: 'Mattia Beltrame'
     },
     year: 2021,
-    tags: ["sound design"]
+    tags: ["sound-design"]
   },
   {
     id: 7,
@@ -88,7 +88,7 @@ const videos = [
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 8,
@@ -101,7 +101,7 @@ const videos = [
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 9,
@@ -114,7 +114,7 @@ const videos = [
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 10,
@@ -127,7 +127,7 @@ const videos = [
       client: 'Byclops Animation'
     },
     year: 2021,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 11,
@@ -140,7 +140,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 12,
@@ -153,7 +153,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 13,
@@ -166,7 +166,7 @@ const videos = [
       client: 'Jader Rachid'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 14,
@@ -179,7 +179,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 15,
@@ -192,7 +192,7 @@ const videos = [
       client: 'Jonathan Pui'
     },
     year: 2023,
-    tags: ["sound design"]
+    tags: ["sound-design"]
   },
   {
     id: 16,
@@ -205,7 +205,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 17,
@@ -218,7 +218,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 18,
@@ -231,7 +231,7 @@ const videos = [
       client: 'Adidas'
     },
     year: 2021,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 19,
@@ -244,7 +244,7 @@ const videos = [
       client: 'Livio Maraniello'
     },
     year: 2021,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 20,
@@ -257,7 +257,7 @@ const videos = [
       client: 'Fakery'
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 21,
@@ -270,7 +270,7 @@ const videos = [
       client: ''
     },
     year: 2023,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 22,
@@ -283,7 +283,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 23,
@@ -296,7 +296,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 24,
@@ -309,7 +309,7 @@ const videos = [
       client: 'Mamba Studio'
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 25,
@@ -322,7 +322,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 26,
@@ -335,7 +335,7 @@ const videos = [
       client: 'Onesal'
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 27,
@@ -348,7 +348,7 @@ const videos = [
       client: ''
     },
     year: 2023,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 28,
@@ -361,7 +361,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["sound design"]
+    tags: ["sound-design"]
   },
   {
     id: 29,
@@ -374,7 +374,7 @@ const videos = [
       client: 'Bournemouth University'
     },
     year: 2023,
-    tags: ["sound design"]
+    tags: ["sound-design"]
   },
   {
     id: 30,
@@ -387,7 +387,7 @@ const videos = [
       client: ''
     },
     year: 2023,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 31,
@@ -400,7 +400,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music editing", "sound design"]
+    tags: ["music-editing", "sound-design"]
   },
   {
     id: 32,
@@ -413,7 +413,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 33,
@@ -426,7 +426,7 @@ const videos = [
       client: ''
     },
     year: 2023,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 34,
@@ -439,7 +439,7 @@ const videos = [
       client: 'Diesel'
     },
     year: 2024,
-    tags: ["sound design"]
+    tags: ["sound-design"]
   },
   {
     id: 35,
@@ -452,7 +452,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 36,
@@ -465,7 +465,7 @@ const videos = [
       client: 'Chubb'
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 37,
@@ -478,7 +478,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 38,
@@ -491,7 +491,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 39,
@@ -504,7 +504,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 40,
@@ -517,7 +517,7 @@ const videos = [
       client: 'Crinimo Studio'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 41,
@@ -530,7 +530,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 42,
@@ -543,7 +543,7 @@ const videos = [
       client: ''
     },
     year: 2021,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 43,
@@ -556,7 +556,7 @@ const videos = [
       client: 'Crinimo Studio'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 44,
@@ -569,7 +569,7 @@ const videos = [
       client: 'NIO'
     },
     year: 2021,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 45,
@@ -582,7 +582,7 @@ const videos = [
       client: ''
     },
     year: 2021,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 46,
@@ -595,7 +595,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music editing", "sound design"]
+    tags: ["music-editing", "sound-design"]
   },
   {
     id: 47,
@@ -608,7 +608,7 @@ const videos = [
       client: 'Bang Olufsen'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 48,
@@ -621,7 +621,7 @@ const videos = [
       client: 'Mutek Argentina'
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 49,
@@ -634,7 +634,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 50,
@@ -647,7 +647,7 @@ const videos = [
       client: 'Splice'
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 51,
@@ -660,7 +660,7 @@ const videos = [
       client: ''
     },
     year: 2023,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 52,
@@ -673,7 +673,7 @@ const videos = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 53,
@@ -686,7 +686,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
   {
     id: 54,
@@ -699,7 +699,7 @@ const videos = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound design"]
+    tags: ["music", "sound-design"]
   },
 ];
 
