@@ -79,7 +79,7 @@ export function AudioPlayer({
 
   if (variant === "minimal") {
     return (
-      <Button variant="ghost" size="sm" onClick={handlePlayPause} className={cn("p-2 h-auto", className)}>
+      <Button variant="ghost" size="sm" onClick={handlePlayPause} className={cn("p-2 h-auto text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 hover:bg-primary/30", className)}>
         {isPlaying ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
         {isPlaying ? "Pause" : "Play"}
       </Button>
