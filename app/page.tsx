@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -6,8 +9,44 @@ import { AudioPlayer } from "@/components/audio-player"
 import { VideoPlayer } from "@/components/video-player"
 import { Play, ExternalLink, Mail } from "lucide-react"
 import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
+import videos from "@/data/videos"
 
 export default function HomePage() {
+  const [selectedFilter, setSelectedFilter] = useState("All")
+  const [visibleVideos, setVisibleVideos] = useState(9) // Start with 9 videos
+
+  // Filter videos based on selected category
+  const filteredVideos = selectedFilter === "All"
+    ? videos // If "All" is selected, show all videos
+    : videos.filter(video => video.category === selectedFilter); // Otherwise, filter by the selected category
+
+  // Get videos to display based on visible count 
+  const displayedVideos = filteredVideos.slice(0, visibleVideos);
+
+  const categories = ["All", ...new Set(videos.map(video => video.category))];
+
+  const loadMoreVideos = () => {
+    setVisibleVideos(prev => Math.min(prev + 9, filteredVideos.length))
+  }
+
+  const handleFilterChange = (filter: string) => {
+    setSelectedFilter(filter)
+    setVisibleVideos(9) // Reset to 9 when changing filters
+  }
+
+  // Get video duration from URL or use placeholder
+  const getVideoDuration = (url: string) => {
+    return "2:30" // Default duration
+  }
+
+  const categoryDisplayNames: Record<string, string> = {
+    film: "Film",
+    "motion graphics": "Motion Graphics",
+    advertisement: "Advertisement",
+    animation: "Animation",
+    logo: "Logo",
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -57,7 +96,6 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
-              {/* Replaced static featured track card with interactive video player */}
               <VideoPlayer
                 title="Showreel 2025"
                 duration="3:45"
@@ -85,95 +123,53 @@ export default function HomePage() {
               <span className="text-primary block">Projects</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-pretty">
-              Explore my diverse range of audio work, from sound design to music composing. Each
+              Explore my diverse range of audio work, from sound design to music composition. Each
               project represents a unique sonic journey crafted with precision and creativity.
             </p>
           </div>
 
           {/* Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
-            {["All", "Film", "Advertisements", "Motion Graphics", "Logos", "Explainers"].map((filter) => (
-              <Button key={filter} variant={filter === "All" ? "default" : "outline"} className="px-6 py-2">
-                {filter}
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedFilter === category ? "default" : "outline"}
+                className="px-6 py-2 capitalize"
+                onClick={() => handleFilterChange(category)}
+              >
+                {/* Use the map to get the pretty display name */}
+                {categoryDisplayNames[category] || category}
               </Button>
             ))}
           </div>
 
           {/* Project Grid */}
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Mystic Forest",
-                category: "Game Audio",
-                duration: "5:12",
-                year: "2024",
-                description:
-                  "Ambient soundscape for an indie adventure game featuring organic textures and mystical elements.",
-                image: "fantasy+forest+audio+visualization",
-              },
-              {
-                title: "Corporate Anthem",
-                category: "Commercial",
-                duration: "1:30",
-                year: "2024",
-                description: "Uplifting corporate music for a tech startup's brand campaign.",
-                image: "corporate+modern+audio+waveform",
-              },
-              {
-                title: "Tension Rising",
-                category: "Film Score",
-                duration: "4:45",
-                year: "2023",
-                description: "Suspenseful orchestral piece for a psychological thriller's climactic scene.",
-                image: "dramatic+orchestral+music+visualization",
-              },
-              {
-                title: "Digital Pulse",
-                category: "Sound Design",
-                duration: "2:33",
-                year: "2023",
-                description: "Electronic sound effects and UI audio for a mobile gaming application.",
-                image: "digital+electronic+sound+design",
-              },
-              {
-                title: "Ocean Depths",
-                category: "Film Score",
-                duration: "6:18",
-                year: "2023",
-                description: "Underwater documentary score featuring deep, resonant tones and flowing melodies.",
-                image: "underwater+ocean+ambient+music",
-              },
-              {
-                title: "Retro Arcade",
-                category: "Game Audio",
-                duration: "3:27",
-                year: "2023",
-                description: "Nostalgic chiptune-inspired soundtrack for a retro-style platformer game.",
-                image: "retro+arcade+chiptune+music",
-              },
-            ].map((project, index) => (
+            {displayedVideos.map((video) => (
               <Card
-                key={index}
+                key={video.id}
                 className="group overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer"
               >
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
-                  <div
-                    className={`absolute inset-0 bg-[url('/abstract-geometric-shapes.png')] bg-cover bg-center opacity-30`}
-                  ></div>
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      // Fallback if thumbnail doesn't load
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/assets/video-thumbnails/placeholder.jpg"
+                    }}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-16 h-16 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center">
-                      <Play className="w-8 h-8 text-primary-foreground" />
-                    </div>
-                  </div>
                   <div className="absolute top-4 left-4">
-                    <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm">
-                      {project.category}
+                    <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm capitalize">
+                      {categoryDisplayNames[video.category] || video.category}
                     </Badge>
                   </div>
                   <div className="absolute bottom-4 right-4">
                     <span className="text-white font-mono text-sm bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
-                      {project.duration}
+                      {getVideoDuration(video.url)}
                     </span>
                   </div>
                 </div>
@@ -181,17 +177,22 @@ export default function HomePage() {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                        {project.title}
+                        {video.title}
                       </h3>
-                      <span className="text-sm text-muted-foreground">{project.year}</span>
+                      <span className="text-sm text-muted-foreground">2024</span>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                    <div className="flex flex-wrap gap-x-3 gap-y-2">
+                      {video.tags.map((tag) => (
+                        <span className="text-muted-foreground text-sm" key={tag}>
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  {/* Added minimal audio player to project cards */}
                   <div className="flex items-center justify-between pt-2">
                     <AudioPlayer
-                      title={project.title}
-                      duration={project.duration}
+                      title={video.title}
+                      duration={getVideoDuration(video.url)}
                       variant="minimal"
                       className="text-primary hover:text-primary"
                     />
@@ -203,10 +204,24 @@ export default function HomePage() {
           </div>
 
           {/* Load More */}
-          <div className="text-center mt-16">
-            <Button variant="outline" size="lg" className="px-12 bg-transparent">
-              Load More Projects
-            </Button>
+          {visibleVideos < filteredVideos.length && (
+            <div className="text-center mt-16">
+              <Button
+                variant="outline"
+                size="lg"
+                className="px-12 bg-transparent"
+                onClick={loadMoreVideos}
+              >
+                Load More Projects
+              </Button>
+            </div>
+          )}
+
+          {/* Show total count */}
+          <div className="text-center mt-8">
+            <p className="text-sm text-muted-foreground">
+              Showing {displayedVideos.length} of {filteredVideos.length} projects
+            </p>
           </div>
         </div>
       </section>
