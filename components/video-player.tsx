@@ -48,7 +48,6 @@ export function VideoPlayer({
     }
   }, [isPlaying, isLoaded])
 
-  // **FIX: Initialize video when component mounts**
   useEffect(() => {
     const video = videoRef.current
     if (video) {
@@ -62,6 +61,8 @@ export function VideoPlayer({
         video.volume = volume
         video.muted = isMuted
         console.log('Video duration loaded:', video.duration)
+
+        playerRef.current?.focus();
         
         // Autoplay if prop is true
         if (autoplay) {
@@ -204,8 +205,32 @@ export function VideoPlayer({
     )
   }
 
+  useEffect(() => {
+    const playerElement = playerRef.current;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Check if the spacebar was pressed
+      if (event.key === ' ') {
+        // Prevent the default browser action (e.g., scrolling)
+        event.preventDefault();
+        handlePlayPause();
+      }
+    };
+
+    if (playerElement) {
+      playerElement.addEventListener('keydown', handleKeyDown);
+    }
+
+    // Cleanup function to remove the listener when the component unmounts
+    return () => {
+      if (playerElement) {
+        playerElement.removeEventListener('keydown', handleKeyDown);
+      }
+    };
+  }, [handlePlayPause]); // Re-run if handlePlayPause changes
+
   return (
-    <Card ref={playerRef} className={cn("overflow-hidden", className)}>
+    <Card ref={playerRef} className={cn("overflow-hidden focus:outline-none", className)} tabIndex={0}>
       <div className="space-y-4">
         <div className="relative aspect-[16/8.5] bg-black rounded-lg overflow-hidden group">
           <video
