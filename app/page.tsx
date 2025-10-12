@@ -312,7 +312,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Description */}
-                  <div className="space-y-2">
+                  <div className="space-y-2 pt-5">
                     <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                       Description
                     </h3>
@@ -323,7 +323,7 @@ export default function HomePage() {
 
                   {/* Credits */}
                   {selectedVideo.credits && (
-                    <div className="space-y-2">
+                    <div className="space-y-2 pt-10">
                       <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                         Credits
                       </h3>
@@ -350,16 +350,16 @@ export default function HomePage() {
                     </div>
                   )}
 
-                  {/* Year & Duration */}
+                  {/* Year */}
                   <div className="space-y-1 text-sm pt-4 border-t border-border">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Year:</span>
                       <span className="font-medium">{selectedVideo.year || "2024"}</span>
                     </div>
-                    <div className="flex justify-between">
+                    {/* <div className="flex justify-between">
                       <span className="text-muted-foreground">Duration:</span>
                       <span className="font-medium font-mono">{getVideoDuration(selectedVideo.url)}</span>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* External Link */}
