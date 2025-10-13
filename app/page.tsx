@@ -12,6 +12,18 @@ import { Play, ExternalLink, Mail, X, ChevronLeft, ChevronRight } from "lucide-r
 import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
 import videos from "@/data/videos"
 
+const showreelVideo = {
+  id: 0,
+  category: "showreel",
+  title: 'Showreel 2025',
+  url: 'https://www.cdn.maximosigniorini.com/reel.mp4',
+  thumbnail: '/assets/video-thumbnails/portfolio.jpg',
+  description: "A collection of my recent work in sound design and music composition across film, advertisement, and motion graphics.",
+  credits: { client: 'Various' },
+  year: 2025,
+  tags: ["sound design", "music composition", "film", "advertisement"]
+};
+
 export default function HomePage() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -68,17 +80,23 @@ export default function HomePage() {
     const videoSlug = searchParams.get('video')
 
     if (videoSlug) {
-      const video = findVideoBySlug(videoSlug)
-      if (video) {
-        setSelectedVideo(video)
+      let videoToOpen = null;
+
+      if (videoSlug === 'portfolio') {
+        videoToOpen = showreelVideo; // Handle the showreel case
+      } else {
+        videoToOpen = findVideoBySlug(videoSlug); // Handle regular video slugs
+      }
+
+      if (videoToOpen) {
+        setSelectedVideo(videoToOpen)
         setIsModalOpen(true)
         document.body.style.overflow = 'hidden'
       } else {
-        // If video not found, remove the query param
         router.push('/', { scroll: false })
       }
     }
-  }, [searchParams])
+  }, [searchParams, router])
 
   // Open modal with selected video
   const openVideoModal = (video: typeof videos[0]) => {
@@ -89,6 +107,14 @@ export default function HomePage() {
 
     // Update URL without page reload
     router.push(`?video=${slug}`, { scroll: false })
+  }
+
+  //Showreel Modal
+  const openShowreelModal = () => {
+    setSelectedVideo(showreelVideo);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+    router.push('/?video=portfolio', { scroll: false });
   }
 
   // Close modal
@@ -160,14 +186,14 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-lg px-8">
+                <Button size="lg" className="text-lg px-8" onClick={openShowreelModal}>
                   <Play className="w-5 h-5 mr-2" />
-                  Portfolio
+                  View Full Portfolio
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
+                {/* <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
                   <ExternalLink className="w-5 h-5 mr-2" />
-                  View Work
-                </Button>
+                  View Full Portfolio
+                </Button> */}
               </div>
 
               <div className="flex items-center space-x-6 pt-4">
