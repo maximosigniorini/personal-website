@@ -33,7 +33,6 @@ export default function HomePage() {
   const [selectedVideo, setSelectedVideo] = useState<typeof videos[0] | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  // Filter videos based on selected category
   const filteredVideos = selectedFilter === "All"
     ? videos
     : videos.filter(video => video.category === selectedFilter)
@@ -62,7 +61,6 @@ export default function HomePage() {
     logo: "Logo",
   }
 
-  // Helper function to create URL-friendly slug from video title
   const createSlug = (title: string) => {
     return title
       .toLowerCase()
@@ -70,12 +68,10 @@ export default function HomePage() {
       .replace(/^-|-$/g, '')
   }
 
-  // Helper function to find video by slug
   const findVideoBySlug = (slug: string) => {
     return videos.find(video => createSlug(video.title) === slug)
   }
 
-  // Check URL on mount and when URL changes
   useEffect(() => {
     const videoSlug = searchParams.get('video')
 
@@ -83,9 +79,9 @@ export default function HomePage() {
       let videoToOpen = null;
 
       if (videoSlug === 'portfolio') {
-        videoToOpen = showreelVideo; // Handle the showreel case
+        videoToOpen = showreelVideo;
       } else {
-        videoToOpen = findVideoBySlug(videoSlug); // Handle regular video slugs
+        videoToOpen = findVideoBySlug(videoSlug);
       }
 
       if (videoToOpen) {
@@ -98,18 +94,14 @@ export default function HomePage() {
     }
   }, [searchParams, router])
 
-  // Open modal with selected video
   const openVideoModal = (video: typeof videos[0]) => {
     const slug = createSlug(video.title)
     setSelectedVideo(video)
     setIsModalOpen(true)
     document.body.style.overflow = 'hidden'
-
-    // Update URL without page reload
     router.push(`?video=${slug}`, { scroll: false })
   }
 
-  //Showreel Modal
   const openShowreelModal = () => {
     setSelectedVideo(showreelVideo);
     setIsModalOpen(true);
@@ -117,24 +109,19 @@ export default function HomePage() {
     router.push('/?video=portfolio', { scroll: false });
   }
 
-  // Close modal
   const closeModal = () => {
     setIsModalOpen(false)
     setSelectedVideo(null)
     document.body.style.overflow = 'unset'
-
-    // Remove query parameter from URL
     router.push('/', { scroll: false })
   }
 
-  // Navigate to next/previous video
   const navigateVideo = (direction: 'next' | 'prev') => {
     if (!selectedVideo) return
 
     const currentIndex = filteredVideos.findIndex(v => v.id === selectedVideo.id)
     let newIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1
 
-    // Loop around if at the end/start
     if (newIndex >= filteredVideos.length) newIndex = 0
     if (newIndex < 0) newIndex = filteredVideos.length - 1
 
@@ -142,16 +129,12 @@ export default function HomePage() {
     const slug = createSlug(newVideo.title)
 
     setSelectedVideo(newVideo)
-
-    // Update URL when navigating
     router.push(`?video=${slug}`, { scroll: false })
   }
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isModalOpen) return
-
       if (e.key === 'Escape') closeModal()
       if (e.key === 'ArrowRight') navigateVideo('next')
       if (e.key === 'ArrowLeft') navigateVideo('prev')
@@ -166,33 +149,34 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section id="hero" className="pt-32 pb-20 px-6">
+      <section id="hero" className="px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 animate-fade-in-up">
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* --- TEXT CONTAINER --- */}
+            <div className="space-y-8 animate-fade-in-up text-center lg:text-left">
               <div className="space-y-6">
-                <Badge variant="secondary" className="w-fit">
+                <Badge variant="secondary" className="w-fit mx-auto lg:mx-0">
                   Sound Designer & Music Composer
                 </Badge>
-                <h1 className="text-5xl lg:text-7xl font-serif font-bold leading-[0.85] text-balance tracking-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold leading-[0.85] text-balance tracking-tight">
                   Crafting
                   <span className="text-primary block">Sonic</span>
                   Experiences
                 </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed max-w-lg text-pretty">
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg text-pretty mx-auto lg:mx-0">
                   Passionate sound artist specializing in immersive audio design for film, advertisements, and digital media.
                   Transforming stories through sound.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-lg px-8" onClick={openShowreelModal}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8">
                   <Play className="w-5 h-5 mr-2" />
                   View Full Portfolio
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-6 pt-4">
+              <div className="flex items-center space-x-6 pt-4 justify-center lg:justify-start">
                 <a href="https://www.linkedin.com/in/maximo-signiorini/" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                   <SiLinkedin className="w-6 h-6" />
                 </a>
@@ -205,7 +189,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative">
+            {/* --- VIDEO PLAYER CONTAINER --- */}
+            <div className="relative w-full max-w-lg mx-auto lg:max-w-none">
               <VideoPlayer
                 title="Showreel 2025"
                 duration="3:45"
@@ -221,39 +206,38 @@ export default function HomePage() {
       </section>
 
       {/* Portfolio Gallery */}
-      <section id="work" className="py-32 px-6">
+      <section id="work" className="py-24 md:py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-8 mb-24">
+          <div className="text-center space-y-8 mb-16 md:mb-24">
             <Badge variant="secondary" className="w-fit mx-auto">
               Work
             </Badge>
-            <h2 className="text-5xl lg:text-6xl font-serif font-bold text-balance leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-balance leading-tight">
               Selected
               <span className="text-primary block">Projects</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-pretty">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-pretty">
               Explore my diverse range of audio work, from sound design to music composition. Each
               project represents a unique sonic journey crafted with precision and creativity.
             </p>
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 md:mb-16">
             {categories.map((category) => (
               <Button
                 key={category}
                 variant={selectedFilter === category ? "default" : "outline"}
-                className="px-6 py-2 capitalize"
+                className="px-4 py-1.5 text-sm sm:px-6 sm:py-2 capitalize"
                 onClick={() => handleFilterChange(category)}
               >
-                {/* Use the map to get the pretty display name */}
                 {categoryDisplayNames[category] || category}
               </Button>
             ))}
           </div>
 
           {/* Project Grid */}
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
             {displayedVideos.map((video) => (
               <Card
                 key={video.id}
@@ -266,7 +250,6 @@ export default function HomePage() {
                     alt={video.title}
                     className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105 blur-[1px] group-hover:blur-none"
                     onError={(e) => {
-                      // Fallback if thumbnail doesn't load
                       const target = e.target as HTMLImageElement;
                       target.src = "/assets/video-thumbnails/placeholder.jpg"
                     }}
@@ -334,16 +317,12 @@ export default function HomePage() {
       {/* Video Modal */}
       {isModalOpen && selectedVideo && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={closeModal}
           ></div>
-
-          {/* Modal Content */}
           <div className="relative z-10 w-full max-w-7xl mx-4 max-h-[90vh] overflow-y-auto">
             <Card className="overflow-hidden">
-              {/* Close Button */}
               <button
                 onClick={closeModal}
                 className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white flex items-center justify-center transition-colors"
@@ -352,7 +331,6 @@ export default function HomePage() {
               </button>
 
               <div className="grid lg:grid-cols-3 gap-0">
-                {/* Video Player Section */}
                 <div className="lg:col-span-2">
                   <VideoPlayer
                     title={selectedVideo.title}
@@ -364,7 +342,6 @@ export default function HomePage() {
                   />
                 </div>
 
-                {/* Info Section */}
                 <div className="p-8 space-y-6 bg-muted/30">
                   <div className="space-y-4">
                     <Badge variant="secondary" className="capitalize">
@@ -380,7 +357,6 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* Description */}
                   {selectedVideo.description && (
                     <div className="space-y-2 pt-5">
                       <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -392,7 +368,6 @@ export default function HomePage() {
                     </div>
                   )}
 
-                  {/* Credits */}
                   {selectedVideo.credits && (
                     <div className="space-y-2 pt-10">
                       <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -409,7 +384,6 @@ export default function HomePage() {
                     </div>
                   )}
 
-                  {/* Year */}
                   <div className="space-y-1 text-sm pt-4 border-t border-border">
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Year:</span>
@@ -417,7 +391,6 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* External Link */}
                   {selectedVideo.url.includes('youtube') && (
                     <Button variant="outline" className="w-full" asChild>
                       <a href={selectedVideo.url} target="_blank" rel="noopener noreferrer">
@@ -433,30 +406,25 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Rest of sections remain the same... */}
       {/* About Section */}
-      <section id="about" className="py-32 px-6 bg-muted/30">
+      <section id="about" className="py-24 md:py-32 px-6 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="space-y-10">
               <div className="space-y-8">
                 <Badge variant="secondary" className="w-fit">
                   About Me
                 </Badge>
-                <h2 className="text-5xl lg:text-6xl font-serif font-bold text-balance leading-tight">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-balance leading-tight">
                   Passionate About
                   <span className="text-primary block">Sound & Story</span>
                 </h2>
-                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                <div className="space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
                   <p className="text-pretty">
                     With over 6 years of experience in audio production, I specialize in creating immersive soundscapes
                     that elevate storytelling across multiple mediums, from advertisements to
                     film and other visual media.
                   </p>
-                  {/* <p className="text-pretty">
-                    I believe that sound is the invisible thread that connects audiences to emotions, memories, and
-                    experiences. Every project is an opportunity to craft something unique and meaningful.
-                  </p> */}
                   <p className="text-pretty">
                     In 2024 I completed my Masters degree in Sound Design for Screen at Bournemouth University. Worked for <a href="https://ronrocoaudio.com/" target='_blank' className='font-bold text-accent'>Ronroco Audio</a>, a sound design and music studio that has worked for brands such as Toyota, Splice and Adidas. Collaborated alongside Tom Joyce from <a href="https://soundcanvas.co/" target='_blank' className='font-bold text-accent'>Sound Canvas</a>.
                   </p>
@@ -483,17 +451,17 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 px-6">
+      <section id="contact" className="py-24 md:py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-10">
             <Badge variant="secondary" className="w-fit mx-auto">
               Get In Touch
             </Badge>
-            <h2 className="text-5xl lg:text-6xl font-serif font-bold text-balance leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-balance leading-tight">
               Ready to Create
               <span className="text-primary block">Something Amazing?</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty">
               Whether you're working on a film, commercial project, game, or need custom audio solutions, I'd love to
               hear about your vision and discuss how we can bring it to life through sound.
             </p>
