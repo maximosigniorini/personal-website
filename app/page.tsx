@@ -457,13 +457,11 @@ export default function HomePage() {
                     I believe that sound is the invisible thread that connects audiences to emotions, memories, and
                     experiences. Every project is an opportunity to craft something unique and meaningful.
                   </p>
+                  <p className="text-pretty">
+                    In 2024 I completed my Masters degree in Sound Design for Screen at Bournemouth University. Worked for <a href="https://ronrocoaudio.com/" target='_blank' className='font-bold text-accent'>Ronroco Audio</a>, a sound design and music studio that has worked for brands such as Toyota, Splice and Adidas. Collaborated alongside Tom Joyce from <a href="https://soundcanvas.co/" target='_blank' className='font-bold text-accent'>Sound Canvas</a>.
+                  </p>
                 </div>
               </div>
-
-              <Button size="lg" className="w-fit">
-                <Mail className="w-5 h-5 mr-2" />
-                Let's Collaborate
-              </Button>
             </div>
 
             <div className="relative">
