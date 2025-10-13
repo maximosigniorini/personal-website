@@ -190,20 +190,16 @@ export default function HomePage() {
                   <Play className="w-5 h-5 mr-2" />
                   View Full Portfolio
                 </Button>
-                {/* <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
-                  <ExternalLink className="w-5 h-5 mr-2" />
-                  View Full Portfolio
-                </Button> */}
               </div>
 
               <div className="flex items-center space-x-6 pt-4">
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://www.linkedin.com/in/maximo-signiorini/" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                   <SiLinkedin className="w-6 h-6" />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://www.instagram.com/maxsig.lab/" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                   <SiInstagram className="w-6 h-6" />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://www.youtube.com/@maximosigniorini" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                   <SiYoutube className="w-6 h-6" />
                 </a>
               </div>
@@ -506,10 +502,15 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12">
-            <Button size="lg" className="text-lg px-12">
-              <Mail className="w-5 h-5 mr-2" />
-              Start a Project
+            <Button size="lg" className="text-lg px-12" asChild>
+              <a href="mailto:maximosigniorini97@gmail.com">
+                <Mail className="w-5 h-5 mr-2" />
+                Start a Project
+              </a>
             </Button>
+            <p className="text-sm text-muted-foreground text-pretty pt-10">
+              maximosigniorini97 [at] gmail [dot] com
+            </p>
           </div>
         </div>
       </section>
@@ -524,13 +525,13 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-center space-x-6">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/in/maximo-signiorini/" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                 <SiLinkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/maxsig.lab/" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                 <SiInstagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.youtube.com/@maximosigniorini" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                 <SiYoutube className="w-5 h-5" />
               </a>
             </div>
