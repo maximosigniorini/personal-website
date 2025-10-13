@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -12,6 +13,9 @@ import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
 import videos from "@/data/videos"
 
 export default function HomePage() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+
   const [selectedFilter, setSelectedFilter] = useState("All")
   const [visibleVideos, setVisibleVideos] = useState(9)
   const [selectedVideo, setSelectedVideo] = useState<typeof videos[0] | null>(null)
@@ -46,11 +50,45 @@ export default function HomePage() {
     logo: "Logo",
   }
 
+  // Helper function to create URL-friendly slug from video title
+  const createSlug = (title: string) => {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '')
+  }
+
+  // Helper function to find video by slug
+  const findVideoBySlug = (slug: string) => {
+    return videos.find(video => createSlug(video.title) === slug)
+  }
+
+  // Check URL on mount and when URL changes
+  useEffect(() => {
+    const videoSlug = searchParams.get('video')
+
+    if (videoSlug) {
+      const video = findVideoBySlug(videoSlug)
+      if (video) {
+        setSelectedVideo(video)
+        setIsModalOpen(true)
+        document.body.style.overflow = 'hidden'
+      } else {
+        // If video not found, remove the query param
+        router.push('/', { scroll: false })
+      }
+    }
+  }, [searchParams])
+
   // Open modal with selected video
   const openVideoModal = (video: typeof videos[0]) => {
+    const slug = createSlug(video.title)
     setSelectedVideo(video)
     setIsModalOpen(true)
-    document.body.style.overflow = 'hidden' // Prevent background scrolling
+    document.body.style.overflow = 'hidden'
+
+    // Update URL without page reload
+    router.push(`?video=${slug}`, { scroll: false })
   }
 
   // Close modal
@@ -58,27 +96,36 @@ export default function HomePage() {
     setIsModalOpen(false)
     setSelectedVideo(null)
     document.body.style.overflow = 'unset'
+
+    // Remove query parameter from URL
+    router.push('/', { scroll: false })
   }
 
   // Navigate to next/previous video
   const navigateVideo = (direction: 'next' | 'prev') => {
     if (!selectedVideo) return
-    
+
     const currentIndex = filteredVideos.findIndex(v => v.id === selectedVideo.id)
     let newIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1
-    
+
     // Loop around if at the end/start
     if (newIndex >= filteredVideos.length) newIndex = 0
     if (newIndex < 0) newIndex = filteredVideos.length - 1
-    
-    setSelectedVideo(filteredVideos[newIndex])
+
+    const newVideo = filteredVideos[newIndex]
+    const slug = createSlug(newVideo.title)
+
+    setSelectedVideo(newVideo)
+
+    // Update URL when navigating
+    router.push(`?video=${slug}`, { scroll: false })
   }
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isModalOpen) return
-      
+
       if (e.key === 'Escape') closeModal()
       if (e.key === 'ArrowRight') navigateVideo('next')
       if (e.key === 'ArrowLeft') navigateVideo('prev')
@@ -266,11 +313,11 @@ export default function HomePage() {
       {isModalOpen && selectedVideo && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             onClick={closeModal}
           ></div>
-          
+
           {/* Modal Content */}
           <div className="relative z-10 w-full max-w-7xl mx-4 max-h-[90vh] overflow-y-auto">
             <Card className="overflow-hidden">
@@ -312,14 +359,16 @@ export default function HomePage() {
                   </div>
 
                   {/* Description */}
-                  <div className="space-y-2 pt-5">
-                    <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                      Description
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {selectedVideo.description || "Custom sound design and audio production for this project. Crafted to enhance the visual narrative and create an immersive audio experience."}
-                    </p>
-                  </div>
+                  {selectedVideo.description && (
+                    <div className="space-y-2 pt-5">
+                      <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                        Description
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {selectedVideo.description}
+                      </p>
+                    </div>
+                  )}
 
                   {/* Credits */}
                   {selectedVideo.credits && (
@@ -328,24 +377,12 @@ export default function HomePage() {
                         Credits
                       </h3>
                       <div className="space-y-1 text-sm">
-                        {/* {selectedVideo.credits.director && (
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Director:</span>
-                            <span className="font-medium">{selectedVideo.credits.director}</span>
-                          </div>
-                        )} */}
                         {selectedVideo.credits.client && (
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">Client:</span>
                             <span className="font-medium">{selectedVideo.credits.client}</span>
                           </div>
                         )}
-                        {/* {selectedVideo.credits.agency && (
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Agency:</span>
-                            <span className="font-medium">{selectedVideo.credits.agency}</span>
-                          </div>
-                        )} */}
                       </div>
                     </div>
                   )}
@@ -356,10 +393,6 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Year:</span>
                       <span className="font-medium">{selectedVideo.year || "2024"}</span>
                     </div>
-                    {/* <div className="flex justify-between">
-                      <span className="text-muted-foreground">Duration:</span>
-                      <span className="font-medium font-mono">{getVideoDuration(selectedVideo.url)}</span>
-                    </div> */}
                   </div>
 
                   {/* External Link */}
