@@ -450,13 +450,13 @@ export default function HomePage() {
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p className="text-pretty">
                     With over 6 years of experience in audio production, I specialize in creating immersive soundscapes
-                    that elevate storytelling across multiple mediums. My work spans from advertisements to
+                    that elevate storytelling across multiple mediums, from advertisements to
                     film and other visual media.
                   </p>
-                  <p className="text-pretty">
+                  {/* <p className="text-pretty">
                     I believe that sound is the invisible thread that connects audiences to emotions, memories, and
                     experiences. Every project is an opportunity to craft something unique and meaningful.
-                  </p>
+                  </p> */}
                   <p className="text-pretty">
                     In 2024 I completed my Masters degree in Sound Design for Screen at Bournemouth University. Worked for <a href="https://ronrocoaudio.com/" target='_blank' className='font-bold text-accent'>Ronroco Audio</a>, a sound design and music studio that has worked for brands such as Toyota, Splice and Adidas. Collaborated alongside Tom Joyce from <a href="https://soundcanvas.co/" target='_blank' className='font-bold text-accent'>Sound Canvas</a>.
                   </p>
