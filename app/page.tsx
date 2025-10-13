@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
+import Image from "next/image";
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -245,14 +246,11 @@ export default function HomePage() {
                 onClick={() => openVideoModal(video)}
               >
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
-                  <img
+                  <Image
                     src={video.thumbnail}
                     alt={video.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105 blur-[1px] group-hover:blur-none"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = "/assets/video-thumbnails/placeholder.jpg"
-                    }}
+                    fill
+                    className="object-cover transition-all duration-500 group-hover:scale-105 blur-[1px] group-hover:blur-none"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 left-4">
