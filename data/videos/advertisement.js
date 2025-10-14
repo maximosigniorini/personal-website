@@ -9,7 +9,8 @@ const advertisement = [
       client: 'Sound Canvas'
     },
     year: 2025,
-    tags: ["music"]
+    tags: ["music"],
+    featuredIndex: 1
   },
   {
     category: "advertisement",
@@ -21,7 +22,8 @@ const advertisement = [
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    featuredIndex: 2
   },
   {
     category: "advertisement",
@@ -33,7 +35,8 @@ const advertisement = [
       client: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["music-editing", "sound-design"]
+    tags: ["music-editing", "sound-design"],
+    featuredIndex: 3
   },
   {
     category: "advertisement",
@@ -45,7 +48,8 @@ const advertisement = [
       client: 'Fakery'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    featuredIndex: 4
   },
   {
     category: "advertisement",
@@ -262,6 +266,164 @@ const advertisement = [
       client: ''
     },
     year: 2023,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Audi',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/audi.mp4',
+    thumbnail: '/assets/video-thumbnails/audi.jpg',
+    description: 'Sound Design',
+    credits: {
+      client: ''
+    },
+    year: 2021,
+    tags: ["sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Bang Olufsen 2',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/bang-olufsen-2.mp4',
+    thumbnail: '/assets/video-thumbnails/bang-olufsen-2.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2022,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Florence',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/florence.mp4',
+    thumbnail: '/assets/video-thumbnails/florence.jpg',
+    description: 'Music Editing & Sound Design',
+    credits: {
+      client: 'Florence',
+      studio: 'Ravie'
+    },
+    year: 2025,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Head x BOA',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/head-x-boa.mp4',
+    thumbnail: '/assets/video-thumbnails/head-x-boa.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'BOA'
+    },
+    year: 2025,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: "Let's get to work",
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/lets-get-to-work.mp4',
+    thumbnail: '/assets/video-thumbnails/lets-get-to-work.jpg',
+    description: 'Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2024,
+    tags: ["sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: "Natural Museum",
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/natural-museum.mp4',
+    thumbnail: '/assets/video-thumbnails/natural-museum.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2025,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: "NU3",
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/nu3.mp4',
+    thumbnail: '/assets/video-thumbnails/nu3.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ravie'
+    },
+    year: 2025,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: "Obsidian Veil",
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/obsidian-veil.mp4',
+    thumbnail: '/assets/video-thumbnails/obsidian-veil.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2025,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: "Selle Italia",
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/selle-italia.mp4',
+    thumbnail: '/assets/video-thumbnails/selle-italia.jpg',
+    description: 'Music Editing & Sound Design',
+    credits: {
+      client: 'Selle Italia',
+      studio: 'Ronroco Audio'
+    },
+    year: 2025,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Timberland x BOA',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/timberland-x-boa.mp4',
+    thumbnail: '/assets/video-thumbnails/timberland-x-boa.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'BOA'
+    },
+    year: 2025,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Tom Dixon',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/tom-dixon.mp4',
+    thumbnail: '/assets/video-thumbnails/tom-dixon.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2024,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Van Orton Design',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/van-orton-design.mp4',
+    thumbnail: '/assets/video-thumbnails/van-orton.jpg',
+    description: 'Music Editing & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2024,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Vivo Barefoot',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/vivo-barefoot.mp4',
+    thumbnail: '/assets/video-thumbnails/vivo-barefoot.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2025,
     tags: ["music", "sound-design"]
   },
 ]

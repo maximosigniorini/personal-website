@@ -9,7 +9,8 @@ const film = [
       client: 'Bournemouth University'
     },
     year: 2024,
-    tags: ["sound-design", "music-editing", "foley", "mixing"]
+    tags: ["sound-design", "music-editing", "foley", "mixing"],
+    featuredIndex: 5
   },
   {
     category: "film",

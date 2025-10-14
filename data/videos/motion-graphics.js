@@ -9,7 +9,8 @@ const motionGraphics = [
       client: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    featuredIndex: 6
   },
   {
     category: "motion graphics",

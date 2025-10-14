@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
@@ -12,7 +12,6 @@ import { VideoPlayer } from "@/components/video-player"
 import { Play, ExternalLink, Mail, X, ChevronLeft, ChevronRight } from "lucide-react"
 import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
 import videos from "@/data/videos/"
-import { advertisement, film, motionGraphics, logo, animation} from "@/data/videos/"
 
 const showreelVideo = {
   id: 0,
@@ -26,6 +25,10 @@ const showreelVideo = {
   tags: ["sound design", "music composition", "film", "advertisement"]
 };
 
+type Video = (typeof videos)[0] & {
+  featuredIndex?: number
+}
+
 export default function HomePage() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -35,9 +38,35 @@ export default function HomePage() {
   const [selectedVideo, setSelectedVideo] = useState<typeof videos[0] | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const filteredVideos = selectedFilter === "All"
-    ? videos
-    : videos.filter(video => video.category === selectedFilter)
+  // Custom-sorted array for the "All" view
+  const allWorksCustomSorted = useMemo(() => {
+
+    const sortedVideos = [...(videos as Video[])]
+
+    sortedVideos.sort((a, b) => {
+      const hasA = a.featuredIndex !== undefined
+      const hasB = b.featuredIndex !== undefined
+
+      // If both have a featuredIndex, sort by that number
+      if (hasA && hasB) {
+        return a.featuredIndex! - b.featuredIndex!
+      }
+      // If only 'a' has a featuredIndex, it comes first
+      if (hasA) return -1
+      // If only 'b' has a featuredIndex, it comes first
+      if (hasB) return 1
+      
+      // Otherwise, keep the original order (based on the auto-generated ID)
+      return a.id - b.id
+    })
+
+    return sortedVideos
+  }, [])
+
+  const filteredVideos =
+    selectedFilter === "All"
+      ? allWorksCustomSorted
+      : videos.filter(video => video.category === selectedFilter)
 
   const displayedVideos = filteredVideos.slice(0, visibleVideos)
   const categories = ["All", ...new Set(videos.map(video => video.category))]
@@ -251,7 +280,7 @@ export default function HomePage() {
                     src={video.thumbnail}
                     alt={video.title}
                     fill
-                    className="object-cover transition-all duration-500 group-hover:scale-105 blur-[1px] group-hover:blur-none"
+                    className="object-cover transition-all duration-500 group-hover:scale-105 blur-[0.5px] group-hover:blur-none"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 left-4">
