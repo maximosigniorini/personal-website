@@ -11,7 +11,8 @@ import { AudioPlayer } from "@/components/audio-player"
 import { VideoPlayer } from "@/components/video-player"
 import { Play, ExternalLink, Mail, X, ChevronLeft, ChevronRight } from "lucide-react"
 import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
-import videos from "@/data/videos"
+import videos from "@/data/videos/"
+import { advertisement, film, motionGraphics, logo, animation} from "@/data/videos/"
 
 const showreelVideo = {
   id: 0,
@@ -171,7 +172,7 @@ export default function HomePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8">
+                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8" onClick={openShowreelModal}>
                   <Play className="w-5 h-5 mr-2" />
                   View Full Portfolio
                 </Button>
