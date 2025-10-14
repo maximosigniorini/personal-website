@@ -57,7 +57,7 @@ export default function HomePage() {
 
   const categoryDisplayNames: Record<string, string> = {
     film: "Film",
-    "motion graphics": "Motion Graphics",
+    motionGraphics: "Motion Graphics",
     advertisement: "Advertisement",
     animation: "Animation",
     logo: "Logo",
