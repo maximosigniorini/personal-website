@@ -10,7 +10,6 @@ const film = [
     },
     year: 2024,
     tags: ["sound-design", "music-editing", "foley", "mixing"],
-    featuredIndex: 5
   },
   {
     category: "film",

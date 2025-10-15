@@ -9,7 +9,7 @@ const logo = [
       client: 'Byclops Animation'
     },
     year: 2021,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design", "branding"]
   },
   {
     category: "logo",
@@ -21,7 +21,31 @@ const logo = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design", "branding"]
+  },
+  {
+    category: "logo",
+    title: 'Ozone',
+    url: 'https://www.cdn.maximosigniorini.com/logo/ozone.mp4',
+    thumbnail: '/assets/video-thumbnails/ozone.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: ''
+    },
+    year: 2024,
+    tags: ["music", "sound-design", "branding"]
+  },
+   {
+    category: "logo",
+    title: 'Qovery',
+    url: 'https://www.cdn.maximosigniorini.com/logo/qovery.mp4',
+    thumbnail: '/assets/video-thumbnails/qovery.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2021,
+    tags: ["music", "sound-design", "branding"]
   },
   {
     category: "logo",
@@ -33,7 +57,7 @@ const logo = [
       client: ''
     },
     year: 2021,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design", "branding"]
   },
   {
     category: "logo",
@@ -45,7 +69,31 @@ const logo = [
       client: ''
     },
     year: 2021,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design", "branding"]
+  },
+  {
+    category: "logo",
+    title: 'Fundbox',
+    url: 'https://www.cdn.maximosigniorini.com/logo/fundbox.mp4',
+    thumbnail: '/assets/video-thumbnails/Fundbox.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2021,
+    tags: ["music", "sound-design", "branding"]
+  },
+  {
+    category: "logo",
+    title: 'Sustancia Content Labs',
+    url: 'https://www.cdn.maximosigniorini.com/logo/sustancia-content-labs.mp4',
+    thumbnail: '/assets/video-thumbnails/sustancia-content-labs.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2021,
+    tags: ["music", "sound-design", "branding"]
   },
 ]
 

@@ -122,6 +122,18 @@ const motionGraphics = [
   },
   {
     category: "motion graphics",
+    title: 'Leonardoworx',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/leonardoworx.mp4',
+    thumbnail: '/assets/video-thumbnails/leonardoworx.jpg',
+    description: 'Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2024,
+    tags: ["sound-design"]
+  },
+  {
+    category: "motion graphics",
     title: 'Shapemove',
     url: 'https://www.cdn.maximosigniorini.com/motion-graphics/shapemove.mp4',
     thumbnail: '/assets/video-thumbnails/shapemove.jpg',
@@ -142,6 +154,18 @@ const motionGraphics = [
       client: ''
     },
     year: 2023,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "motion graphics",
+    title: 'NuPhy Kick 75',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/nuphy.mp4',
+    thumbnail: '/assets/video-thumbnails/nuphy.jpg',
+    description: 'Music Editing & Sound Design',
+    credits: {
+      client: ''
+    },
+    year: 2025,
     tags: ["music", "sound-design"]
   },
   {
@@ -218,12 +242,37 @@ const motionGraphics = [
   },
   {
     category: "motion graphics",
+    title: 'Google Fiber',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/google-fiber.mp4',
+    thumbnail: '/assets/video-thumbnails/google-fiber.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2022,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "motion graphics",
     title: "Flexin' those keyframes",
     url: 'https://www.cdn.maximosigniorini.com/motion-graphics/flexin-those-key-frames.mp4',
     thumbnail: '/assets/video-thumbnails/flexin-those-keyframes.jpg',
     description: 'Original Music & Sound Design',
     credits: {
       client: ''
+    },
+    year: 2024,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "motion graphics",
+    title: "Flexin' those keyframes 2",
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/flexin-those-key-frames-2.mp4',
+    thumbnail: '/assets/video-thumbnails/flexin-those-keyframes-2.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'callum.cannarella',
+      studio: 'Ronroco Audio'
     },
     year: 2024,
     tags: ["music", "sound-design"]
@@ -238,6 +287,43 @@ const motionGraphics = [
       client: ''
     },
     year: 2024,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "motion graphics",
+    title: 'Pepe God',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/pepegod.mp4',
+    thumbnail: '/assets/video-thumbnails/pepe-god.jpg',
+    description: 'Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2023,
+    tags: ["sound-design"]
+  },
+  {
+    category: "motion graphics",
+    title: 'Jacob',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/jacob-1.mp4',
+    thumbnail: '/assets/video-thumbnails/jacob.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'School of Motion',
+      studio: 'Ronroco Audio'
+    },
+    year: 2021,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "motion graphics",
+    title: 'Buck',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/buck.mp4',
+    thumbnail: '/assets/video-thumbnails/buck.jpg',
+    description: 'Music Editing & Sound Design',
+    credits: {
+      client: ''
+    },
+    year: 2021,
     tags: ["music", "sound-design"]
   },
 ]

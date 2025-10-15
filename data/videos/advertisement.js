@@ -53,39 +53,16 @@ const advertisement = [
   },
   {
     category: "advertisement",
-    title: 'HPE Playful inventiveness',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-playful-inventiveness.mp4',
-    thumbnail: '/assets/video-thumbnails/hpe-playful-inventiveness.jpg',
-    description: '',
+    title: 'Equiline Xanto',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/equiline-x-anto.mp4',
+    thumbnail: '/assets/video-thumbnails/equiline-xanto.jpg',
+    description: 'Original Music & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: ''
     },
-    year: 2022,
-    tags: ["music", "sound-design"]
-  },
-  {
-    category: "advertisement",
-    title: 'HPE In Data we Trust',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-in-data-we-trust.mp4',
-    thumbnail: '/assets/video-thumbnails/hpe-in-data-we-trust.jpg',
-    description: '',
-    credits: {
-      client: 'Ronroco Audio'
-    },
-    year: 2022,
-    tags: ["music", "sound-design"]
-  },
-  {
-    category: "advertisement",
-    title: 'HPE Lightness of Touch',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-lightness-of-touch-intro.mp4',
-    thumbnail: '/assets/video-thumbnails/hpe-lightness-of-touch.jpg',
-    description: '',
-    credits: {
-      client: 'Ronroco Audio'
-    },
-    year: 2022,
-    tags: ["music", "sound-design"]
+    year: 2024,
+    tags: ["music", "sound-design"],
+    featuredIndex: 9
   },
   {
     category: "advertisement",
@@ -101,18 +78,6 @@ const advertisement = [
   },
   {
     category: "advertisement",
-    title: 'Equiline Xanto',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/equiline-x-anto.mp4',
-    thumbnail: '/assets/video-thumbnails/equiline-xanto.jpg',
-    description: 'Original Music & Sound Design',
-    credits: {
-      client: ''
-    },
-    year: 2024,
-    tags: ["music", "sound-design"]
-  },
-  {
-    category: "advertisement",
     title: 'Resight',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/resight.mp4',
     thumbnail: '/assets/video-thumbnails/resight.jpg',
@@ -121,6 +86,80 @@ const advertisement = [
       client: ''
     },
     year: 2023,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Mutek',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/mutek.mp4',
+    thumbnail: '/assets/video-thumbnails/mutek.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Mutek Argentina'
+    },
+    year: 2022,
+    tags: ["music", "sound-design"],
+    featuredIndex: 8
+  },
+  {
+    category: "advertisement",
+    title: 'Splice',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/splice.mp4',
+    thumbnail: '/assets/video-thumbnails/splice.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Splice'
+    },
+    year: 2024,
+    tags: ["music", "sound-design"],
+    featuredIndex: 5
+  },
+  {
+    category: "advertisement",
+    title: 'Tempo Core Rooms',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/tempo-core-rooms.mp4',
+    thumbnail: '/assets/video-thumbnails/tempo-core-rooms.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: ''
+    },
+    year: 2023,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Audi',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/audi.mp4',
+    thumbnail: '/assets/video-thumbnails/audi.jpg',
+    description: 'Sound Design',
+    credits: {
+      client: ''
+    },
+    year: 2021,
+    tags: ["sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'Bang Olufsen 2',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/bang-olufsen-2.mp4',
+    thumbnail: '/assets/video-thumbnails/bang-olufsen-2.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Ronroco Audio'
+    },
+    year: 2022,
+    tags: ["music", "sound-design"]
+  },
+  {
+    category: "advertisement",
+    title: 'NBA x Crocs',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/crocs-nba.mp4',
+    thumbnail: '/assets/video-thumbnails/barkandbite.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Barkandbite'
+    },
+    year: 2024,
     tags: ["music", "sound-design"]
   },
   {
@@ -159,7 +198,7 @@ const advertisement = [
     year: 2024,
     tags: ["music", "sound-design"]
   },
-  {
+   {
     category: "advertisement",
     title: 'Diesel Daddies',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/diesel-daddies.mp4',
@@ -170,18 +209,6 @@ const advertisement = [
     },
     year: 2024,
     tags: ["sound-design"]
-  },
-  {
-    category: "advertisement",
-    title: 'NBA x Crocs',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/crocs-nba.mp4',
-    thumbnail: '/assets/video-thumbnails/barkandbite.jpg',
-    description: 'Original Music & Sound Design',
-    credits: {
-      client: 'Barkandbite'
-    },
-    year: 2024,
-    tags: ["music", "sound-design"]
   },
   {
     category: "advertisement",
@@ -222,18 +249,6 @@ const advertisement = [
   },
   {
     category: "advertisement",
-    title: 'Mutek',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/mutek.mp4',
-    thumbnail: '/assets/video-thumbnails/mutek.jpg',
-    description: 'Original Music & Sound Design',
-    credits: {
-      client: 'Mutek Argentina'
-    },
-    year: 2022,
-    tags: ["music", "sound-design"]
-  },
-  {
-    category: "advertisement",
     title: 'Reveland',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/reveland.mp4',
     thumbnail: '/assets/video-thumbnails/reveland.jpg',
@@ -246,46 +261,34 @@ const advertisement = [
   },
   {
     category: "advertisement",
-    title: 'Splice',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/splice.mp4',
-    thumbnail: '/assets/video-thumbnails/splice.jpg',
-    description: 'Original Music & Sound Design',
+    title: 'HPE Playful inventiveness',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-playful-inventiveness.mp4',
+    thumbnail: '/assets/video-thumbnails/hpe-playful-inventiveness.jpg',
+    description: '',
     credits: {
-      client: 'Splice'
+      client: 'Ronroco Audio'
     },
-    year: 2024,
+    year: 2022,
     tags: ["music", "sound-design"]
   },
   {
     category: "advertisement",
-    title: 'Tempo Core Rooms',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/tempo-core-rooms.mp4',
-    thumbnail: '/assets/video-thumbnails/tempo-core-rooms.jpg',
-    description: 'Original Music & Sound Design',
+    title: 'HPE In Data we Trust',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-in-data-we-trust.mp4',
+    thumbnail: '/assets/video-thumbnails/hpe-in-data-we-trust.jpg',
+    description: '',
     credits: {
-      client: ''
+      client: 'Ronroco Audio'
     },
-    year: 2023,
+    year: 2022,
     tags: ["music", "sound-design"]
   },
   {
     category: "advertisement",
-    title: 'Audi',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/audi.mp4',
-    thumbnail: '/assets/video-thumbnails/audi.jpg',
-    description: 'Sound Design',
-    credits: {
-      client: ''
-    },
-    year: 2021,
-    tags: ["sound-design"]
-  },
-  {
-    category: "advertisement",
-    title: 'Bang Olufsen 2',
-    url: 'https://www.cdn.maximosigniorini.com/advertisement/bang-olufsen-2.mp4',
-    thumbnail: '/assets/video-thumbnails/bang-olufsen-2.jpg',
-    description: 'Original Music & Sound Design',
+    title: 'HPE Lightness of Touch',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-lightness-of-touch-intro.mp4',
+    thumbnail: '/assets/video-thumbnails/hpe-lightness-of-touch.jpg',
+    description: '',
     credits: {
       client: 'Ronroco Audio'
     },
@@ -376,7 +379,8 @@ const advertisement = [
       studio: 'Ronroco Audio'
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    featuredIndex: 7
   },
   {
     category: "advertisement",
