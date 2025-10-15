@@ -187,6 +187,11 @@ export function VideoPlayer({
     return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
+  const isYouTubeUrl = (url?: string) => {
+    if (!url) return false
+    return url.includes("youtube.com") || url.includes("youtu.be")
+  }
+
   if (variant === "minimal") {
     return (
       <Button variant="ghost" size="sm" onClick={handlePlayPause} className={cn("p-2 h-auto", className)}>
@@ -254,86 +259,98 @@ export function VideoPlayer({
     <Card ref={playerRef} className={cn("overflow-hidden focus:outline-none", className)} tabIndex={0}>
       <div className="space-y-4">
         <div className="relative aspect-[16/8.5] bg-black rounded-lg overflow-hidden group">
-          <video
-            ref={videoRef}
-            className="w-full h-full object-cover cursor-pointer"
-            poster={posterUrl}
-            muted={isMuted}
-            preload="metadata"
-            onClick={handlePlayPause}
-            onLoadedData={() => console.log('Video data loaded')}
-            disablePictureInPicture
-            onContextMenu={(e) => e.preventDefault()}
-            controlsList="nodownload noplaybackrate"
-          >
-            <source src={videoUrl} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {isYouTubeUrl(videoUrl) ? (
+            <iframe
+              src={videoUrl.replace("watch?v=", "embed/") + "?autoplay=1&modestbranding=1&rel=0&showinfo=0&controls=1"}
+              title={title}
+              className="w-full h-full rounded-lg"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : (
+            <video
+              ref={videoRef}
+              className="w-full h-full object-cover cursor-pointer"
+              poster={posterUrl}
+              muted={isMuted}
+              preload="metadata"
+              disablePictureInPicture
+              controlsList="nodownload noplaybackrate"
+              onClick={handlePlayPause}
+              onContextMenu={(e) => e.preventDefault()}
+            >
+              <source src={videoUrl} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
 
-          {/* Hover overlay without play button */}
+          {/* Hover overlay */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <div className="absolute inset-0 bg-black/20"></div>
           </div>
         </div>
+        {/* Render custom controls only for non-YouTube videos */}
+        {!isYouTubeUrl(videoUrl) && (
+          <div className="p-6 space-y-4">
+            <div className="text-center space-y-2">
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <p className="text-muted-foreground">{artist}</p>
+            </div>
+            <div className="space-y-2">
+              <Slider
+                value={[currentTime]}
+                max={totalDuration || 100}
+                step={0.1}
+                onValueChange={handleSeek}
+                className="w-full"
+                disabled={!isLoaded} // **FIX: Disable until loaded**
+              />
+              <div className="flex justify-between text-xs text-muted-foreground font-mono">
+                <span>{formatTime(currentTime)}</span>
+                <span>{isLoaded ? formatTime(totalDuration) : "Loading..."}</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-center space-x-4">
+              <Button variant="ghost" size="sm" className="w-10 h-10 rounded-full">
+                <SkipBack className="w-4 h-4" />
+              </Button>
+              <Button
+                onClick={handlePlayPause}
+                size="lg"
+                className="w-14 h-14 rounded-full"
+                disabled={!isLoaded} // **FIX: Disable until loaded**
+              >
+                {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+              </Button>
+              <Button variant="ghost" size="sm" className="w-10 h-10 rounded-full">
+                <SkipForward className="w-4 h-4" />
+              </Button>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Button variant="ghost" size="sm" onClick={toggleMute} className="w-8 h-8 rounded-full">
+                {isMuted || volume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              </Button>
 
-        <div className="p-6 space-y-4">
-          <div className="text-center space-y-2">
-            <h3 className="text-lg font-semibold">{title}</h3>
-            <p className="text-muted-foreground">{artist}</p>
-          </div>
-          <div className="space-y-2">
-            <Slider
-              value={[currentTime]}
-              max={totalDuration || 100}
-              step={0.1}
-              onValueChange={handleSeek}
-              className="w-full"
-              disabled={!isLoaded} // **FIX: Disable until loaded**
-            />
-            <div className="flex justify-between text-xs text-muted-foreground font-mono">
-              <span>{formatTime(currentTime)}</span>
-              <span>{isLoaded ? formatTime(totalDuration) : "Loading..."}</span>
+              <Slider
+                value={[isMuted ? 0 : volume]}
+                max={1}
+                step={0.01}
+                onValueChange={handleVolumeChange}
+                className="flex-1"
+              />
+
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleFullscreen}
+                className="w-8 h-8 rounded-full"
+              >
+                {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+              </Button>
             </div>
           </div>
-          <div className="flex items-center justify-center space-x-4">
-            <Button variant="ghost" size="sm" className="w-10 h-10 rounded-full">
-              <SkipBack className="w-4 h-4" />
-            </Button>
-            <Button
-              onClick={handlePlayPause}
-              size="lg"
-              className="w-14 h-14 rounded-full"
-              disabled={!isLoaded} // **FIX: Disable until loaded**
-            >
-              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-            </Button>
-            <Button variant="ghost" size="sm" className="w-10 h-10 rounded-full">
-              <SkipForward className="w-4 h-4" />
-            </Button>
-          </div>
-          <div className="flex items-center space-x-3">
-            <Button variant="ghost" size="sm" onClick={toggleMute} className="w-8 h-8 rounded-full">
-              {isMuted || volume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-            </Button>
-
-            <Slider
-              value={[isMuted ? 0 : volume]}
-              max={1}
-              step={0.01}
-              onValueChange={handleVolumeChange}
-              className="flex-1"
-            />
-
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleFullscreen}
-              className="w-8 h-8 rounded-full"
-            >
-              {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-            </Button>
-          </div>
-        </div>
+        )}
       </div>
     </Card>
   )
