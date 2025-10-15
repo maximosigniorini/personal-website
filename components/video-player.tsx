@@ -168,15 +168,15 @@ export function VideoPlayer({
   }
 
   const toggleFullscreen = () => {
-  const video = videoRef.current;
-  if (!video) return;
+    const video = videoRef.current;
+    if (!video) return;
 
-  if (!document.fullscreenElement) {
-    video.requestFullscreen?.().then(() => setIsFullscreen(true));
-  } else {
-    document.exitFullscreen?.().then(() => setIsFullscreen(false));
-  }
-};
+    if (!document.fullscreenElement) {
+      video.requestFullscreen?.().then(() => setIsFullscreen(true));
+    } else {
+      document.exitFullscreen?.().then(() => setIsFullscreen(false));
+    }
+  };
 
   useEffect(() => {
     const handleFullscreenChange = () => {
@@ -259,10 +259,12 @@ export function VideoPlayer({
             className="w-full h-full object-cover cursor-pointer"
             poster={posterUrl}
             muted={isMuted}
-            preload="metadata" // **FIX: Ensure metadata loads**
-            // crossOrigin="anonymous" // Removed temporarily due to CORS issues
+            preload="metadata"
             onClick={handlePlayPause}
             onLoadedData={() => console.log('Video data loaded')}
+            disablePictureInPicture
+            onContextMenu={(e) => e.preventDefault()}
+            controlsList="nodownload noplaybackrate"
           >
             <source src={videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
