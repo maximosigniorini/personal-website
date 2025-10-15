@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Slider } from "@/components/ui/slider"
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX } from "lucide-react"
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Maximize2, Minimize2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface VideoPlayerProps {
@@ -34,6 +34,7 @@ export function VideoPlayer({
   const [volume, setVolume] = useState(0.75)
   const [isMuted, setIsMuted] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false) // Track if video metadata is loaded
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null)
   const playerRef = useRef<HTMLDivElement>(null)
 
@@ -53,7 +54,7 @@ export function VideoPlayer({
     if (video) {
       // Force load metadata
       video.load()
-      
+
       const handleLoadedMetadata = () => {
         setTotalDuration(video.duration)
         setIsLoaded(true)
@@ -63,7 +64,7 @@ export function VideoPlayer({
         console.log('Video duration loaded:', video.duration)
 
         playerRef.current?.focus();
-        
+
         // Autoplay if prop is true
         if (autoplay) {
           video.play().then(() => {
@@ -142,7 +143,7 @@ export function VideoPlayer({
     const newVolume = value[0]
     setVolume(newVolume)
     setIsMuted(newVolume === 0)
-    
+
     // Use requestAnimationFrame to ensure state updates don't interfere
     requestAnimationFrame(() => {
       const video = videoRef.current
@@ -156,7 +157,7 @@ export function VideoPlayer({
   const toggleMute = () => {
     const newMutedState = !isMuted
     setIsMuted(newMutedState)
-    
+
     // Use requestAnimationFrame to ensure state updates don't interfere
     requestAnimationFrame(() => {
       const video = videoRef.current
@@ -165,7 +166,27 @@ export function VideoPlayer({
       }
     })
   }
-  
+
+  const toggleFullscreen = () => {
+  const video = videoRef.current;
+  if (!video) return;
+
+  if (!document.fullscreenElement) {
+    video.requestFullscreen?.().then(() => setIsFullscreen(true));
+  } else {
+    document.exitFullscreen?.().then(() => setIsFullscreen(false));
+  }
+};
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
   if (variant === "minimal") {
     return (
       <Button variant="ghost" size="sm" onClick={handlePlayPause} className={cn("p-2 h-auto", className)}>
@@ -246,7 +267,7 @@ export function VideoPlayer({
             <source src={videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          
+
           {/* Hover overlay without play button */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <div className="absolute inset-0 bg-black/20"></div>
@@ -259,11 +280,11 @@ export function VideoPlayer({
             <p className="text-muted-foreground">{artist}</p>
           </div>
           <div className="space-y-2">
-            <Slider 
-              value={[currentTime]} 
-              max={totalDuration || 100} 
-              step={0.1} 
-              onValueChange={handleSeek} 
+            <Slider
+              value={[currentTime]}
+              max={totalDuration || 100}
+              step={0.1}
+              onValueChange={handleSeek}
               className="w-full"
               disabled={!isLoaded} // **FIX: Disable until loaded**
             />
@@ -276,9 +297,9 @@ export function VideoPlayer({
             <Button variant="ghost" size="sm" className="w-10 h-10 rounded-full">
               <SkipBack className="w-4 h-4" />
             </Button>
-            <Button 
-              onClick={handlePlayPause} 
-              size="lg" 
+            <Button
+              onClick={handlePlayPause}
+              size="lg"
               className="w-14 h-14 rounded-full"
               disabled={!isLoaded} // **FIX: Disable until loaded**
             >
@@ -292,6 +313,7 @@ export function VideoPlayer({
             <Button variant="ghost" size="sm" onClick={toggleMute} className="w-8 h-8 rounded-full">
               {isMuted || volume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
             </Button>
+
             <Slider
               value={[isMuted ? 0 : volume]}
               max={1}
@@ -299,7 +321,15 @@ export function VideoPlayer({
               onValueChange={handleVolumeChange}
               className="flex-1"
             />
-            <span className="text-xs text-muted-foreground font-mono w-8">{Math.round(volume * 100)}%</span>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleFullscreen}
+              className="w-8 h-8 rounded-full"
+            >
+              {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+            </Button>
           </div>
         </div>
       </div>
