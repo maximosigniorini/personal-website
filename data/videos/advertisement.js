@@ -10,46 +10,51 @@ const advertisement = [
     },
     year: 2025,
     tags: ["music"],
-    featuredIndex: 1
+    featuredIndex: 1,
+    projectType: "commissioned" // commissioned | spec | personal | academic
   },
   {
     category: "advertisement",
     title: 'Google OnHub',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/google-onhub.mp4',
     thumbnail: '/assets/video-thumbnails/google-onhub.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original visuals by Google',
     credits: {
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound-design"],
-    featuredIndex: 2
+    tags: ["remake","music", "sound-design"],
+    featuredIndex: 2,
+    projectType: "spec"
   },
   {
     category: "advertisement",
     title: 'Climate Change',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/climate-change.mp4',
     thumbnail: '/assets/video-thumbnails/climate-change.jpg',
-    description: '',
+    description: 'Music editing & Sound Design.',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'Ravie',
+      studio: 'Ronroco Audio'
     },
     year: 2023,
     tags: ["music-editing", "sound-design"],
-    featuredIndex: 3
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
     title: 'BMW',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/fakery.mp4',
     thumbnail: '/assets/video-thumbnails/fakery.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original visuals by Fakery.',
     credits: {
-      client: 'Fakery'
+      client: 'Ronroco Audio',
+      studio: 'Fakery'
     },
     year: 2024,
-    tags: ["music", "sound-design"],
-    featuredIndex: 4
+    tags: ["remake","music", "sound-design"],
+    featuredIndex: 4,
+    projectType: "spec"
   },
   {
     category: "advertisement",
@@ -58,35 +63,38 @@ const advertisement = [
     thumbnail: '/assets/video-thumbnails/equiline-xanto.jpg',
     description: 'Original Music & Sound Design',
     credits: {
-      client: ''
+      client: 'Equiline'
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    featuredIndex: 9
+    featuredIndex: 9,
+    projectType: 'commisioned'
   },
   {
     category: "advertisement",
     title: 'Adidas',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/Adidas.mp4',
     thumbnail: '/assets/video-thumbnails/adidas.jpg',
-    description: '',
+    description: 'Original Sound Design.',
     credits: {
-      client: 'Adidas'
+      client: 'TotalMedios'
     },
     year: 2021,
-    tags: ["music", "sound-design"]
+    tags: ["sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
-    title: 'Resight',
+    title: 'New Balance Fresh Foam X 1080v12',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/resight.mp4',
     thumbnail: '/assets/video-thumbnails/resight.jpg',
-    description: '',
+    description: 'Original Music & Sound Design. Original visuals by Resight.',
     credits: {
-      client: ''
+      client: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: 'spec'
   },
   {
     category: "advertisement",
@@ -99,7 +107,8 @@ const advertisement = [
     },
     year: 2022,
     tags: ["music", "sound-design"],
-    featuredIndex: 8
+    featuredIndex: 8,
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -108,63 +117,68 @@ const advertisement = [
     thumbnail: '/assets/video-thumbnails/splice.jpg',
     description: 'Original Music & Sound Design',
     credits: {
-      client: 'Splice'
+      client: 'Ravie'
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    featuredIndex: 5
+    featuredIndex: 5,
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
     title: 'Tempo Core Rooms',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/tempo-core-rooms.mp4',
     thumbnail: '/assets/video-thumbnails/tempo-core-rooms.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design.',
     credits: {
       client: ''
     },
     year: 2023,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
     title: 'Audi',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/audi.mp4',
     thumbnail: '/assets/video-thumbnails/audi.jpg',
-    description: 'Sound Design',
+    description: 'Original visuals by Audi.',
     credits: {
       client: ''
     },
     year: 2021,
-    tags: ["sound-design"]
+    tags: ["remake", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
     title: 'Bang Olufsen 2',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/bang-olufsen-2.mp4',
     thumbnail: '/assets/video-thumbnails/bang-olufsen-2.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original visuals by Bang Olufsen.',
     credits: {
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
     title: 'NBA x Crocs',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/crocs-nba.mp4',
     thumbnail: '/assets/video-thumbnails/barkandbite.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original visuals by Barkandbite.',
     credits: {
       client: 'Barkandbite'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
-    title: 'The Berry',
+    title: 'Omoda 5',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/the-berry.mp4',
     thumbnail: '/assets/video-thumbnails/the-berry.jpg',
     description: '',
@@ -172,56 +186,61 @@ const advertisement = [
       client: ''
     },
     year: 2024,
-    tags: ["sound-design"]
+    tags: ["sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
     title: 'Pick your weapon',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/pick-your-weapon.mp4',
     thumbnail: '/assets/video-thumbnails/pick-your-weapon.jpg',
-    description: '',
+    description: 'Music Editing & Sound Design.',
     credits: {
-      client: ''
+      client: 'Vicver'
     },
     year: 2024,
-    tags: ["music-editing", "sound-design"]
+    tags: ["music-editing", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
-    title: 'Post Office',
+    title: 'Platinum Love Bands',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/post-office.mp4',
     thumbnail: '/assets/video-thumbnails/post-office.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original visuals by Post Office',
     credits: {
-      client: ''
+      client: 'Post Office'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
    {
     category: "advertisement",
     title: 'Diesel Daddies',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/diesel-daddies.mp4',
     thumbnail: '/assets/video-thumbnails/diesel-daddies.jpg',
-    description: '',
+    description: 'Original music & Sound Design. Original visuals by Jader Rachid.',
     credits: {
-      client: 'Diesel'
+      client: 'Jader Rachid'
     },
     year: 2024,
-    tags: ["sound-design"]
+    tags: ["remake","sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
     title: 'Chubb',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/chubb.mp4',
     thumbnail: '/assets/video-thumbnails/blublu.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original Visuals by BluBlu.',
     credits: {
       client: 'Chubb',
       studio: 'BluBlu'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
@@ -233,7 +252,8 @@ const advertisement = [
       client: 'NIO'
     },
     year: 2021,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -245,55 +265,60 @@ const advertisement = [
       client: 'Bang Olufsen'
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
-    title: 'Reveland',
+    title: 'ng-voice',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/reveland.mp4',
     thumbnail: '/assets/video-thumbnails/reveland.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original Visuals by Reveland.',
     credits: {
-      client: ''
+      client: 'Reveland'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
     title: 'HPE Playful inventiveness',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-playful-inventiveness.mp4',
     thumbnail: '/assets/video-thumbnails/hpe-playful-inventiveness.jpg',
-    description: '',
+    description: 'Original Music & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'HPE'
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
     title: 'HPE In Data we Trust',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-in-data-we-trust.mp4',
     thumbnail: '/assets/video-thumbnails/hpe-in-data-we-trust.jpg',
-    description: '',
+    description: 'Original Music & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'HPE'
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
     title: 'HPE Lightness of Touch',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/hpe-lightness-of-touch-intro.mp4',
     thumbnail: '/assets/video-thumbnails/hpe-lightness-of-touch.jpg',
-    description: '',
+    description: 'Original Music & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'HPE'
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -306,7 +331,8 @@ const advertisement = [
       studio: 'Ravie'
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -318,7 +344,8 @@ const advertisement = [
       client: 'BOA'
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -330,7 +357,8 @@ const advertisement = [
       client: 'Ronroco Audio'
     },
     year: 2024,
-    tags: ["sound-design"]
+    tags: ["sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -339,10 +367,11 @@ const advertisement = [
     thumbnail: '/assets/video-thumbnails/natural-museum.jpg',
     description: 'Original Music & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: ''
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "advertisement",
@@ -354,7 +383,8 @@ const advertisement = [
       client: 'Ravie'
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -366,7 +396,8 @@ const advertisement = [
       client: 'Ronroco Audio'
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -380,7 +411,8 @@ const advertisement = [
     },
     year: 2025,
     tags: ["music", "sound-design"],
-    featuredIndex: 7
+    featuredIndex: 7,
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -392,31 +424,37 @@ const advertisement = [
       client: 'BOA'
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
-    title: 'Tom Dixon',
+    title: 'Tom Dixon - Pose',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/tom-dixon.mp4',
     thumbnail: '/assets/video-thumbnails/tom-dixon.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original Visuals by Tom Dixon',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'Tom Dixon',
+      visuals: 'jformento'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    featuredIndex: 3,
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
-    title: 'Van Orton Design',
+    title: '24 Bottles',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/van-orton-design.mp4',
     thumbnail: '/assets/video-thumbnails/van-orton.jpg',
     description: 'Music Editing & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: '24 Bottles',
+      studio: 'Van Orton Design'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "advertisement",
@@ -425,10 +463,12 @@ const advertisement = [
     thumbnail: '/assets/video-thumbnails/vivo-barefoot.jpg',
     description: 'Original Music & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'Vivobarefoot',
+      studio: 'Morning Star AI'
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
 ]
 
