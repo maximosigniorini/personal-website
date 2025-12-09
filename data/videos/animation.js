@@ -10,7 +10,8 @@ const animation = [
       studio: 'Ronroco Audio'
     },
     year: 2025,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
    {
     category: "animation",
@@ -22,7 +23,8 @@ const animation = [
       client: 'Mamba Studio'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "animation",
@@ -34,7 +36,8 @@ const animation = [
       client: ''
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "animation",
@@ -46,7 +49,8 @@ const animation = [
       client: 'Bournemouth University'
     },
     year: 2023,
-    tags: ["sound-design"]
+    tags: ["sound-design"],
+    projectType: "personal"
   },
    {
     category: "animation",
@@ -58,7 +62,8 @@ const animation = [
       client: ''
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
    {
     category: "animation",
@@ -70,7 +75,8 @@ const animation = [
       client: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["re-design", "music", "sound-design"]
+    tags: ["remake", "music", "sound-design"],
+    projectType: "spec"
   },
    {
     category: "animation",
@@ -79,22 +85,24 @@ const animation = [
     thumbnail: '/assets/video-thumbnails/ianus-coffee.jpg',
     description: 'Original Music & Sound Design',
     credits: {
-      client: ''
+      client: 'Studio Ianus'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "animation",
     title: 'Fern',
     url: 'https://www.cdn.maximosigniorini.com/animation/fern.mp4',
     thumbnail: '/assets/video-thumbnails/fern.jpg',
-    description: 'Music Editing & Sound Design',
+    description: 'Music Editing & Sound Design. Original visuals by Fern.',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'Fern'
     },
     year: 2023,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "animation",
@@ -103,10 +111,11 @@ const animation = [
     thumbnail: '/assets/video-thumbnails/record.jpg',
     description: 'Original Music & Sound Design',
     credits: {
-      client: ''
+      client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "animation",
@@ -118,44 +127,48 @@ const animation = [
       client: 'Jonathan Pui'
     },
     year: 2023,
-    tags: ["sound-design"]
+    tags: ["sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "animation",
     title: 'Gaia',
     url: 'https://www.cdn.maximosigniorini.com/animation/gaia.mp4',
     thumbnail: '/assets/video-thumbnails/gaia.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. Original film by Marco Regina and Luca Pisanu.',
     credits: {
-      client: 'Ronroco Audio'
+      client: ''
     },
     year: 2023,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "animation",
     title: 'ARA',
     url: 'https://www.cdn.maximosigniorini.com/animation/2veinte.mp4',
     thumbnail: '/assets/video-thumbnails/2veinte.jpg',
-    description: '',
+    description: 'Original Music & Sound Design. Original film by 2Veinte',
     credits: {
       client: '2Veinte',
       studio: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["sound-design"]
+    tags: ["remake","sound-design"],
+    projectType: "spec"
   },
   {
     category: "animation",
-    title: 'Form Play',
+    title: 'Playgrounds',
     url: 'https://www.cdn.maximosigniorini.com/animation/form-play.mp4',
     thumbnail: '/assets/video-thumbnails/form-play.jpg',
-    description: 'Music Editing & Sound Design',
+    description: 'Music Editing & Sound Design. Original video by Form Play',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'Form Play'
     },
     year: 2023,
-    tags: ["music", "sound-design"]
+    tags: ["remake","music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "animation",
@@ -164,10 +177,11 @@ const animation = [
     thumbnail: '/assets/video-thumbnails/trailer-cracke.jpg',
     description: 'Music Editing & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: ''
     },
     year: 2023,
-    tags: ["re-design", "music", "sound-design"]
+    tags: ["remake", "music", "sound-design"],
+    projectType: "spec"
   },
   {
     category: "animation",
@@ -176,10 +190,11 @@ const animation = [
     thumbnail: '/assets/video-thumbnails/make-it-move-1.jpg',
     description: 'Music Editing & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: '3rd Floor TV'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "animation",
@@ -188,10 +203,11 @@ const animation = [
     thumbnail: '/assets/video-thumbnails/make-it-move-2.jpg',
     description: 'Music Editing & Sound Design',
     credits: {
-      client: 'Ronroco Audio'
+      client: '3rd Floor TV'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
   {
     category: "animation",
@@ -204,7 +220,8 @@ const animation = [
       studio: 'Ronroco Audio'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commisioned"
   },
 ]
 

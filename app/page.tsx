@@ -10,7 +10,7 @@ import { Navigation } from "@/components/navigation"
 import { AudioPlayer } from "@/components/audio-player"
 import { VideoPlayer } from "@/components/video-player"
 import { Play, ExternalLink, Mail, X, ChevronLeft, ChevronRight } from "lucide-react"
-import { SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
+import { SiLinkedin, SiInstagram, SiYoutube, SiImdb } from "react-icons/si"
 import videos from "@/data/videos/"
 
 const showreelVideo = {
@@ -213,6 +213,9 @@ export default function HomePage() {
                 </a>
                 <a href="https://www.instagram.com/maxsig.lab/" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                   <SiInstagram className="w-6 h-6" />
+                </a>
+                <a href="https://www.imdb.com/name/nm17833006/?ref_=ttfc_fcr_13_4" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
+                  <SiImdb className="w-6 h-6" />
                 </a>
                 <a href="https://www.youtube.com/@maximosigniorini" className="text-muted-foreground hover:text-primary transition-colors" target="_blank">
                   <SiYoutube className="w-6 h-6" />
