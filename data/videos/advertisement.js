@@ -10,19 +10,21 @@ const advertisement = [
     },
     year: 2025,
     tags: ["music"],
-    featuredIndex: 1
+    featuredIndex: 1,
+    projectType: "commissioned",
+    originalVideoCredit: null,
   },
   {
     category: "advertisement",
     title: 'Google OnHub',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/google-onhub.mp4',
     thumbnail: '/assets/video-thumbnails/google-onhub.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design. All audio recreated from scratch as part of a personal project to demonstrate sound design and music composition skills.',
     credits: {
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound-design"],
+    tags: ["spec-sound", "music", "sound-design"],
     featuredIndex: 2
   },
   {
