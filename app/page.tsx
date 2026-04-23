@@ -27,6 +27,7 @@ const showreelVideo = {
 
 type Video = (typeof videos)[0] & {
   featuredIndex?: number
+  urls?: string[]
 }
 
 export default function HomePage() {
@@ -36,8 +37,15 @@ export default function HomePage() {
 
   const [selectedFilter, setSelectedFilter] = useState("All")
   const [visibleVideos, setVisibleVideos] = useState(9)
-  const [selectedVideo, setSelectedVideo] = useState<typeof videos[0] | null>(null)
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentSubVideoIndex, setCurrentSubVideoIndex] = useState(0)
+
+  useEffect(() => {
+    if (selectedVideo) {
+      setCurrentSubVideoIndex(0)
+    }
+  }, [selectedVideo])
 
   // Custom-sorted array for the "All" view
   const allWorksCustomSorted = useMemo(() => {
@@ -335,7 +343,7 @@ export default function HomePage() {
                   <div className="flex items-center justify-between pt-2">
                     <AudioPlayer
                       title={video.title}
-                      duration={getVideoDuration(video.url)}
+                      duration={getVideoDuration(video.url || "")}
                       variant="minimal"
                       className="text-primary hover:text-primary"
                     />
@@ -386,16 +394,70 @@ export default function HomePage() {
               </button>
 
               <div className="grid lg:grid-cols-3 gap-0">
-                <div className="lg:col-span-2">
-                  <VideoPlayer
-                    key={selectedVideo.url}
-                    title={selectedVideo.title}
-                    duration={getVideoDuration(selectedVideo.url)}
-                    videoUrl={selectedVideo.url}
-                    posterUrl={selectedVideo.thumbnail}
-                    variant="full"
-                    autoplay={true}
-                  />
+                <div className="lg:col-span-2 relative group flex flex-col justify-center bg-black">
+                  {selectedVideo.urls && selectedVideo.urls.length > 1 ? (
+                    <>
+                      <VideoPlayer
+                        key={selectedVideo.urls[currentSubVideoIndex]}
+                        title={`${selectedVideo.title} - Part ${currentSubVideoIndex + 1}`}
+                        duration={getVideoDuration(selectedVideo.urls[currentSubVideoIndex])}
+                        videoUrl={selectedVideo.urls[currentSubVideoIndex]}
+                        posterUrl={selectedVideo.thumbnail}
+                        variant="full"
+                        autoplay={true}
+                      />
+                      <div className="absolute inset-y-0 left-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                        <Button
+                          variant="secondary"
+                          size="icon"
+                          className="w-10 h-10 rounded-full opacity-70 hover:opacity-100 pointer-events-auto"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentSubVideoIndex((prev) => (prev > 0 ? prev - 1 : selectedVideo.urls!.length - 1));
+                          }}
+                        >
+                          <ChevronLeft className="w-6 h-6" />
+                        </Button>
+                      </div>
+                      <div className="absolute inset-y-0 right-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+                        <Button
+                          variant="secondary"
+                          size="icon"
+                          className="w-10 h-10 rounded-full opacity-70 hover:opacity-100 pointer-events-auto"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentSubVideoIndex((prev) => (prev < selectedVideo.urls!.length - 1 ? prev + 1 : 0));
+                          }}
+                        >
+                          <ChevronRight className="w-6 h-6" />
+                        </Button>
+                      </div>
+                      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
+                        {selectedVideo.urls.map((_, idx) => (
+                          <div
+                            key={idx}
+                            className={`w-2 h-2 rounded-full cursor-pointer transition-colors ${
+                              currentSubVideoIndex === idx ? "bg-primary" : "bg-primary/50 hover:bg-primary/80"
+                            }`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setCurrentSubVideoIndex(idx);
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <VideoPlayer
+                      key={selectedVideo.url}
+                      title={selectedVideo.title}
+                      duration={getVideoDuration(selectedVideo.url || "")}
+                      videoUrl={selectedVideo.url}
+                      posterUrl={selectedVideo.thumbnail}
+                      variant="full"
+                      autoplay={true}
+                    />
+                  )}
                 </div>
 
                 <div className="p-8 space-y-6 bg-muted/30">
@@ -424,7 +486,7 @@ export default function HomePage() {
                     </div>
                   )}
 
-                  {selectedVideo.credits && (selectedVideo.credits.director || selectedVideo.credits.client || selectedVideo.credits.sound || selectedVideo.credits.music || selectedVideo.credits.studio || selectedVideo.credits.visuals || selectedVideo.credits.video) && (
+                  {selectedVideo.credits && (selectedVideo.credits.director || selectedVideo.credits.client || selectedVideo.credits.sound || selectedVideo.credits.music || selectedVideo.credits.video) && (
                     <div className="space-y-2 pt-10">
                       <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                         Credits
@@ -440,18 +502,6 @@ export default function HomePage() {
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">Client:</span>
                             <span className="font-medium text-right">{selectedVideo.credits.client}</span>
-                          </div>
-                        )}
-                        {selectedVideo.credits.studio && (
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Studio:</span>
-                            <span className="font-medium text-right">{selectedVideo.credits.studio}</span>
-                          </div>
-                        )}
-                        {selectedVideo.credits.visuals && (
-                          <div className="flex justify-between">
-                            <span className="text-muted-foreground">Visuals:</span>
-                            <span className="font-medium text-right">{selectedVideo.credits.visuals}</span>
                           </div>
                         )}
                         {selectedVideo.credits.video && (
@@ -492,7 +542,7 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {selectedVideo.url.includes('youtube') && (
+                  {selectedVideo.url?.includes('youtube') && (
                     <Button variant="outline" className="w-full" asChild>
                       <a href={selectedVideo.url} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />

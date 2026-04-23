@@ -16,6 +16,7 @@ interface VideoPlayerProps {
   className?: string
   variant?: "compact" | "full" | "minimal"
   autoplay?: boolean // Add autoplay prop
+  orientation?: "horizontal" | "vertical" // Add orientation prop
 }
 
 export function VideoPlayer({
@@ -27,6 +28,7 @@ export function VideoPlayer({
   className,
   variant = "full",
   autoplay = false, // Default to false
+  orientation = "horizontal", // Default to horizontal
 }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
