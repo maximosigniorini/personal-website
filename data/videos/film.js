@@ -1,6 +1,34 @@
 const film = [
   {
     category: "film",
+    title: 'The Healer',
+    url: 'https://the-healer.uk/wp-content/uploads/2025/09/the_healer_trailer_master-1080p.mp4#t=,120',
+    thumbnail: '/assets/video-thumbnails/healer.jpg',
+    description: "Foley recording as part of the Soundcanvas team.",
+    credits: {
+      sound: 'Soundcanvas',
+      director: 'Will Jewell'
+    },
+    year: 2025,
+    tags: ["foley"],
+    projectType: "commisioned"
+  },
+  {
+    category: "film",
+    title: 'Limbo',
+    url: 'https://www.youtube.com/watch?v=rDnaTo_edPI',
+    thumbnail: '/assets/video-thumbnails/limbo.jpg',
+    description: "Sound design and original music as part of my 2nd semester in my MA in Sound Design for Screen at Bournemouth University.",
+    credits: {
+      sound: 'Maximo Signiorini',
+      director: 'Yue Wang'
+    },
+    year: 2024,
+    tags: ["sound-design", "music", "foley", "mixing", "ADR"],
+    projectType: "spec"
+  },
+  {
+    category: "film",
     title: 'Under the Skin',
     url: 'https://www.youtube.com/watch?v=_O7zk4tI5Hs',
     thumbnail: '/assets/video-thumbnails/under-the-skin.jpg',

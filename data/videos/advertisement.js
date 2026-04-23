@@ -16,6 +16,38 @@ const advertisement = [
   },
   {
     category: "advertisement",
+    title: 'Burberry',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/Burberry.mp4',
+    thumbnail: '/assets/video-thumbnails/burberry.jpg',
+    description: 'Original Music produced as part of the Sound Canvas team.',
+    credits: {
+      sound: 'Sound Canvas',
+      music: 'Sound Canvas'
+    },
+    year: 2025,
+    tags: ["music"],
+    featuredIndex: 2,
+    projectType: "commissioned",
+    originalVideoCredit: null,
+  },
+  {
+    category: "advertisement",
+    title: "L'OREAL",
+    urls: ['https://www.cdn.maximosigniorini.com/advertisement/loreal%201.mp4','https://www.cdn.maximosigniorini.com/advertisement/loreal%202.mp4','https://www.cdn.maximosigniorini.com/advertisement/loreal%203.mp4'],
+    thumbnail: '/assets/video-thumbnails/loreal.jpg',
+    description: 'Original Music produced as part of the Sound Canvas team.',
+    credits: {
+      sound: 'Sound Canvas',
+      music: 'Sound Canvas'
+    },
+    year: 2026,
+    tags: ["music"],
+    featuredIndex: 2,
+    projectType: "commissioned",
+    originalVideoCredit: null,
+  },
+  {
+    category: "advertisement",
     title: 'Google OnHub',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/google-onhub.mp4',
     thumbnail: '/assets/video-thumbnails/google-onhub.jpg',
@@ -25,7 +57,7 @@ const advertisement = [
     },
     year: 2022,
     tags: ["spec-sound", "music", "sound-design"],
-    featuredIndex: 2,
+    featuredIndex: 3,
     projectType: "spec"
   },
   {
@@ -42,6 +74,21 @@ const advertisement = [
     year: 2023,
     tags: ["music-editing", "sound-design"],
     projectType: "commissioned"
+  },
+  {
+    category: "advertisement",
+    title: 'Versius Plus',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/versius-plus.mp4',
+    thumbnail: '/assets/video-thumbnails/versius.jpg',
+    description: 'Original Music produced as part of the Sound Canvas team.',
+    credits: {
+      sound: 'Sound Canvas',
+      music: 'Sound Canvas'
+    },
+    year: 2025,
+    tags: ["music"],
+    projectType: "commissioned",
+    originalVideoCredit: null,
   },
   {
     category: "advertisement",
