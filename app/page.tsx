@@ -13,7 +13,23 @@ import { Play, ExternalLink, Mail, X, ChevronLeft, ChevronRight } from "lucide-r
 import { SiLinkedin, SiInstagram, SiYoutube, SiImdb } from "react-icons/si"
 import videos from "@/data/videos/"
 
-const showreelVideo = {
+export type Video = {
+  id: number;
+  category: string;
+  title: string;
+  url?: string;
+  thumbnail: string;
+  description: string;
+  credits?: Record<string, string | undefined>;
+  year: number;
+  tags: string[];
+  featuredIndex?: number;
+  urls?: string[];
+  projectType?: string;
+  [key: string]: any;
+};
+
+const showreelVideo: Video = {
   id: 0,
   category: "showreel",
   title: 'Showreel 2025',
@@ -24,11 +40,6 @@ const showreelVideo = {
   year: 2025,
   tags: ["sound design", "music composition", "film", "advertisement"]
 };
-
-type Video = (typeof videos)[0] & {
-  featuredIndex?: number
-  urls?: string[]
-}
 
 export default function HomePage() {
   const router = useRouter()
@@ -157,7 +168,7 @@ export default function HomePage() {
     }
   }, [searchParams, router])
 
-  const openVideoModal = (video: typeof videos[0]) => {
+  const openVideoModal = (video: Video) => {
     const slug = createSlug(video.title)
     setSelectedVideo(video)
     setIsModalOpen(true)
