@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams, usePathname } from "next/navigation"
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -32,6 +32,7 @@ type Video = (typeof videos)[0] & {
 export default function HomePage() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const pathname = usePathname()
 
   const [selectedFilter, setSelectedFilter] = useState("All")
   const [visibleVideos, setVisibleVideos] = useState(9)
@@ -102,6 +103,29 @@ export default function HomePage() {
   const findVideoBySlug = (slug: string) => {
     return videos.find(video => createSlug(video.title) === slug)
   }
+
+  useEffect(() => {
+    let categorySlug = searchParams.get('category')
+    
+    if (!categorySlug && pathname?.startsWith('/work/')) {
+      categorySlug = pathname.split('/work/')[1]
+    }
+
+    if (categorySlug) {
+      const normalizedSlug = categorySlug.toLowerCase().replace(/-/g, ' ')
+      const validCategories = ["All", ...new Set(videos.map(v => v.category))]
+      const matchingCategory = validCategories.find(c => c.toLowerCase() === normalizedSlug)
+      
+      if (matchingCategory) {
+        setSelectedFilter(matchingCategory)
+        setVisibleVideos(9)
+        // Give the DOM a moment to update the grid before scrolling
+        setTimeout(() => {
+          document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })
+        }, 300)
+      }
+    }
+  }, [searchParams, pathname])
 
   useEffect(() => {
     const videoSlug = searchParams.get('video')
@@ -364,6 +388,7 @@ export default function HomePage() {
               <div className="grid lg:grid-cols-3 gap-0">
                 <div className="lg:col-span-2">
                   <VideoPlayer
+                    key={selectedVideo.url}
                     title={selectedVideo.title}
                     duration={getVideoDuration(selectedVideo.url)}
                     videoUrl={selectedVideo.url}

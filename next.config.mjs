@@ -12,6 +12,14 @@ const nextConfig = {
       },
     ]
   },
+  async rewrites() {
+    return [
+      {
+        source: '/work/:category',
+        destination: '/?category=:category',
+      },
+    ]
+  },
 };
 
 export default nextConfig;
