@@ -308,7 +308,7 @@ const motionGraphics = [
    {
     category: "motion graphics",
     title: 'Save As',
-    url: 'https://www.cdn.maximosigniorini.com/Music/241127/2_save-as.mp4',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/save-as.mp4',
     thumbnail: '/assets/video-thumbnails/save-as.jpg',
     description: 'Original Music & Sound Design. All audio recreated from scratch as part of a personal project to demonstrate sound design and music composition skills.',
     credits: {
