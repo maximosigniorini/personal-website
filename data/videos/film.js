@@ -10,6 +10,7 @@ const film = [
     },
     year: 2024,
     tags: ["sound-design", "music-editing", "foley", "mixing"],
+    projectType: "spec"
   },
   {
     category: "film",
@@ -21,43 +22,52 @@ const film = [
       client: 'Bournemouth University'
     },
     year: 2024,
-    tags: ["sound-design", "music", "foley", "mixing"]
+    tags: ["sound-design", "music", "foley", "mixing"],
+    projectType: "spec"
   },
   {
     category: "film",
     title: 'The Untranslatable Forest',
     url: 'https://www.cdn.maximosigniorini.com/film/the-untranslatable-forest.mp4',
     thumbnail: '/assets/video-thumbnails/untranslatable-forest.jpg',
-    description: 'Sound Design',
+    description: 'Sound Design produced as part of the Ronroco Audio team.',
     credits: {
-      client: 'Ronroco Audio'
+      director: 'Ivan Miguel & Andy Camou',
+      sound: 'Ronroco Audio',
+      music: 'Kronos Quartet'
     },
     year: 2024,
-    tags: ["sound-design"]
+    tags: ["sound-design"],
+    projectType: "commissioned"
   },
   {
     category: "film",
     title: 'Reclamation',
     url: 'https://www.cdn.maximosigniorini.com/film/reclamation.mp4',
     thumbnail: '/assets/video-thumbnails/reclamation.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design produced as part of the Ronroco Audio team.',
     credits: {
-      client: 'Ronroco Audio'
+      client: 'John Messick',
+      sound: 'Ronroco Audio',
+      music: 'Ronroco Audio'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commissioned"
   },
   {
     category: "film",
     title: 'Wndr',
     url: 'https://www.cdn.maximosigniorini.com/film/wndr.mp4',
     thumbnail: '/assets/video-thumbnails/wndr.jpg',
-    description: 'Music Editing & Sound Design',
+    description: 'Music Editing & Sound Design produced as part of the Ronroco Audio team.',
     credits: {
-      client: 'Ronroco Audio'
+      sound: 'Ronroco Audio',
+      music: 'Ronroco Audio'
     },
     year: 2024,
-    tags: ["music", "sound-design"]
+    tags: ["music", "sound-design"],
+    projectType: "commissioned"
   },
 ]
 

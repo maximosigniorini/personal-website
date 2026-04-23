@@ -10,7 +10,7 @@ const animation = [
       studio: 'Ronroco Audio'
     },
     year: 2025,
-    tags: ["remake","music", "sound-design"],
+    tags: ["music", "sound-design"],
     projectType: "spec"
   },
    {
@@ -18,13 +18,15 @@ const animation = [
     title: 'Mamba Dragon',
     url: 'https://www.cdn.maximosigniorini.com/animation/mambadragon.mp4',
     thumbnail: '/assets/video-thumbnails/mamba-dragon.jpg',
-    description: 'Music Editing & Sound Design',
+    description: 'Music Editing & Sound Design produced as part of the Ronroco Audio team.',
     credits: {
-      client: 'Mamba Studio'
+      client: 'Mamba Studio',
+      sound: 'Ronroco Audio',
+      music: 'Ronroco Audio'
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    projectType: "commisioned"
+    projectType: "commissioned"
   },
   {
     category: "animation",
@@ -36,7 +38,7 @@ const animation = [
       client: ''
     },
     year: 2024,
-    tags: ["remake","music", "sound-design"],
+    tags: ["music", "sound-design"],
     projectType: "spec"
   },
   {
@@ -62,7 +64,7 @@ const animation = [
       client: ''
     },
     year: 2022,
-    tags: ["remake","music", "sound-design"],
+    tags: ["music", "sound-design"],
     projectType: "spec"
   },
    {
@@ -75,7 +77,7 @@ const animation = [
       client: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["remake", "music", "sound-design"],
+    tags: ["music", "sound-design"],
     projectType: "spec"
   },
    {
@@ -83,13 +85,15 @@ const animation = [
     title: 'Ianus Coffee',
     url: 'https://www.cdn.maximosigniorini.com/animation/ianus-coffee.mp4',
     thumbnail: '/assets/video-thumbnails/ianus-coffee.jpg',
-    description: 'Original Music & Sound Design',
+    description: 'Original Music & Sound Design produced as part of the Ronroco Audio team.',
     credits: {
-      client: 'Studio Ianus'
+      client: 'Studio Ianus',
+      sound: 'Ronroco Audio',
+      music: 'Ronroco Audio'
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    projectType: "commisioned"
+    projectType: "commissioned"
   },
   {
     category: "animation",
@@ -101,7 +105,7 @@ const animation = [
       client: 'Fern'
     },
     year: 2023,
-    tags: ["remake","music", "sound-design"],
+    tags: ["music", "sound-design"],
     projectType: "spec"
   },
   {
@@ -115,20 +119,21 @@ const animation = [
     },
     year: 2022,
     tags: ["music", "sound-design"],
-    projectType: "commisioned"
+    projectType: "spec"
   },
   {
     category: "animation",
     title: 'Football',
     url: 'https://www.cdn.maximosigniorini.com/animation/football.mp4',
     thumbnail: '/assets/video-thumbnails/football.jpg',
-    description: '',
+    description: 'Sound Design produced as part of the Ronroco Audio team.',
     credits: {
-      client: 'Jonathan Pui'
+      client: 'Jonathan Pui',
+      sound: 'Ronroco Audio'
     },
     year: 2023,
     tags: ["sound-design"],
-    projectType: "commisioned"
+    projectType: "commissioned"
   },
   {
     category: "animation",
@@ -140,7 +145,7 @@ const animation = [
       client: ''
     },
     year: 2023,
-    tags: ["remake","music", "sound-design"],
+    tags: ["music", "sound-design"],
     projectType: "spec"
   },
   {
@@ -154,7 +159,7 @@ const animation = [
       studio: 'Ronroco Audio'
     },
     year: 2023,
-    tags: ["remake","sound-design"],
+    tags: ["sound-design"],
     projectType: "spec"
   },
   {
@@ -167,7 +172,7 @@ const animation = [
       client: 'Form Play'
     },
     year: 2023,
-    tags: ["remake","music", "sound-design"],
+    tags: ["music", "sound-design"],
     projectType: "spec"
   },
   {
@@ -180,7 +185,7 @@ const animation = [
       client: ''
     },
     year: 2023,
-    tags: ["remake", "music", "sound-design"],
+    tags: ["music", "sound-design"],
     projectType: "spec"
   },
   {
@@ -188,40 +193,45 @@ const animation = [
     title: 'Make it Move 1',
     url: 'https://www.cdn.maximosigniorini.com/animation/make-it-move%201.mp4',
     thumbnail: '/assets/video-thumbnails/make-it-move-1.jpg',
-    description: 'Music Editing & Sound Design',
+    description: 'Music Editing & Sound Design produced as part of the Ronroco Audio team.',
     credits: {
-      client: '3rd Floor TV'
+      client: '3rd Floor TV',
+      sound: 'Ronroco Audio',
+      music: 'Ronroco Audio'
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    projectType: "commisioned"
+    projectType: "commissioned"
   },
   {
     category: "animation",
     title: 'Make it Move 2',
     url: 'https://www.cdn.maximosigniorini.com/animation/make-it-move%202.mp4',
     thumbnail: '/assets/video-thumbnails/make-it-move-2.jpg',
-    description: 'Music Editing & Sound Design',
+    description: 'Music Editing & Sound Design produced as part of the Ronroco Audio team.',
     credits: {
-      client: '3rd Floor TV'
+      client: '3rd Floor TV',
+      sound: 'Ronroco Audio',
+      music: 'Ronroco Audio'
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    projectType: "commisioned"
+    projectType: "commissioned"
   },
   {
     category: "animation",
     title: 'The Explorer',
     url: 'https://www.cdn.maximosigniorini.com/animation/the-explorer.mp4',
     thumbnail: '/assets/video-thumbnails/the-explorer.jpg',
-    description: 'Music Editing & Sound Design',
+    description: 'Music Editing & Sound Design produced as part of the Ronroco Audio team.',
     credits: {
       client: 'Motionvillee',
-      studio: 'Ronroco Audio'
+      sound: 'Ronroco Audio',
+      music: 'Ronroco Audio'
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    projectType: "commisioned"
+    projectType: "commissioned"
   },
 ]
 

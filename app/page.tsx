@@ -399,17 +399,62 @@ export default function HomePage() {
                     </div>
                   )}
 
-                  {selectedVideo.credits && (
+                  {selectedVideo.credits && (selectedVideo.credits.director || selectedVideo.credits.client || selectedVideo.credits.sound || selectedVideo.credits.music || selectedVideo.credits.studio || selectedVideo.credits.visuals || selectedVideo.credits.video) && (
                     <div className="space-y-2 pt-10">
                       <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                         Credits
                       </h3>
                       <div className="space-y-1 text-sm">
+                        {selectedVideo.credits.director && (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Director:</span>
+                            <span className="font-medium text-right">{selectedVideo.credits.director}</span>
+                          </div>
+                        )}
                         {selectedVideo.credits.client && (
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">Client:</span>
-                            <span className="font-medium">{selectedVideo.credits.client}</span>
+                            <span className="font-medium text-right">{selectedVideo.credits.client}</span>
                           </div>
+                        )}
+                        {selectedVideo.credits.studio && (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Studio:</span>
+                            <span className="font-medium text-right">{selectedVideo.credits.studio}</span>
+                          </div>
+                        )}
+                        {selectedVideo.credits.visuals && (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Visuals:</span>
+                            <span className="font-medium text-right">{selectedVideo.credits.visuals}</span>
+                          </div>
+                        )}
+                        {selectedVideo.credits.video && (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Video:</span>
+                            <span className="font-medium text-right">{selectedVideo.credits.video}</span>
+                          </div>
+                        )}
+                        {selectedVideo.credits.sound && selectedVideo.credits.music && selectedVideo.credits.sound === selectedVideo.credits.music ? (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Sound & Music:</span>
+                            <span className="font-medium text-right">{selectedVideo.credits.sound}</span>
+                          </div>
+                        ) : (
+                          <>
+                            {selectedVideo.credits.sound && (
+                              <div className="flex justify-between">
+                                <span className="text-muted-foreground">Sound:</span>
+                                <span className="font-medium text-right">{selectedVideo.credits.sound}</span>
+                              </div>
+                            )}
+                            {selectedVideo.credits.music && (
+                              <div className="flex justify-between">
+                                <span className="text-muted-foreground">Music:</span>
+                                <span className="font-medium text-right">{selectedVideo.credits.music}</span>
+                              </div>
+                            )}
+                          </>
                         )}
                       </div>
                     </div>
