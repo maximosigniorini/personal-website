@@ -9,7 +9,15 @@ import { Badge } from "@/components/ui/badge"
 import { Navigation } from "@/components/navigation"
 import { AudioPlayer } from "@/components/audio-player"
 import { VideoPlayer } from "@/components/video-player"
-import { Play, ExternalLink, Mail, X, ChevronLeft, ChevronRight } from "lucide-react"
+import { Play, ExternalLink, Mail, X, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { SiLinkedin, SiInstagram, SiYoutube, SiImdb } from "react-icons/si"
 import videos from "@/data/videos/"
 
@@ -47,6 +55,7 @@ export default function HomePage() {
   const pathname = usePathname()
 
   const [selectedFilter, setSelectedFilter] = useState("All")
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [visibleVideos, setVisibleVideos] = useState(9)
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -83,10 +92,22 @@ export default function HomePage() {
     return sortedVideos
   }, [])
 
-  const filteredVideos =
-    selectedFilter === "All"
+  const categoryFilteredVideos = useMemo(() => {
+    return selectedFilter === "All"
       ? allWorksCustomSorted
       : videos.filter(video => video.category === selectedFilter)
+  }, [selectedFilter, allWorksCustomSorted])
+
+  const availableTags = useMemo(() => {
+    return [...new Set(categoryFilteredVideos.flatMap(v => v.tags || []))].sort()
+  }, [categoryFilteredVideos])
+
+  const filteredVideos = useMemo(() => {
+    if (selectedTags.length === 0) return categoryFilteredVideos;
+    return categoryFilteredVideos.filter(video => 
+      video.tags?.some(tag => selectedTags.includes(tag))
+    )
+  }, [categoryFilteredVideos, selectedTags])
 
   const displayedVideos = filteredVideos.slice(0, visibleVideos)
   const categories = ["All", ...new Set(videos.map(video => video.category))]
@@ -97,6 +118,16 @@ export default function HomePage() {
 
   const handleFilterChange = (filter: string) => {
     setSelectedFilter(filter)
+    setSelectedTags([])
+    setVisibleVideos(9)
+  }
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => 
+      prev.includes(tag) 
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    )
     setVisibleVideos(9)
   }
 
@@ -300,7 +331,7 @@ export default function HomePage() {
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 md:mb-16">
+          <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 mb-12 md:mb-16">
             {categories.map((category) => (
               <Button
                 key={category}
@@ -311,6 +342,35 @@ export default function HomePage() {
                 {categoryDisplayNames[category] || category}
               </Button>
             ))}
+
+            {availableTags.length > 0 && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="icon" className="relative rounded-full h-9 w-9 sm:h-10 sm:w-10">
+                    <ChevronDown className="w-4 h-4" />
+                    {selectedTags.length > 0 && (
+                      <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] text-primary-foreground">
+                        {selectedTags.length}
+                      </span>
+                    )}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 max-h-[300px] overflow-y-auto bg-background/60 backdrop-blur-xl border-border/50 shadow-xl">
+                  <DropdownMenuLabel>Filter by Tags</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {availableTags.map(tag => (
+                    <DropdownMenuCheckboxItem
+                      key={tag}
+                      checked={selectedTags.includes(tag)}
+                      onCheckedChange={() => toggleTag(tag)}
+                      className="capitalize"
+                    >
+                      {tag}
+                    </DropdownMenuCheckboxItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
 
           {/* Project Grid */}
@@ -329,11 +389,13 @@ export default function HomePage() {
                     className="object-cover transition-all duration-500 group-hover:scale-105 blur-[0.5px] group-hover:blur-none"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute top-4 left-4">
-                    <Badge variant="secondary" className="bg-background/50 backdrop-blur-sm capitalize">
-                      {categoryDisplayNames[video.category] || video.category}
-                    </Badge>
-                  </div>
+                  {selectedFilter === "All" && (
+                    <div className="absolute top-4 left-4">
+                      <Badge variant="secondary" className="bg-background/50 backdrop-blur-sm capitalize">
+                        {categoryDisplayNames[video.category] || video.category}
+                      </Badge>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 space-y-4">
                   <div className="space-y-2">
