@@ -646,11 +646,11 @@ export default function HomePage() {
                 <div className="space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
                   <p className="text-pretty">
                     With over 6 years of experience in audio production, I specialize in creating immersive soundscapes
-                    that elevate storytelling across multiple mediums, from advertisements to
+                    that elevate storytelling across multiple mediums, from advertisement to
                     film and other visual media.
                   </p>
                   <p className="text-pretty">
-                    In 2024 I completed my Masters degree in Sound Design for Screen at Bournemouth University. Worked for <a href="https://ronrocoaudio.com/" target='_blank' className='font-bold text-accent'>Ronroco Audio</a>, a sound design and music studio that has worked for brands such as Toyota, Splice and Adidas. Collaborated alongside Tom Joyce from <a href="https://soundcanvas.co/" target='_blank' className='font-bold text-accent'>Sound Canvas</a>.
+                    In 2024 I completed my Masters degree in Sound Design for Screen at Bournemouth University. Worked for global brands such as <a href="https://www.maximosigniorini.com/?video=airbnb" className='font-bold text-accent'>AirBnB</a>, <a href="https://www.instagram.com/p/C8ZnWVExtvX/" target='_blank' className='font-bold text-accent'>Toyota</a>, <a href="https://www.maximosigniorini.com/?video=burberry" className='font-bold text-accent'>Burberry</a> and <a href="https://www.maximosigniorini.com/?video=l-oreal" className='font-bold text-accent'>L'OREAL</a> to name a few. Collaborated alongside studios such as <a href="https://ronrocoaudio.com/" target='_blank' className='font-bold text-accent'>Ronroco Audio</a>, <a href="https://soundcanvas.co/" target='_blank' className='font-bold text-accent'>Soundcanvas</a> and <a href="https://soundsmiths.io/" target='_blank' className='font-bold text-accent'>Soundsmiths Studio</a>.
                   </p>
                 </div>
               </div>
