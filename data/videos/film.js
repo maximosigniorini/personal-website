@@ -24,7 +24,7 @@ const film = [
       director: 'Yue Wang'
     },
     year: 2024,
-    tags: ["sound-design", "music", "foley", "mixing", "ADR"],
+    tags: ["sound-design", "music", "foley","ADR"],
     projectType: "spec"
   },
   {
@@ -37,7 +37,7 @@ const film = [
       client: 'Bournemouth University'
     },
     year: 2024,
-    tags: ["sound-design", "music-editing", "foley", "mixing"],
+    tags: ["sound-design", "music-editing", "foley"],
     projectType: "spec"
   },
   {
@@ -50,7 +50,7 @@ const film = [
       client: 'Bournemouth University'
     },
     year: 2024,
-    tags: ["sound-design", "music", "foley", "mixing"],
+    tags: ["sound-design", "music", "foley"],
     projectType: "spec"
   },
   {

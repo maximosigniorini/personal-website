@@ -70,7 +70,7 @@ const advertisement = [
       client: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["spec-sound", "music", "sound-design"],
+    tags: ["music", "sound-design"],
     featuredIndex: 3,
     projectType: "spec"
   },

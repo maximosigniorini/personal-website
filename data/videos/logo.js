@@ -11,7 +11,7 @@ const logo = [
       music: 'Ronroco Audio'
     },
     year: 2021,
-    tags: ["music", "sound-design", "branding"],
+    tags: ["music", "sound-design"],
     projectType: "commissioned"
   },
   {
@@ -25,7 +25,7 @@ const logo = [
       music: 'Ronroco Audio'
     },
     year: 2022,
-    tags: ["music", "sound-design", "branding"],
+    tags: ["music", "sound-design"],
     projectType: "commissioned"
   },
   {
@@ -39,7 +39,7 @@ const logo = [
       music: 'Ronroco Audio'
     },
     year: 2024,
-    tags: ["music", "sound-design", "branding"],
+    tags: ["music", "sound-design"],
     projectType: "commissioned"
   },
    {
@@ -54,7 +54,7 @@ const logo = [
       music: 'Ronroco Audio'
     },
     year: 2021,
-    tags: ["music", "sound-design", "branding"],
+    tags: ["music", "sound-design"],
     projectType: "commissioned"
   },
   {
@@ -68,7 +68,7 @@ const logo = [
       music: 'Ronroco Audio'
     },
     year: 2021,
-    tags: ["music", "sound-design", "branding"],
+    tags: ["music", "sound-design"],
     projectType: "commissioned"
   },
   {
@@ -82,7 +82,7 @@ const logo = [
       music: 'Ronroco Audio'
     },
     year: 2021,
-    tags: ["music", "sound-design", "branding"],
+    tags: ["music", "sound-design"],
     projectType: "commissioned"
   },
   {
@@ -97,7 +97,7 @@ const logo = [
       music: 'Ronroco Audio'
     },
     year: 2021,
-    tags: ["music", "sound-design", "branding"],
+    tags: ["music", "sound-design"],
     projectType: "commissioned"
   },
   {
@@ -112,7 +112,7 @@ const logo = [
       music: 'Ronroco Audio'
     },
     year: 2021,
-    tags: ["music", "sound-design", "branding"],
+    tags: ["music", "sound-design"],
     projectType: "commissioned"
   },
 ]
