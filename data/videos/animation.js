@@ -80,6 +80,21 @@ const animation = [
     tags: ["music", "sound-design"],
     projectType: "spec"
   },
+  {
+    category: "animation",
+    title: 'Maze',
+    url: 'https://www.cdn.maximosigniorini.com/animation/maze.mp4',
+    thumbnail: '/assets/video-thumbnails/maze.jpg',
+    description: 'Original Music produced as part of the Soundcanvas team.',
+    credits: {
+      video: 'Stefan Kang',
+      sound: 'Soundcanvas',
+      music: 'Maximo Signiorini'
+    },
+    year: 2025,
+    tags: ["music"],
+    projectType: "commissioned"
+  },
    {
     category: "animation",
     title: 'Ianus Coffee',
@@ -107,6 +122,20 @@ const animation = [
     year: 2023,
     tags: ["music", "sound-design"],
     projectType: "spec"
+  },
+  {
+    category: "animation",
+    title: 'Design Before Motion 010',
+    url: 'https://www.cdn.maximosigniorini.com/animation/dbm.mp4',
+    thumbnail: '/assets/video-thumbnails/dbm.jpg',
+    description: 'Original Music & Sound Design.',
+    credits: {
+      video: 'Ivan Miguel',
+      sound: 'Maximo Signiorini'
+    },
+    year: 2025,
+    tags: ["music", "sound-design", "collab"],
+    projectType: "commissioned"
   },
   {
     category: "animation",

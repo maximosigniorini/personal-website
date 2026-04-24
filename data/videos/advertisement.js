@@ -48,6 +48,20 @@ const advertisement = [
   },
   {
     category: "advertisement",
+    title: "Defender Portugal",
+    urls: ['https://www.cdn.maximosigniorini.com/advertisement/defender.mp4','https://www.cdn.maximosigniorini.com/advertisement/defender-2.mp4','https://www.youtube.com/watch?v=_-qp2kOJ4wI', 'https://www.youtube.com/watch?v=vRN1OjtbEQA'],
+    thumbnail: '/assets/video-thumbnails/defender.jpg',
+    description: 'Sound Design & Mix produced as part of the Sound Smiths Studio team.',
+    credits: {
+      sound: 'Sound Smiths'
+    },
+    year: 2026,
+    tags: ["sound-design", "mix"],
+    projectType: "commissioned",
+    originalVideoCredit: null
+  },
+  {
+    category: "advertisement",
     title: 'Google OnHub',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/google-onhub.mp4',
     thumbnail: '/assets/video-thumbnails/google-onhub.jpg',
@@ -190,6 +204,21 @@ const advertisement = [
     year: 2023,
     tags: ["music", "sound-design"],
     projectType: "spec"
+  },
+  {
+    category: "advertisement",
+    title: 'Hypnotia',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/hypnotia.mp4',
+    thumbnail: '/assets/video-thumbnails/hypnotia.jpg',
+    description: 'Original Music',
+    credits: {
+      video: 'Alice Aires',
+      sound: 'Soundcanvas',
+      music: 'Maximo Signiorini'
+    },
+    year: 2025,
+    tags: ["music"],
+    projectType: "commissioned"
   },
   {
     category: "advertisement",

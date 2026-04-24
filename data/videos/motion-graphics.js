@@ -15,6 +15,36 @@ const motionGraphics = [
   },
   {
     category: "motion graphics",
+    title: 'DOT4 Studio',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/kay-hilman.mp4',
+    thumbnail: '/assets/video-thumbnails/kay-hilman.jpg',
+    description: 'Original Music & Sound Design.',
+    credits: {
+      video: 'DOT4 Studio',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music", "sound-design", "collab"],
+    projectType: "spec"
+  },
+  {
+    category: "motion graphics",
+    title: 'Leo Quinter',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/leo-quinter.mp4',
+    thumbnail: '/assets/video-thumbnails/leo-quinter.jpg',
+    description: 'Original Music & Sound Design.',
+    credits: {
+      video: 'Leo Quinter',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music", "sound-design", "collab"],
+    projectType: "spec"
+  },
+  {
+    category: "motion graphics",
     title: 'Momby',
     url: 'https://www.cdn.maximosigniorini.com/motion-graphics/mamby.mp4',
     thumbnail: '/assets/video-thumbnails/momby.jpg',
@@ -50,6 +80,66 @@ const motionGraphics = [
     },
     year: 2022,
     tags: ["music", "sound-design"],
+    projectType: "spec"
+  },
+  {
+    category: "motion graphics",
+    title: 'Medtronic',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/daniel-medina.mp4',
+    thumbnail: '/assets/video-thumbnails/medtronics.jpg',
+    description: 'Sound Design & Music Editing',
+    credits: {
+      video: 'Daniel Medina',
+      sound: 'Maximo Signiorini',
+      music: 'Jürgen Branz'
+    },
+    year: 2026,
+    tags: ["music", "sound-design","collab"],
+    projectType: "commissioned"
+  },
+  {
+    category: "motion graphics",
+    title: 'Flower',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/vitor-teixeira.mp4',
+    thumbnail: '/assets/video-thumbnails/vitor-teixeira.jpg',
+    description: 'Original Music & Sound Design.',
+    credits: {
+      video: 'Vitor Teixeira',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music", "sound-design","collab"],
+    projectType: "spec"
+  },
+  {
+    category: "motion graphics",
+    title: 'Link2_1_1_1',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/Link2_1_1_1.mp4',
+    thumbnail: '/assets/video-thumbnails/link2.jpg',
+    description: 'Original Music & Sound Design.',
+    credits: {
+      video: 'Andreas Gysin & Sidi Vanetti',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music", "sound-design","collab"],
+    projectType: "spec"
+  },
+  {
+    category: "motion graphics",
+    title: 'Sky',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/clemensmako-sky.mp4',
+    thumbnail: '/assets/video-thumbnails/sky.jpg',
+    description: 'Original Music & Sound Design.',
+    credits: {
+      video: 'Clemens Makoschitz',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music", "sound-design","collab"],
     projectType: "spec"
   },
   {
