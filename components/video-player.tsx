@@ -260,7 +260,10 @@ export function VideoPlayer({
   return (
     <Card ref={playerRef} className={cn("overflow-hidden focus:outline-none", className)} tabIndex={0}>
       <div className="space-y-4">
-        <div className="relative aspect-[16/8.5] bg-black rounded-lg overflow-hidden group">
+        <div className={cn(
+          "relative bg-black rounded-lg overflow-hidden group flex items-center justify-center",
+          isYouTubeUrl(videoUrl) ? "aspect-video w-full" : "w-full"
+        )}>
           {isYouTubeUrl(videoUrl) ? (
             <iframe
               src={videoUrl.replace("watch?v=", "embed/") + "?autoplay=1&modestbranding=1&rel=0&showinfo=0&controls=1"}
@@ -273,7 +276,7 @@ export function VideoPlayer({
           ) : (
             <video
               ref={videoRef}
-              className="w-full h-full object-cover cursor-pointer"
+              className="w-full max-h-[45vh] lg:max-h-[60vh] object-contain cursor-pointer"
               poster={posterUrl}
               muted={isMuted}
               preload="metadata"
