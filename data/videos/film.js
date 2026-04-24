@@ -11,7 +11,8 @@ const film = [
     },
     year: 2025,
     tags: ["foley"],
-    projectType: "commisioned"
+    projectType: "commisioned",
+    featuredIndex: 4,
   },
   {
     category: "film",

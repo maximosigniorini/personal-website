@@ -71,7 +71,6 @@ const advertisement = [
     },
     year: 2022,
     tags: ["music", "sound-design"],
-    featuredIndex: 3,
     projectType: "spec"
   },
   {
@@ -116,7 +115,6 @@ const advertisement = [
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    featuredIndex: 4,
     projectType: "spec"
   },
   {
@@ -189,7 +187,6 @@ const advertisement = [
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    featuredIndex: 5,
     projectType: "commissioned"
   },
   {
@@ -544,7 +541,6 @@ const advertisement = [
     },
     year: 2024,
     tags: ["music", "sound-design"],
-    featuredIndex: 3,
     projectType: "commissioned"
   },
   {

@@ -26,7 +26,8 @@ const motionGraphics = [
     },
     year: 2026,
     tags: ["music", "sound-design", "collab"],
-    projectType: "spec"
+    projectType: "spec",
+    featuredIndex: 3,
   },
   {
     category: "motion graphics",
