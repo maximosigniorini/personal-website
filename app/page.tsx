@@ -693,13 +693,13 @@ export default function HomePage() {
 
           <div className="mt-12">
             <Button size="lg" className="text-lg px-12" asChild>
-              <a href="mailto:maximosigniorini97@gmail.com">
+              <a href="mailto:hello@maximosigniorini.com">
                 <Mail className="w-5 h-5 mr-2" />
                 Start a Project
               </a>
             </Button>
             <p className="text-sm text-muted-foreground text-pretty pt-10">
-              maximosigniorini97 [at] gmail [dot] com
+              hello [at] maximosigniorini [dot] com
             </p>
           </div>
         </div>
