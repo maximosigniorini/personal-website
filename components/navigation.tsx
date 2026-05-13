@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Mail, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -8,6 +9,8 @@ import { cn } from "@/lib/utils"
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,10 +22,16 @@ export function Navigation() {
   }, [])
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsMobileMenuOpen(false)
+    setIsMobileMenuOpen(false)
+    if (pathname !== "/") {
+      router.push(`/#${sectionId}`)
+    } else {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      } else {
+        router.push(`/#${sectionId}`)
+      }
     }
   }
 
