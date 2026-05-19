@@ -62,6 +62,20 @@ const advertisement = [
   },
   {
     category: "advertisement",
+    title: "Burberry Summer Animations",
+    urls: ['https://www.cdn.maximosigniorini.com/advertisement/burberry_summer_roller_coaster.mp4','https://www.cdn.maximosigniorini.com/advertisement/burberry_summer_sandcastle.mp4','https://www.cdn.maximosigniorini.com/advertisement/burberry_summer_surf.mp4'],
+    thumbnail: '/assets/video-thumbnails/burberry_summer.jpg',
+    description: 'Sound Design produced as part of the Sound Canvas team.',
+    credits: {
+      sound: 'Sound Canvas'
+    },
+    year: 2025,
+    tags: ["sound-design"],
+    projectType: "commissioned",
+    originalVideoCredit: null
+  },
+  {
+    category: "advertisement",
     title: 'Google OnHub',
     url: 'https://www.cdn.maximosigniorini.com/advertisement/google-onhub.mp4',
     thumbnail: '/assets/video-thumbnails/google-onhub.jpg',

@@ -16,6 +16,20 @@ const film = [
   },
   {
     category: "film",
+    title: 'Tarwekamp Documentary',
+    url: 'https://www.youtube.com/watch?v=_wrAlbXdKpU',
+    thumbnail: '/assets/video-thumbnails/tarwekamp.jpg',
+    description: "Sound design and mixing for the documentary Tarwekamp, het eerste uur",
+    credits: {
+      sound: 'Maximo Signiorini',
+      productionCompany: 'Starsound Productions'
+    },
+    year: 2025,
+    tags: ["sound-design", "mix"],
+    projectType: "spec"
+  },
+  {
+    category: "film",
     title: 'Limbo',
     url: 'https://www.youtube.com/watch?v=rDnaTo_edPI',
     thumbnail: '/assets/video-thumbnails/limbo.jpg',

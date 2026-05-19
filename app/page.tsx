@@ -559,7 +559,7 @@ export default function HomePage() {
                     </div>
                   )}
 
-                  {selectedVideo.credits && (selectedVideo.credits.director || selectedVideo.credits.client || selectedVideo.credits.sound || selectedVideo.credits.music || selectedVideo.credits.video) && (
+                  {selectedVideo.credits && (selectedVideo.credits.director || selectedVideo.credits.client || selectedVideo.credits.sound || selectedVideo.credits.music || selectedVideo.credits.video || selectedVideo.credits.productionCompany) && (
                     <div className="space-y-2 pt-10">
                       <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                         Credits
@@ -575,6 +575,12 @@ export default function HomePage() {
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">Client:</span>
                             <span className="font-medium text-right">{selectedVideo.credits.client}</span>
+                          </div>
+                        )}
+                        {selectedVideo.credits.productionCompany && (
+                          <div className="flex justify-between">
+                            <span className="text-muted-foreground">Production Company:</span>
+                            <span className="font-medium text-right">{selectedVideo.credits.productionCompany}</span>
                           </div>
                         )}
                         {selectedVideo.credits.video && (
