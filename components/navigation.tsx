@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Mail, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -57,13 +58,20 @@ export function Navigation() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <button
+               <button
                 onClick={() => scrollToSection("work")}
                 className="text-muted-foreground hover:text-foreground transition-colors relative group"
               >
                 Work
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </button>
+              <Link
+                href="/showreels"
+                className="text-muted-foreground hover:text-foreground transition-colors relative group"
+              >
+                Showreels
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </Link>
               <button
                 onClick={() => scrollToSection("about")}
                 className="text-muted-foreground hover:text-foreground transition-colors relative group"
@@ -121,6 +129,13 @@ export function Navigation() {
           >
             Work
           </button>
+          <Link
+            href="/showreels"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-2xl font-semibold text-muted-foreground hover:text-primary transition-colors"
+          >
+            Showreels
+          </Link>
           <button
             onClick={() => scrollToSection("about")}
             className="text-2xl font-semibold text-muted-foreground hover:text-primary transition-colors"
