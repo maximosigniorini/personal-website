@@ -31,6 +31,21 @@ const motionGraphics = [
   },
   {
     category: "motion graphics",
+    title: 'Kerny',
+    urls: ['https://www.cdn.maximosigniorini.com/motion-graphics/kerny1.mp4', 'https://www.cdn.maximosigniorini.com/motion-graphics/kerny2.mp4'],
+    thumbnail: '/assets/video-thumbnails/kerny.jpg',
+    description: 'Original Music & Sound Design for the Kerny video series.',
+    credits: {
+      video: 'Iker Nazarre',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music", "sound-design", "collab"],
+    projectType: "spec"
+  },
+  {
+    category: "motion graphics",
     title: 'Leo Quinter',
     url: 'https://www.cdn.maximosigniorini.com/motion-graphics/leo-quinter.mp4',
     thumbnail: '/assets/video-thumbnails/leo-quinter.jpg',
@@ -126,6 +141,21 @@ const motionGraphics = [
     },
     year: 2026,
     tags: ["music", "sound-design","collab"],
+    projectType: "spec"
+  },
+  {
+    category: "motion graphics",
+    title: 'Shapes',
+    url: 'https://www.cdn.maximosigniorini.com/motion-graphics/shapes.mp4',
+    thumbnail: '/assets/video-thumbnails/shapes.jpg',
+    description: 'Original Music & Sound Design.',
+    credits: {
+      video: 'Jonas Piguet',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music", "sound-design", "collab"],
     projectType: "spec"
   },
   {
