@@ -62,6 +62,21 @@ const advertisement = [
   },
   {
     category: "advertisement",
+    title: 'Dyson v15',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/dyson-v15.mp4',
+    thumbnail: '/assets/video-thumbnails/dyson-v15.jpg',
+    description: 'Original Music produced as part of the Sound Canvas team.',
+    credits: {
+      sound: 'Sound Canvas',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music"],
+    projectType: "commissioned",
+    originalVideoCredit: null,
+  },
+  {
+    category: "advertisement",
     title: "Burberry Summer Animations",
     urls: ['https://www.cdn.maximosigniorini.com/advertisement/burberry_summer_roller_coaster.mp4','https://www.cdn.maximosigniorini.com/advertisement/burberry_summer_sandcastle.mp4','https://www.cdn.maximosigniorini.com/advertisement/burberry_summer_surf.mp4'],
     thumbnail: '/assets/video-thumbnails/burberry_summer.jpg',
@@ -73,6 +88,21 @@ const advertisement = [
     tags: ["sound-design"],
     projectType: "commissioned",
     originalVideoCredit: null
+  },
+  {
+    category: "advertisement",
+    title: 'Bolder Manifesto',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/Bolder%20Manifesto.mp4',
+    thumbnail: '/assets/video-thumbnails/bolder-manifesto.jpg',
+    description: 'Original Music produced as part of the Sound Canvas team.',
+    credits: {
+      sound: 'Sound Canvas',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music"],
+    projectType: "commissioned",
+    originalVideoCredit: null,
   },
   {
     category: "advertisement",
@@ -99,6 +129,22 @@ const advertisement = [
       music: 'Ronroco Audio'
     },
     year: 2023,
+    tags: ["music-editing", "sound-design"],
+    projectType: "commissioned"
+  },
+  {
+    category: "advertisement",
+    title: 'Superpower',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/superpower.mp4',
+    thumbnail: '/assets/video-thumbnails/superpower.jpg',
+    description: 'Sound Design & Music Editing.',
+    credits: {
+      client: 'Superpower',
+      video: 'Studio Three',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
     tags: ["music-editing", "sound-design"],
     projectType: "commissioned"
   },
@@ -173,6 +219,22 @@ const advertisement = [
     year: 2023,
     tags: ["music", "sound-design"],
     projectType: 'spec'
+  },
+  {
+    category: "advertisement",
+    title: 'Fireworks',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/fireworks.mp4',
+    thumbnail: '/assets/video-thumbnails/fireworks.jpg',
+    description: 'Original Music & Sound Design',
+    credits: {
+      client: 'Firework',
+      video: 'Studio Three',
+      sound: 'Maximo Signiorini',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music", "sound-design"],
+    projectType: "commissioned"
   },
   {
     category: "advertisement",
@@ -269,6 +331,21 @@ const advertisement = [
     year: 2024,
     tags: ["music", "sound-design"],
     projectType: "spec"
+  },
+  {
+    category: "advertisement",
+    title: 'Skytrak',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/skytrak.mp4',
+    thumbnail: '/assets/video-thumbnails/skytrak.jpg',
+    description: 'Original Music produced as part of the Sound Canvas team.',
+    credits: {
+      sound: 'Sound Canvas',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music"],
+    projectType: "commissioned",
+    originalVideoCredit: null,
   },
   {
     category: "advertisement",
@@ -556,6 +633,21 @@ const advertisement = [
     year: 2024,
     tags: ["music", "sound-design"],
     projectType: "commissioned"
+  },
+  {
+    category: "advertisement",
+    title: 'Interpol',
+    url: 'https://www.cdn.maximosigniorini.com/advertisement/interpol.mp4',
+    thumbnail: '/assets/video-thumbnails/interpol.jpg',
+    description: 'Original Music produced as part of the Sound Canvas team.',
+    credits: {
+      sound: 'Sound Canvas',
+      music: 'Maximo Signiorini'
+    },
+    year: 2026,
+    tags: ["music"],
+    projectType: "commissioned",
+    originalVideoCredit: null,
   },
   {
     category: "advertisement",
