@@ -10,18 +10,18 @@ const services = [
     title: "Original Music Composition",
     description: "Bespoke score creation tailored to visual content. Includes full rights and high-quality master files.",
     rates: [
-      { duration: "Up to 15 seconds", price: "$200" },
-      { duration: "15 - 30 seconds", price: "$300" },
-      { duration: "30s - 1 minute", price: "$500" },
+      { duration: "Up to 15 seconds", price: "$300" },
+      { duration: "15 - 30 seconds", price: "$400" },
+      { duration: "30s - 1 minute", price: "$600" },
     ],
   },
   {
     title: "Sound Design & SFX",
     description: "Creation and implementation of custom sound effects, ambiance, and foley.",
     rates: [
-      { duration: "Up to 15 seconds", price: "$200" },
-      { duration: "15 - 30 seconds", price: "$300" },
-      { duration: "30s - 1 minute", price: "$500" },
+      { duration: "Up to 15 seconds", price: "$300" },
+      { duration: "15 - 30 seconds", price: "$400" },
+      { duration: "30s - 1 minute", price: "$600" },
     ],
   },
   {
@@ -89,11 +89,11 @@ export default function PriceListPage() {
               <div className="pt-4 space-y-3">
                 <div className="flex justify-between items-center bg-background p-4 rounded-lg border border-border">
                   <span className="font-medium">Day Rate (8 hours)</span>
-                  <span className="font-bold text-primary text-lg">$520</span>
+                  <span className="font-bold text-primary text-lg">$450</span>
                 </div>
                 <div className="flex justify-between items-center bg-background p-4 rounded-lg border border-border">
                   <span className="font-medium">Hourly Rate</span>
-                  <span className="font-bold text-primary text-lg">$65</span>
+                  <span className="font-bold text-primary text-lg">$56</span>
                 </div>
               </div>
             </Card>
